@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="VKTRY Imposter">
+<meta name="theme-color" content="#0a0a0a">
+<title>VKTRY Imposter</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icons/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0a0a0a; --ink:#141416; --panel:#1c1c20; --panel2:#26262b; --line:#2f2f35;
+  --gray:#333439; --muted:#9a9aa3; --white:#fff;
+  --gold:#edc641; --gold2:#ffc426; --goldDeep:#ca961e;
+  --red:#ff4d4d; --green:#34c759;
+  --safeT:env(safe-area-inset-top,0px); --safeB:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;background:var(--black);color:var(--white);
+  font-family:Montserrat,system-ui,-apple-system,sans-serif;overscroll-behavior:none}
+body{display:flex;justify-content:center}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+#app{position:relative;width:100%;max-width:480px;height:100%;overflow:hidden;
+  background:radial-gradient(120% 60% at 50% 0%,#2a2410 0%,var(--black) 55%)}
+.screen{position:absolute;inset:0;display:flex;flex-direction:column;
+  padding:calc(var(--safeT) + 12px) 16px calc(var(--safeB) + 20px);
+  overflow-y:auto;opacity:0;pointer-events:none;transform:translateX(24px);
+  transition:opacity .25s,transform .25s}
+.screen.active{opacity:1;pointer-events:auto;transform:none}
+.topbar{display:flex;align-items:center;gap:10px;min-height:44px;margin-bottom:6px}
+.topbar h2{margin:0;font-size:17px;font-weight:700;flex:1}
+.topbar .center{text-align:center}
+.iconbtn{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.08);
+  display:grid;place-items:center;flex:none}
+.iconbtn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.spacer{flex:1}
+
+/* Home */
+.hero{text-align:center;margin:8px 0 22px}
+.hero img{width:150px;display:block;margin:0 auto 14px}
+.title{font-weight:900;font-size:36px;line-height:.92;letter-spacing:-.5px;text-transform:uppercase;
+  font-style:italic;margin:0}
+.title .g{background:linear-gradient(135deg,#f8e886,#edc641 40%,#ca961e 75%,#f8e886);
+  -webkit-background-clip:text;background-clip:text;color:transparent;display:block;font-size:min(13vw,58px);padding-right:.08em}
+.tag{color:var(--muted);font-size:13px;margin-top:8px;letter-spacing:2px;text-transform:uppercase;font-weight:600}
+
+.group{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:14px}
+.row{display:flex;align-items:center;gap:12px;padding:15px 16px;width:100%;text-align:left;min-height:54px}
+.row+.row{border-top:1px solid var(--line)}
+.row .ic{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;flex:none;
+  background:rgba(237,198,65,.14);color:var(--gold)}
+.row .ic svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.row .lbl{flex:1;font-weight:600;font-size:16px}
+.row .val{color:var(--muted);font-size:15px;max-width:45%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .chev{color:#666;font-size:20px;margin-left:2px}
+.note{color:var(--muted);font-size:13px;text-align:center;line-height:1.5;margin:4px 12px 0}
+
+.toggle{width:52px;height:32px;border-radius:20px;background:#3a3a40;position:relative;flex:none;transition:background .2s}
+.toggle::after{content:"";position:absolute;top:3px;left:3px;width:26px;height:26px;border-radius:50%;
+  background:#fff;transition:transform .2s;box-shadow:0 2px 4px rgba(0,0,0,.3)}
+.toggle.on{background:var(--gold)}
+.toggle.on::after{transform:translateX(20px)}
+
+.stepper{display:flex;align-items:center;gap:6px}
+.stepper button{width:32px;height:32px;border-radius:50%;background:var(--panel2);font-size:18px;font-weight:700}
+.stepper span{min-width:46px;text-align:center;font-weight:700;color:var(--gold)}
+
+.cta{display:block;margin:auto auto 0;padding:16px 44px;border-radius:40px;font-weight:800;font-size:17px;
+  background:linear-gradient(180deg,var(--gold2),var(--gold));color:#111;letter-spacing:.3px;
+  box-shadow:0 8px 24px rgba(237,198,65,.25);transition:transform .1s,opacity .2s}
+.cta:active{transform:scale(.97)}
+.cta[disabled]{opacity:.35;pointer-events:none}
+.cta.dark{background:var(--panel2);color:#fff;box-shadow:none}
+.btnrow{display:flex;gap:10px;justify-content:center;margin-top:auto}
+.btnrow .cta{margin:0;padding:15px 26px}
+
+/* Players */
+.sectionh{display:flex;align-items:center;gap:8px;margin:10px 4px 10px;font-weight:800;font-size:20px}
+.pill{font-size:12px;background:var(--gold);color:#111;border-radius:10px;padding:2px 8px;font-weight:800}
+.prow{display:flex;align-items:center;gap:10px;padding:10px 12px 10px 16px;min-height:52px;background:var(--panel)}
+.prow+.prow{border-top:1px solid var(--line)}
+.prow .avatar{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:13px;color:#111;flex:none}
+.prow .name{flex:1;font-weight:600;font-size:16px}
+.prow button{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#888}
+.prow button:active{background:var(--panel2)}
+.prow button svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round}
+.addbar{display:flex;gap:8px;margin-top:auto;padding-top:12px}
+.addbar input{flex:1;min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:30px;
+  padding:15px 20px;color:#fff;font:600 17px Montserrat,sans-serif;outline:none}
+.addbar input:focus{border-color:var(--gold)}
+.addbar button{width:54px;height:54px;border-radius:50%;background:var(--gold);color:#111;font-size:28px;font-weight:700;flex:none}
+
+/* Imposters */
+.opt{display:flex;align-items:center;gap:12px;padding:15px 16px;width:100%;text-align:left}
+.opt+.opt{border-top:1px solid var(--line)}
+.opt .num{width:26px;height:26px;border-radius:7px;background:var(--panel2);display:grid;place-items:center;font-weight:800;font-size:13px}
+.opt .lbl{flex:1;font-weight:600}
+.opt.sel .num{background:var(--gold);color:#111}
+.opt .check{color:var(--gold);font-weight:900;opacity:0}
+.opt.sel .check{opacity:1}
+.opt[disabled]{opacity:.3}
+
+/* Categories */
+.cathead{display:flex;align-items:center;margin:6px 4px 12px}
+.cathead b{font-size:20px;flex:1}
+.link{color:var(--gold);font-weight:700;font-size:14px}
+.catgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cat{position:relative;text-align:left;border-radius:16px;padding:14px;background:var(--panel);border:2px solid var(--line);
+  min-height:118px;display:flex;flex-direction:column;gap:6px;transition:border-color .15s,background .15s}
+.cat .emo{font-size:28px;line-height:1}
+.cat .cn{font-weight:800;font-size:15px}
+.cat .cd{font-size:11.5px;color:var(--muted);line-height:1.35}
+.cat .tick{position:absolute;top:10px;right:10px;width:22px;height:22px;border-radius:50%;border:2px solid #555;display:grid;place-items:center;font-size:12px;font-weight:900;color:#111}
+.cat.sel{border-color:var(--gold);background:linear-gradient(160deg,rgba(237,198,65,.16),var(--panel) 70%)}
+.cat.sel .tick{background:var(--gold);border-color:var(--gold)}
+
+/* Reveal */
+.revealwrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+.stage{position:relative;width:min(84vw,330px);aspect-ratio:3/4.1}
+.under{position:absolute;inset:0;border-radius:24px;background:#000;border:2px solid #222;display:flex;flex-direction:column;
+  align-items:center;justify-content:flex-end;padding:0 18px;text-align:center}
+.under .role{height:68%;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.under .w{font-size:32px;font-weight:900;line-height:1.1;overflow-wrap:anywhere}
+.under .k{font-size:12px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-weight:800}
+.under .pill{background:var(--red);color:#fff;font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;border-radius:12px}
+.under .mates{font-size:14px;color:var(--muted);line-height:1.4}
+.under .mates b{color:#fff}
+.under.concealed{visibility:hidden}
+.under.imp{background:radial-gradient(120% 90% at 50% 75%,#4a0b10 0%,#260407 60%,#170203 100%);border-color:#5a141a}
+.under.imp .w{color:#ff5a5a}
+.under.imp .w.red{font-style:italic;text-transform:uppercase}
+.under.imp .mates{color:#d8a9ac}
+.under.imp .mates b{color:#fff}
+.card{position:absolute;inset:0;border-radius:24px;touch-action:none;user-select:none;-webkit-user-select:none;
+  background:
+    repeating-linear-gradient(115deg,rgba(255,255,255,.05) 0 2px,transparent 2px 14px),
+    linear-gradient(160deg,#f8e886 0%,#edc641 30%,#ca961e 75%,#8a6510 100%);
+  border:3px solid #fff3c4;box-shadow:0 18px 40px rgba(0,0,0,.6);color:#111;
+  display:flex;flex-direction:column;align-items:center;padding:26px 18px 22px;cursor:grab;will-change:transform}
+.card.spring{transition:transform .35s cubic-bezier(.2,1.3,.4,1)}
+.card .pname{font-size:38px;font-weight:900;letter-spacing:-.5px;text-align:center;line-height:1;
+  max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card .mono{flex:1;display:grid;place-items:center;width:100%}
+.card .mono img{width:72%;height:auto;pointer-events:none}
+.card .up{font-weight:800;font-size:17px;display:flex;flex-direction:column;align-items:center;gap:4px}
+.card .up span{font-size:26px;animation:bob 1.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px)}}
+.under-msg{color:var(--muted);font-size:13px;text-align:center;line-height:1.5;margin-top:14px;min-height:40px}
+.progress{display:flex;gap:5px;justify-content:center;margin:2px 0 10px}
+.progress i{width:7px;height:7px;border-radius:50%;background:#3a3a40}
+.progress i.done{background:var(--gold)}
+.progress i.now{background:#fff}
+
+/* Play */
+.center-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:18px}
+.big{font-size:34px;font-weight:900;line-height:1.1}
+.big .g{color:var(--gold)}
+.timer{font-size:72px;font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:-2px}
+.timer.low{color:var(--red)}
+.result-word{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px 22px}
+.result-word small{display:block;color:var(--muted);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700}
+.result-word b{font-size:22px}
+.sub{color:var(--muted);font-size:14px;line-height:1.5;max-width:300px}
+
+/* Scoring */
+.scorecard{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:14px;text-align:left}
+.sc-h{font-weight:800;font-size:16px;margin-bottom:4px}
+.sc-rule{color:var(--muted);font-size:12px;line-height:1.45;margin-bottom:10px}
+.sc-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 0;border-top:1px solid var(--line)}
+.sc-row .nm{flex:1;min-width:90px;font-weight:700}
+.seg{display:flex;background:var(--panel2);border-radius:20px;padding:3px}
+.seg button{padding:7px 12px;border-radius:16px;font-size:13px;font-weight:700;color:var(--muted)}
+.seg button.on{background:var(--gold);color:#111}
+.chip{padding:7px 12px;border-radius:16px;font-size:13px;font-weight:700;border:1px solid var(--line);color:var(--muted)}
+.chip.on{border-color:var(--gold);color:var(--gold)}
+.cta.small{padding:12px 26px;font-size:15px;margin:12px auto 0}
+.board{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;text-align:left}
+.brow{display:flex;align-items:center;gap:10px;padding:11px 14px}
+.brow+.brow{border-top:1px solid var(--line)}
+.brow .rk{width:22px;color:var(--muted);font-weight:800;font-size:13px}
+.brow .nm{flex:1;font-weight:700}
+.brow .dl{color:var(--gold);font-weight:800;font-size:13px;min-width:28px;text-align:right}
+.brow .pt{font-weight:900;font-size:18px;min-width:30px;text-align:right}
+.brow.lead .pt{color:var(--gold)}
+#s-result .center-col{justify-content:flex-start;padding:6px 0 16px}
+
+/* Modal */
+.modal{position:absolute;inset:0;background:rgba(0,0,0,.7);display:none;align-items:flex-end;z-index:20}
+.modal.open{display:flex}
+.sheet{background:var(--ink);border-top:1px solid var(--line);border-radius:24px 24px 0 0;padding:22px 20px calc(var(--safeB) + 24px);
+  width:100%;max-height:85%;overflow-y:auto}
+.sheet h3{margin:0 0 12px;font-size:22px;font-weight:900}
+.sheet ol{padding-left:20px;margin:0 0 18px;line-height:1.6;color:#ddd}
+.sheet li{margin-bottom:6px}
+.sheet b{color:var(--gold)}
+.toast{position:absolute;left:50%;bottom:calc(var(--safeB) + 90px);transform:translateX(-50%);background:#fff;color:#111;
+  padding:10px 16px;border-radius:20px;font-weight:700;font-size:14px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:30;white-space:nowrap}
+.toast.show{opacity:1}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- HOME -->
+  <section class="screen active" id="s-home">
+    <div class="topbar">
+      <div class="spacer"></div>
+      <button class="iconbtn" data-help aria-label="How to play"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M9.5 9.3a2.6 2.6 0 0 1 5 1c0 1.8-2.5 2.2-2.5 3.9"/><path d="M12 17.2h.01"/></svg></button>
+    </div>
+    <div class="hero">
+      <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIxNzMuNzQgNzMuMjkgNTg5LjUyIDI5Ny44OSIgd2lkdGg9IjU4OS41IiBoZWlnaHQ9IjI5Ny45IiBzdHlsZT0iIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6bm9uZTt9LmNscy0ye2ZpbGw6I2ZmZjt9LmNscy0ze2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aCk7fS5jbHMtNHtmaWxsOnVybCgjbGluZWFyLWdyYWRpZW50KTt9LmNscy01e2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aC0yKTt9LmNscy02e2ZpbGw6dXJsKCNsaW5lYXItZ3JhZGllbnQtMik7fTwvc3R5bGU+PGNsaXBQYXRoIGlkPSJjbGlwLXBhdGgiPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTQzNi40NywxNDYuOTJjMCwyNi4wOSwzMi4xMiw1NC41MiwzMi4xMiw1NC41MnMzMi4xMS0yOS4zOSwzMi4xMS01NC41MnYtNDBsLTEzLjYzLDE0LjQ1cy0uNzIsMTIuMjUtLjcyLDI1LjU5YzAsMTIuNTgtMTUuOTMsMzEuNzQtMTcuNzYsMzMuOTEtMS44NC0yLjE3LTE3Ljc3LTIxLjMzLTE3Ljc3LTMzLjkxLDAtMTMuMzQtLjcxLTI1LjU5LS43MS0yNS41OWwtMTMuNjQtMTQuNDVaIj48L3BhdGg+PC9jbGlwUGF0aD48bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudCIgeDE9Ii0xNzg0LjUzIiB5MT0iLTUyNC4zMyIgeDI9Ii0xNzgxLjQzIiB5Mj0iLTUyNC4zMyIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgzNS4xMSwgMzMuNjksIDMyLjYsIC0zNi4yOCwgODAxNTUuODYsIDQxMTkxLjM0KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2U4Yzk4MCI+PC9zdG9wPjxzdG9wIG9mZnNldD0iMC4zMSIgc3RvcC1jb2xvcj0iI2NhOTYxZSI+PC9zdG9wPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y4ZTg4NiI+PC9zdG9wPjwvbGluZWFyR3JhZGllbnQ+PGNsaXBQYXRoIGlkPSJjbGlwLXBhdGgtMiI+PHBvbHlnb24gY2xhc3M9ImNscy0xIiBwb2ludHM9IjQ1NS43NiAzMTIuMTggNDU1LjczIDI0NS40IDQwNi42NyAyNDUuNCA0MzIuMDIgMjI5LjYzIDUyNS45MiAyMjkuNjMgNTI1LjkyIDIyOS42MyA1MDAuNTEgMjQ1LjQgNDc2Ljk3IDI0NS40IDQ3Ni45NyAzMTIuMTggNDU1Ljc2IDMxMi4xOCI+PC9wb2x5Z29uPjwvY2xpcFBhdGg+PGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtMiIgeDE9Ii0xNzk3Ljg4IiB5MT0iLTUzMS43MyIgeDI9Ii0xNzk0Ljc5IiB5Mj0iLTUzMS43MyIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCg1OC44MSwgNDMuOTMsIDQyLjUxLCAtNjAuNzcsIDEyODcwNC4zMywgNDY4NTMpIiB4bGluazpocmVmPSIjbGluZWFyLWdyYWRpZW50Ij48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMjQxLjE5IDMxMi4xMyAyOTguMyAyMjkuNjMgMjc1LjE3IDIyOS42MyAyMzYuMjcgMjg1LjIzIDE5Ny40NyAyMjkuNjMgMTc0LjI0IDIyOS42MyAyMzAuNzYgMzEyLjEzIDI0MS4xOSAzMTIuMTMiPjwvcG9seWdvbj48ZyBjbGFzcz0iY2xzLTMiPjxwb2x5Z29uIGNsYXNzPSJjbHMtNCIgcG9pbnRzPSI0NjYuMjEgNzMuNzkgNTQ2LjMzIDE1MC42NiA0NzAuOTYgMjM0LjUzIDM5MC44NCAxNTcuNjYgNDY2LjIxIDczLjc5Ij48L3BvbHlnb24+PC9nPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTUxMC40OCwxNDhjLS4zNS02LjE3LS43NC0xMi4zMy0xLjI1LTE4LjQ4LS41LDYuMDgtLjg4LDEyLjE3LTEuMjQsMTguMjdBNTMuNTQsNTMuNTQsMCwwLDEsNDk5LjkyLDE3NGExMzYuOTQsMTM2Ljk0LDAsMCwxLTE4LjUzLDIzLjE3Yy03LjY1LDcuMjktMTIuODEsMTEuNDEtMTIuODEsMTEuNDFzLTUuNi00LjY0LTEyLjI4LTExLjM2QzQ0NiwxODYuODgsNDM2LjIzLDE3NSw0MzEuMzgsMTYxLjVjLTMuNDgtOS43Mi0yLjYxLTIxLjg2LTMuNDQtMzItLjgyLDEwLTIuNTYsMjEuMTYtLjc1LDMxLjEyLDQuNDksMTkuNTEsMTkuMjksMzYuMTIsMzMuMDgsNDkuNDVhNzAuMzcsNzAuMzcsMCwwLDAsOC4yMiw2LjgxczYuMTItNC4yOCwxNy4zNC0xNS4yMmMxMy45NS0xNC44NSwyNS41NC0zMi4zNCwyNC42NS01My42OCI+PC9wYXRoPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTQ4MS4zMywxNDhhMTIuOTMsMTIuOTMsMCwxLDEtMTIuOTItMTMuMzVBMTMuMTUsMTMuMTUsMCwwLDEsNDgxLjMzLDE0OCI+PC9wYXRoPjxnIGNsYXNzPSJjbHMtNSI+PHBvbHlnb24gY2xhc3M9ImNscy02IiBwb2ludHM9IjQ0Ny41OSAxNzEuMTMgNTYzLjg1IDI1Ny45NiA0ODUgMzcwLjY4IDM2OC43NCAyODMuODUgNDQ3LjU5IDE3MS4xMyI+PC9wb2x5Z29uPjwvZz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik01MzcuOCwzMTIuMThoMjEuMzNWMjQ1LjRoNDhjMjYuMDYsMCwyNywyMy43OS0yLjMzLDIzLjc5SDU3NC4xNmw2MS40LDQzaDI5LjM3bC00Ni45NS0zMmMxNS41NCwwLDMwLTEwLjc5LDMwLTIzLjc2LDAtMTMuODktMTMuNzMtMjYuNzUtNDAuMjQtMjYuNzVoLTcwTDUxMi40MywyNDUuNEg1MzcuOFoiPjwvcGF0aD48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMzcyLjU4IDI1OS40OSA0MjAuMzMgMjI5LjYzIDM5MC42MyAyMjkuNjMgMzI2LjIgMjY5LjU2IDMyNi4yIDIyOS42MyAzMDQuOTkgMjI5LjYzIDMwNC45OSAzMTIuMTggMzI2LjIgMzEyLjE4IDMyNi4yIDI4OC40NCAzNTcuNTYgMjY4Ljg1IDQxMC41NyAzMTIuMTggNDM3Ljg5IDMxMi4xOCAzNzIuNTggMjU5LjQ5Ij48L3BvbHlnb24+PHBvbHlnb24gY2xhc3M9ImNscy0yIiBwb2ludHM9IjczNi43OSAyMjkuNjMgNzAyLjA2IDI2NC43OCA2NjcuMjYgMjI5LjYzIDYzOS41OSAyMjkuNjMgNjkxLjA0IDI4MS4yMyA2OTEuMDQgMzEyLjE4IDcxMi4zIDMxMi4xOCA3MTIuMyAyODEuMjMgNzYyLjc2IDIyOS42MyA3MzYuNzkgMjI5LjYzIj48L3BvbHlnb24+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMjYzLjIyLDM2MS4yOHY2LjEySDI0MC43NHYtMjhoMjJ2Ni4xMkgyNDguNTh2NC43MkgyNjF2NS45MUgyNDguNTh2NS4xMloiPjwvcGF0aD48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yNjcuNjIsMzM5LjQxaDcuOTJ2MjEuNzFIMjg4Ljl2Ni4yOEgyNjcuNjJaIj48L3BhdGg+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMzE0LjUsMzYxLjI4djYuMTJIMjkydi0yOGgyMnY2LjEySDI5OS44NnY0LjcySDMxMi4zdjUuOTFIMjk5Ljg2djUuMTJaIj48L3BhdGg+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMzQ2LjksMzM5LjQxbC0xMiwyOGgtNy44bC0xMi0yOGg4LjU2bDcuNiwxOC4yMyw3Ljc2LTE4LjIzWiI+PC9wYXRoPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTM2Ni4zNCwzNjJIMzU0LjVsLTIuMiw1LjQ0aC04LjA4bDEyLjM2LTI4aDcuOGwxMi40LDI4aC04LjI0Wk0zNjQsMzU2LjEybC0zLjYtOC45NS0zLjYsOC45NVoiPjwvcGF0aD48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0zODMuNTgsMzQ1LjY5SDM3NXYtNi4yOGgyNS4wOHY2LjI4SDM5MS41VjM2Ny40aC03LjkyWiI+PC9wYXRoPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTQyNS41LDM2MS4yOHY2LjEySDQwM3YtMjhoMjJ2Ni4xMkg0MTAuODZ2NC43Mkg0MjMuM3Y1LjkxSDQxMC44NnY1LjEyWiI+PC9wYXRoPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTQ1Ni41NCwzNTcuMzZ2MTBoLTcuOTJWMzU3LjI0bC0xMC42OC0xNy44M2g4LjM2bDYuNjQsMTEuMTIsNi42NC0xMS4xMmg3LjY4WiI+PC9wYXRoPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTQ2Ni42MiwzNTMuNGMwLTguMzksNi42LTE0LjU1LDE1LjU2LTE0LjU1czE1LjU1LDYuMTYsMTUuNTUsMTQuNTVTNDkxLjE0LDM2OCw0ODIuMTgsMzY4LDQ2Ni42MiwzNjEuOCw0NjYuNjIsMzUzLjRabTIzLjEyLDBjMC00LjgzLTMuMzItOC03LjU2LThzLTcuNTYsMy4xNi03LjU2LDgsMy4zMiw4LDcuNTYsOFM0ODkuNzQsMzU4LjI0LDQ4OS43NCwzNTMuNFoiPjwvcGF0aD48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik01MDEuNjYsMzU0LjkzVjMzOS40MWg3LjkydjE1LjI4YzAsNC43OSwyLDYuNzEsNS4zMiw2LjcxczUuMjgtMS45Miw1LjI4LTYuNzFWMzM5LjQxSDUyOHYxNS41MmMwLDguMzUtNC44NywxMy0xMy4xNSwxM1M1MDEuNjYsMzYzLjI4LDUwMS42NiwzNTQuOTNaIj48L3BhdGg+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNTQ1LjU4LDM2MGgtNC4zMnY3LjQ0aC03Ljkydi0yOGgxMi44YzcuNjQsMCwxMi40NCw0LDEyLjQ0LDEwLjM2YTkuMjgsOS4yOCwwLDAsMS01LjQ4LDguODNsNiw4LjhoLTguNDdabS4wOC0xNC4zMWgtNC40djguMmg0LjRjMy4yOCwwLDQuOTItMS41Miw0LjkyLTQuMDhTNTQ4Ljk0LDM0NS42NSw1NDUuNjYsMzQ1LjY1WiI+PC9wYXRoPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTU5My4zMywzNTIuODFoN1YzNjQuNEEyMC44NSwyMC44NSwwLDAsMSw1ODguNTgsMzY4Yy04LjkyLDAtMTUuNDQtNi0xNS40NC0xNC41NnM2LjUyLTE0LjU1LDE1LjYtMTQuNTVjNS4yMywwLDkuNDcsMS44LDEyLjIzLDUuMTJsLTUsNC41NmE4LjcxLDguNzEsMCwwLDAtNi43OS0zLjEyYy00LjgsMC04LDMuMTYtOCw4YTcuNTgsNy41OCwwLDAsMCw3LjkyLDgsMTAsMTAsMCwwLDAsNC4yNy0uOTJaIj48L3BhdGg+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNjI0LjEzLDM2Mkg2MTIuM2wtMi4yLDUuNDRINjAybDEyLjM2LTI4aDcuNzlsMTIuNCwyOGgtOC4yNFptLTIuMzItNS44NC0zLjU5LTguOTUtMy42LDguOTVaIj48L3BhdGg+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNNjYyLjA5LDM2Ny40LDY2MiwzNTIuNTdsLTcuMiwxMi4wN2gtMy41Mkw2NDQuMTQsMzUzVjM2Ny40aC03LjMydi0yOGg2LjUybDkuODMsMTYuMTYsOS42LTE2LjE2aDYuNTJsLjA4LDI4WiI+PC9wYXRoPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTY5Ny40NSwzNjEuMjh2Ni4xMkg2NzV2LTI4aDIxLjk1djYuMTJINjgyLjgydjQuNzJoMTIuNDN2NS45MUg2ODIuODJ2NS4xMloiPjwvcGF0aD48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik03NDMuNjIsMzA0LjIxYTguMDksOC4wOSwwLDEsMS04LjA3LTcuODhBNy45Miw3LjkyLDAsMCwxLDc0My42MiwzMDQuMjFabS0xNC4xNiwwYTYuMSw2LjEsMCwwLDAsNi4xNCw2LjI5LDYuMyw2LjMsMCwwLDAtLjA1LTEyLjU4QTYuMTEsNi4xMSwwLDAsMCw3MjkuNDYsMzA0LjIxWm00Ljg1LDQuMTNoLTEuODN2LTcuODhhMTYuMzIsMTYuMzIsMCwwLDEsMy0uMjQsNC44NCw0Ljg0LDAsMCwxLDIuNzMuNTgsMi4yLDIuMiwwLDAsMSwuNzcsMS43MywyLDIsMCwwLDEtMS42MywxLjgydi4xYTIuMzIsMi4zMiwwLDAsMSwxLjQ0LDEuOTIsNi4xNyw2LjE3LDAsMCwwLC41NywyaC0yYTYuNzQsNi43NCwwLDAsMS0uNjMtMS45MmMtLjE0LS44Ny0uNjItMS4yNS0xLjYzLTEuMjVoLS44NlptMC00LjQ3aC44N2MxLDAsMS44Mi0uMzMsMS44Mi0xLjE1cy0uNTMtMS4yLTEuNjgtMS4yYTQuMjcsNC4yNywwLDAsMC0xLC4xWiI+PC9wYXRoPjwvc3ZnPg==" alt="VKTRY">
+      <h1 class="title">Spot the<span class="g">Imposter</span></h1>
+    </div>
+    <div class="group">
+      <button class="row" data-go="players">
+        <span class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.3c2.2.7 3.5 2.8 3.5 5.7"/></svg></span>
+        <span class="lbl">Players</span><span class="val" id="v-players"></span><span class="chev">›</span>
+      </button>
+      <button class="row" data-go="imposters">
+        <span class="ic"><svg viewBox="0 0 24 24"><path d="M3 11c3-1 6-1.5 9-1.5s6 .5 9 1.5"/><path d="M5 11v1a3.5 3.5 0 0 0 7 0 3.5 3.5 0 0 0 7 0v-1"/><path d="M7 9.5 8.5 4h7L17 9.5"/></svg></span>
+        <span class="lbl">Imposters</span><span class="val" id="v-imps"></span><span class="chev">›</span>
+      </button>
+      <div class="row">
+        <span class="ic"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z"/></svg></span>
+        <span class="lbl">Hint for imposter</span><button class="toggle" id="t-hints" aria-label="Hints"></button>
+      </div>
+      <div class="row">
+        <span class="ic"><svg viewBox="0 0 24 24"><path d="M3.5 12.6V4.5a1 1 0 0 1 1-1h8.1l8 8a1.4 1.4 0 0 1 0 2l-6.1 6.1a1.4 1.4 0 0 1-2 0z"/><circle cx="8.5" cy="8.5" r="1.5"/></svg></span>
+        <span class="lbl">Category for imposter</span><button class="toggle" id="t-cathint" aria-label="Show category to imposter"></button>
+      </div>
+      <button class="row" data-go="categories">
+        <span class="ic"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg></span>
+        <span class="lbl">Categories</span><span class="val" id="v-cats"></span><span class="chev">›</span>
+      </button>
+    </div>
+    <div class="group">
+      <div class="row">
+        <span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9.5 2.5h5"/></svg></span>
+        <span class="lbl">Time limit</span><button class="toggle" id="t-timer" aria-label="Time limit"></button>
+      </div>
+      <div class="row" id="timer-row" style="display:none">
+        <span class="ic" style="background:none"></span>
+        <span class="lbl" style="color:var(--muted);font-weight:500">Round length</span>
+        <div class="stepper"><button id="tm-minus">−</button><span id="v-mins"></span><button id="tm-plus">+</button></div>
+      </div>
+    </div>
+    <div class="group">
+      <button class="row" data-go="scores">
+        <span class="ic"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></span>
+        <span class="lbl">Scoreboard</span><span class="val" id="v-score"></span><span class="chev">›</span>
+      </button>
+    </div>
+    <button class="cta" id="start" style="margin-top:22px">Start Game</button>
+  </section>
+
+  <!-- PLAYERS -->
+  <section class="screen" id="s-players">
+    <div class="topbar">
+      <button class="iconbtn" data-back aria-label="Back"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <h2>Players</h2>
+    </div>
+    <div class="sectionh">Squad <span class="pill" id="v-pcount"></span></div>
+    <div class="group" id="plist"></div>
+    <p class="note">Players get their cards in this order. Use the arrows to shuffle seats. 3 to 20 players.</p>
+    <form class="addbar" id="addform" autocomplete="off">
+      <input id="newname" placeholder="New player" maxlength="16" enterkeyhint="done">
+      <button type="submit" aria-label="Add player">+</button>
+    </form>
+  </section>
+
+  <!-- IMPOSTERS -->
+  <section class="screen" id="s-imposters">
+    <div class="topbar">
+      <button class="iconbtn" data-back aria-label="Back"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <h2>Imposters</h2>
+    </div>
+    <div class="group">
+      <div class="row"><span class="lbl">Random count</span><button class="toggle" id="t-random" aria-label="Random count"></button></div>
+    </div>
+    <div class="group" id="implist"></div>
+    <p class="note" id="imp-note"></p>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="screen" id="s-categories">
+    <div class="topbar">
+      <button class="iconbtn" data-back aria-label="Back"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <h2>Categories</h2>
+    </div>
+    <div class="cathead"><b id="v-catcount"></b><button class="link" id="cat-toggle"></button></div>
+    <div class="catgrid" id="catgrid"></div>
+    <p class="note" style="margin-top:14px">The secret word is drawn from every category you pick.</p>
+  </section>
+
+  <!-- REVEAL -->
+  <section class="screen" id="s-reveal">
+    <div class="topbar">
+      <div style="width:40px"></div>
+      <h2 class="center">Deal the cards</h2>
+      <button class="iconbtn" id="quit" aria-label="End game"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <div class="progress" id="progress"></div>
+    <div class="revealwrap">
+      <div class="stage">
+        <div class="under" id="under"></div>
+        <div class="card" id="card">
+          <div class="pname" id="pname"></div>
+          <div class="mono"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIxNzMuNzQgNzMuMjggNTg5LjUyIDI5Ny45MCIgd2lkdGg9IjU4OS41IiBoZWlnaHQ9IjI5Ny45IiBzdHlsZT0iIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6IzBiMDIwNDt9LmNscy0ye2NsaXAtcGF0aDp1cmwoI2NsaXAtcGF0aCk7fS5jbHMtM3tjbGlwLXBhdGg6dXJsKCNjbGlwLXBhdGgtMik7fS5jbHMtNHtmaWxsOiMyMzFmMjA7fTwvc3R5bGU+PGNsaXBQYXRoIGlkPSJjbGlwLXBhdGgiPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTQzNi40NywxNDYuOTJjMCwyNi4wOSwzMi4xMiw1NC41MiwzMi4xMiw1NC41MnMzMi4xMS0yOS4zOSwzMi4xMS01NC41MnYtNDBsLTEzLjYzLDE0LjQ1cy0uNzIsMTIuMjQtLjcyLDI1LjU5YzAsMTIuNTgtMTUuOTMsMzEuNzQtMTcuNzYsMzMuOTEtMS44NC0yLjE3LTE3Ljc3LTIxLjMzLTE3Ljc3LTMzLjkxLDAtMTMuMzUtLjcxLTI1LjU5LS43MS0yNS41OWwtMTMuNjQtMTQuNDVaIj48L3BhdGg+PC9jbGlwUGF0aD48Y2xpcFBhdGggaWQ9ImNsaXAtcGF0aC0yIj48cG9seWdvbiBjbGFzcz0iY2xzLTEiIHBvaW50cz0iNDU1Ljc2IDMxMi4xOCA0NTUuNzMgMjQ1LjQgNDA2LjY3IDI0NS40IDQzMi4wMiAyMjkuNjMgNTI1LjkyIDIyOS42MyA1MjUuOTIgMjI5LjYzIDUwMC41MSAyNDUuNCA0NzYuOTcgMjQ1LjQgNDc2Ljk3IDMxMi4xOCA0NTUuNzYgMzEyLjE4Ij48L3BvbHlnb24+PC9jbGlwUGF0aD48L2RlZnM+PHBvbHlnb24gY2xhc3M9ImNscy0xIiBwb2ludHM9IjI0MS4xOSAzMTIuMTMgMjk4LjMxIDIyOS42MyAyNzUuMTcgMjI5LjYzIDIzNi4yNyAyODUuMjMgMTk3LjQ3IDIyOS42MyAxNzQuMjQgMjI5LjYzIDIzMC43NiAzMTIuMTMgMjQxLjE5IDMxMi4xMyI+PC9wb2x5Z29uPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTQzNi40NywxNDYuOTJjMCwyNi4wOSwzMi4xMiw1NC41MiwzMi4xMiw1NC41MnMzMi4xMS0yOS4zOSwzMi4xMS01NC41MnYtNDBsLTEzLjYzLDE0LjQ1cy0uNzIsMTIuMjQtLjcyLDI1LjU5YzAsMTIuNTgtMTUuOTMsMzEuNzQtMTcuNzYsMzMuOTEtMS44NC0yLjE3LTE3Ljc3LTIxLjMzLTE3Ljc3LTMzLjkxLDAtMTMuMzUtLjcxLTI1LjU5LS43MS0yNS41OWwtMTMuNjQtMTQuNDVaIj48L3BhdGg+PGcgY2xhc3M9ImNscy0yIj48cG9seWdvbiBjbGFzcz0iY2xzLTEiIHBvaW50cz0iNDY2LjIxIDczLjc4IDU0Ni4zMyAxNTAuNjYgNDcwLjk2IDIzNC41MyAzOTAuODQgMTU3LjY1IDQ2Ni4yMSA3My43OCI+PC9wb2x5Z29uPjwvZz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik01MTAuNDgsMTQ4Yy0uMzUtNi4xNy0uNzQtMTIuMzMtMS4yNS0xOC40OC0uNSw2LjA4LS44OCwxMi4xNy0xLjI0LDE4LjI3QTUzLjU0LDUzLjU0LDAsMCwxLDQ5OS45MiwxNzRhMTM2Ljk0LDEzNi45NCwwLDAsMS0xOC41MywyMy4xN2MtNy42NSw3LjI5LTEyLjgxLDExLjQxLTEyLjgxLDExLjQxcy01LjYtNC42NC0xMi4yOC0xMS4zNkM0NDYsMTg2Ljg4LDQzNi4yMywxNzUsNDMxLjM4LDE2MS41Yy0zLjQ4LTkuNzItMi42MS0yMS44Ni0zLjQ0LTMyLS44MiwxMC0yLjU2LDIxLjE2LS43NSwzMS4xMiw0LjQ5LDE5LjUxLDE5LjI5LDM2LjEyLDMzLjA4LDQ5LjQ1YTcwLjM3LDcwLjM3LDAsMCwwLDguMjIsNi44MXM2LjEyLTQuMjgsMTcuMzQtMTUuMjJjMTMuOTUtMTQuODUsMjUuNTQtMzIuMzQsMjQuNjUtNTMuNjgiPjwvcGF0aD48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik00ODEuMzMsMTQ4YTEyLjkzLDEyLjkzLDAsMSwxLTEyLjkyLTEzLjM1QTEzLjE1LDEzLjE1LDAsMCwxLDQ4MS4zMywxNDgiPjwvcGF0aD48cG9seWdvbiBjbGFzcz0iY2xzLTEiIHBvaW50cz0iNDU1Ljc2IDMxMi4xOCA0NTUuNzMgMjQ1LjQgNDA2LjY3IDI0NS40IDQzMi4wMiAyMjkuNjMgNTI1LjkyIDIyOS42MyA1MjUuOTIgMjI5LjYzIDUwMC41MSAyNDUuNCA0NzYuOTcgMjQ1LjQgNDc2Ljk3IDMxMi4xOCA0NTUuNzYgMzEyLjE4Ij48L3BvbHlnb24+PGcgY2xhc3M9ImNscy0zIj48cG9seWdvbiBjbGFzcz0iY2xzLTEiIHBvaW50cz0iNDQ3LjU5IDE3MS4xMyA1NjMuODUgMjU3Ljk2IDQ4NSAzNzAuNjggMzY4Ljc0IDI4My44NSA0NDcuNTkgMTcxLjEzIj48L3BvbHlnb24+PC9nPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTUzNy44LDMxMi4xOGgyMS4zM1YyNDUuNGg0OGMyNi4wNiwwLDI3LDIzLjc4LTIuMzMsMjMuNzhINTc0LjE2bDYxLjQsNDNoMjkuMzdsLTQ2Ljk1LTMyYzE1LjU0LDAsMzAtMTAuNzksMzAtMjMuNzYsMC0xMy44OS0xMy43My0yNi43NS00MC4yNC0yNi43NWgtNzBMNTEyLjQzLDI0NS40SDUzNy44WiI+PC9wYXRoPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSIzNzIuNTggMjU5LjQ5IDQyMC4zMyAyMjkuNjMgMzkwLjYzIDIyOS42MyAzMjYuMiAyNjkuNTYgMzI2LjIgMjI5LjYzIDMwNC45OSAyMjkuNjMgMzA0Ljk5IDMxMi4xOCAzMjYuMiAzMTIuMTggMzI2LjIgMjg4LjQ0IDM1Ny41NiAyNjguODQgNDEwLjU3IDMxMi4xOCA0MzcuODkgMzEyLjE4IDM3Mi41OCAyNTkuNDkiPjwvcG9seWdvbj48cG9seWdvbiBjbGFzcz0iY2xzLTEiIHBvaW50cz0iNzM2Ljc5IDIyOS42MyA3MDIuMDUgMjY0Ljc3IDY2Ny4yNiAyMjkuNjMgNjM5LjU5IDIyOS42MyA2OTEuMDQgMjgxLjIzIDY5MS4wNCAzMTIuMTggNzEyLjMgMzEyLjE4IDcxMi4zIDI4MS4yMyA3NjIuNzYgMjI5LjYzIDczNi43OSAyMjkuNjMiPjwvcG9seWdvbj48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yNjMuMjIsMzYxLjI4djYuMTJIMjQwLjc0di0yOGgyMnY2LjEySDI0OC41OHY0LjcySDI2MXY1LjkySDI0OC41OHY1LjExWiI+PC9wYXRoPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTI2Ny42MiwzMzkuNDFoNy45MnYyMS43MUgyODguOXY2LjI4SDI2Ny42MloiPjwvcGF0aD48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zMTQuNSwzNjEuMjh2Ni4xMkgyOTJ2LTI4aDIydjYuMTJIMjk5Ljg2djQuNzJIMzEyLjN2NS45MkgyOTkuODZ2NS4xMVoiPjwvcGF0aD48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zNDYuOSwzMzkuNDFsLTEyLDI4aC03LjhsLTEyLTI4aDguNTZsNy42LDE4LjI0LDcuNzYtMTguMjRaIj48L3BhdGg+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMzY2LjM0LDM2MkgzNTQuNWwtMi4yLDUuNDRoLTguMDhsMTIuMzYtMjhoNy44bDEyLjQsMjhoLTguMjRaTTM2NCwzNTYuMTNsLTMuNi05LTMuNiw5WiI+PC9wYXRoPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTM4My41OCwzNDUuNjlIMzc1di02LjI4aDI1LjA4djYuMjhIMzkxLjVWMzY3LjRoLTcuOTJaIj48L3BhdGg+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDI1LjUsMzYxLjI4djYuMTJINDAzdi0yOGgyMnY2LjEySDQxMC44NnY0LjcySDQyMy4zdjUuOTJINDEwLjg2djUuMTFaIj48L3BhdGg+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDU2LjU0LDM1Ny4zN3YxMGgtNy45MlYzNTcuMjVsLTEwLjY4LTE3Ljg0aDguMzZsNi42NCwxMS4xMiw2LjY0LTExLjEyaDcuNjhaIj48L3BhdGg+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDY2LjYyLDM1My40MWMwLTguNCw2LjYtMTQuNTYsMTUuNTYtMTQuNTZzMTUuNTUsNi4xNiwxNS41NSwxNC41NlM0OTEuMTQsMzY4LDQ4Mi4xOCwzNjgsNDY2LjYyLDM2MS44MSw0NjYuNjIsMzUzLjQxWm0yMy4xMiwwYzAtNC44NC0zLjMyLTgtNy41Ni04cy03LjU2LDMuMTYtNy41Niw4LDMuMzIsOCw3LjU2LDhTNDg5Ljc0LDM1OC4yNSw0ODkuNzQsMzUzLjQxWiI+PC9wYXRoPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTUwMS42NiwzNTQuOTNWMzM5LjQxaDcuOTJ2MTUuMjhjMCw0LjgsMiw2LjcxLDUuMzIsNi43MXM1LjI4LTEuOTEsNS4yOC02LjcxVjMzOS40MUg1Mjh2MTUuNTJjMCw4LjM1LTQuODcsMTMtMTMuMTUsMTNTNTAxLjY2LDM2My4yOCw1MDEuNjYsMzU0LjkzWiI+PC9wYXRoPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTU0NS41OCwzNjBoLTQuMzJ2Ny40M2gtNy45MnYtMjhoMTIuOGM3LjY0LDAsMTIuNDQsNCwxMi40NCwxMC4zNmE5LjI5LDkuMjksMCwwLDEtNS40OCw4Ljg0bDYsOC43OWgtOC40OFptLjA4LTE0LjMyaC00LjR2OC4yaDQuNGMzLjI4LDAsNC45Mi0xLjUyLDQuOTItNC4wOFM1NDguOTQsMzQ1LjY1LDU0NS42NiwzNDUuNjVaIj48L3BhdGg+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNTkzLjM0LDM1Mi44MWg3VjM2NC40QTIwLjg1LDIwLjg1LDAsMCwxLDU4OC41OCwzNjhjLTguOTIsMC0xNS40NC02LTE1LjQ0LTE0LjU1czYuNTItMTQuNTYsMTUuNi0xNC41NmM1LjIzLDAsOS40NywxLjgsMTIuMjMsNS4xMmwtNSw0LjU2YTguNzEsOC43MSwwLDAsMC02Ljc5LTMuMTJjLTQuOCwwLTgsMy4xNi04LDhhNy41Nyw3LjU3LDAsMCwwLDcuOTIsOCwxMC4yMywxMC4yMywwLDAsMCw0LjI4LS45MVoiPjwvcGF0aD48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik02MjQuMTQsMzYySDYxMi4zbC0yLjIsNS40NEg2MDJsMTIuMzYtMjhoNy44bDEyLjM5LDI4aC04LjI0Wm0tMi4zMy01LjgzLTMuNTktOS0zLjYsOVoiPjwvcGF0aD48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik02NjIuMDksMzY3LjQsNjYyLDM1Mi41N2wtNy4yLDEyLjA3SDY1MS4zTDY0NC4xNCwzNTNWMzY3LjRoLTcuMzJ2LTI4aDYuNTJsOS44NCwxNi4xNiw5LjU5LTE2LjE2aDYuNTJsLjA4LDI4WiI+PC9wYXRoPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTY5Ny40NSwzNjEuMjh2Ni4xMkg2NzV2LTI4aDIxLjk1djYuMTJINjgyLjgydjQuNzJoMTIuNDN2NS45Mkg2ODIuODJ2NS4xMVoiPjwvcGF0aD48cGF0aCBjbGFzcz0iY2xzLTQiIGQ9Ik03NDMuNjIsMzA0LjIxYTguMDksOC4wOSwwLDEsMS04LjA3LTcuODhBNy45Miw3LjkyLDAsMCwxLDc0My42MiwzMDQuMjFabS0xNC4xNiwwYTYuMSw2LjEsMCwwLDAsNi4xNCw2LjI5LDYuMyw2LjMsMCwwLDAtLjA1LTEyLjU4QTYuMTEsNi4xMSwwLDAsMCw3MjkuNDYsMzA0LjIxWm00Ljg1LDQuMTNoLTEuODN2LTcuODhhMTYuMzIsMTYuMzIsMCwwLDEsMy0uMjQsNC44NCw0Ljg0LDAsMCwxLDIuNzMuNTgsMi4yLDIuMiwwLDAsMSwuNzcsMS43MywyLDIsMCwwLDEtMS42MywxLjgydi4xYTIuMzIsMi4zMiwwLDAsMSwxLjQ0LDEuOTIsNi4xNyw2LjE3LDAsMCwwLC41NywyaC0yYTYuNzQsNi43NCwwLDAsMS0uNjMtMS45MmMtLjE0LS44Ny0uNjItMS4yNS0xLjYzLTEuMjVoLS44NlptMC00LjQ3aC44N2MxLDAsMS44Mi0uMzMsMS44Mi0xLjE1cy0uNTMtMS4yLTEuNjgtMS4yYTQuMjcsNC4yNywwLDAsMC0xLC4xWiI+PC9wYXRoPjwvc3ZnPg==" alt="VKTRY"></div>
+          <div class="up"><span>↑</span>Drag up to reveal</div>
+        </div>
+      </div>
+      <div class="under-msg" id="revmsg">Drag your card up to see your word. Keep the screen hidden from everyone else.</div>
+      <button class="cta" id="next" disabled style="margin:8px auto 0">Next Player</button>
+    </div>
+  </section>
+
+  <!-- PLAY -->
+  <section class="screen" id="s-play">
+    <div class="topbar">
+      <div style="width:40px"></div><h2 class="center">Discuss</h2>
+      <button class="iconbtn" id="quit2" aria-label="End game"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <div class="center-col">
+      <div class="big"><span class="g" id="starter"></span> starts!</div>
+      <div class="timer" id="timer"></div>
+      <p class="sub" id="playnote"></p>
+    </div>
+    <button class="cta" id="reveal">Reveal Imposter</button>
+  </section>
+
+  <!-- RESULT -->
+  <section class="screen" id="s-result">
+    <div class="topbar"><div class="spacer"></div><h2 class="center">Busted</h2><div class="spacer"></div></div>
+    <div class="center-col">
+      <div class="big" id="resulttxt"></div>
+      <div class="result-word"><small>The word was</small><b id="resultword"></b></div>
+      <p class="sub" id="resultcat"></p>
+      <div class="scorecard" id="scorecard">
+        <div class="sc-h">Score this round</div>
+        <div class="sc-rule">Imposter gets away: +1 for them. Imposter guesses the word: +1 for them, caught or not. Imposter caught: +1 for everyone else.</div>
+        <div id="sc-rows"></div>
+        <button class="cta small" id="sc-save" disabled>Add points</button>
+      </div>
+      <div class="board" id="board" style="display:none"></div>
+    </div>
+    <div class="btnrow">
+      <button class="cta dark" id="home">Settings</button>
+      <button class="cta" id="again">Play Again</button>
+    </div>
+  </section>
+
+  <!-- SCORES -->
+  <section class="screen" id="s-scores">
+    <div class="topbar">
+      <button class="iconbtn" data-back aria-label="Back"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <h2>Scoreboard</h2>
+    </div>
+    <div class="sectionh">Standings <span class="pill" id="v-rounds"></span></div>
+    <div class="board" id="board2"></div>
+    <p class="note" style="margin-top:12px">Points are added at the end of each round. Scores stay until you reset them.</p>
+    <button class="cta dark" id="sc-reset" style="margin-top:auto">Reset scores</button>
+  </section>
+
+  <div class="modal" id="help">
+    <div class="sheet">
+      <h3>How to play</h3>
+      <ol>
+        <li>Pass the phone around. Each player drags their card up to see the <b>secret word</b>.</li>
+        <li>The <b>imposter</b> doesn't get the word. With hints on, they get a loose clue instead. With more than one imposter, each gets a different clue and sees who their teammates are.</li>
+        <li>Going round the circle, everyone says one word linked to the secret word. Be specific enough to prove you know it, vague enough not to give it away.</li>
+        <li>The imposter bluffs and tries to work out the word from what everyone else says.</li>
+        <li>After a couple of rounds, vote on who the imposter is, then tap <b>Reveal Imposter</b>.</li>
+        <li>Then each imposter gets one guess at the word. Imposters score for getting away and for guessing the word, and everyone else scores for each imposter caught.</li>
+      </ol>
+      <button class="cta" data-closehelp>Got it</button>
+    </div>
+  </div>
+  <div class="modal" id="ask">
+    <div class="sheet">
+      <h3 id="ask-msg"></h3>
+      <div class="btnrow" style="margin-top:18px">
+        <button class="cta dark" id="ask-no">Cancel</button>
+        <button class="cta" id="ask-yes"></button>
+      </div>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+</div>
+
+<script id="builtin-words" type="application/json">{"updated":"2026-11-12T00:00:00Z","categories":[{"id":"trends","emo":"📈","name":"Internet Trends","desc":"Memes, slang and whatever your feed won't stop showing you.","words":[{"word":"Rizz","hints":["Charm","Pickup Line","Unspoken","Smooth"]},{"word":"Brain Rot","hints":["Scrolling","Mush","Gen Alpha","Phone"]},{"word":"Labubu","hints":["Keychain","Teeth","Blind Box","Resale"]},{"word":"Dubai Chocolate","hints":["Pistachio","Crunchy","Kataifi","Sold Out"]},{"word":"Stanley Cup Tumbler","hints":["Hydrate","Straw","Car Fire","Target Line"]},{"word":"Aura Points","hints":["Vibes","Minus","Farming","Cool"]},{"word":"6-7","hints":["Hands","Juggle","Classroom","Teachers"]},{"word":"Delulu","hints":["Dreaming","Manifest","Crush","Fantasy"]},{"word":"Main Character","hints":["Spotlight","Soundtrack","Plot","Romanticize"]},{"word":"NPC","hints":["Background","Ice Cream","Scripted","Extras"]},{"word":"Mewing","hints":["Jawline","Tongue","Shush","Looksmax"]},{"word":"Girl Dinner","hints":["Snacks","Cheese","Plate","Grazing"]},{"word":"Roman Empire","hints":["Thinking","Daily","Gladiator","Men"]},{"word":"Skibidi Toilet","hints":["Kids","Heads","Cameraman","Plunger"]},{"word":"Wordle","hints":["Green","Streak","Five Letters","Yellow"]},{"word":"Ice Bucket Challenge","hints":["Viral","Nominate","Charity","2014"]},{"word":"Glazing","hints":["Compliment","Hype","Donut","Fanboy"]},{"word":"Cold Plunge","hints":["Brave","Breathing","Tub","Podcast"]},{"word":"Unboxing","hints":["Package","Reveal","YouTube","Tape"]},{"word":"Quiet Quitting","hints":["Desk","Bare Minimum","Clock Out","Boss"]},{"word":"Sigma","hints":["Lone","Grindset","Wolf","Stare"]},{"word":"Pickleball","hints":["Paddle","Retirees","Kitchen","Dink"]},{"word":"Italian Brainrot","hints":["Shark","Ballerina","Crocodile","AI"]},{"word":"Gym Bro","hints":["Pump","Protein","Mirror","Tank Top"]},{"word":"Chill Guy","hints":["Sweater","Pockets","Relaxed","Dog"]},{"word":"Moo Deng","hints":["Zoo","Thailand","Bitey","Baby"]},{"word":"Demure","hints":["Mindful","Classy","Modest","Workwear"]},{"word":"Brat Summer","hints":["Lime","Charli","Messy","Party"]},{"word":"Grimace Shake","hints":["Purple","Birthday","Spooky","Blob"]},{"word":"Fanum Tax","hints":["Snack","Stolen","Bite","Streamer"]},{"word":"Side Eye","hints":["Judging","Glance","Suspicious","Shade"]},{"word":"Situationship","hints":["Undefined","Mixed Signals","Texting","Label"]},{"word":"Ghosting","hints":["Disappear","Left On Read","Silence","Halloween"]},{"word":"Touch Grass","hints":["Outside","Offline","Lawn","Sunlight"]},{"word":"Bed Rotting","hints":["Pillow","Sunday","Blanket","Recharge"]},{"word":"Mukbang","hints":["Eating","Camera","Noodles","Korea"]},{"word":"ASMR","hints":["Whisper","Tingles","Microphone","Tapping"]},{"word":"Rickroll","hints":["Link","Trap","Eighties","Promise"]},{"word":"Harlem Shake","hints":["Helmet","Drop","Freeze","Chaos"]},{"word":"Mannequin Challenge","hints":["Still","Pose","Song","Store Window"]}]},{"id":"athletes","emo":"🐐","name":"Athletes","desc":"The names everyone argues about at the bar.","words":[{"word":"LeBron James","hints":["Akron","Taco Tuesday","Bronny","Headband"]},{"word":"Serena Williams","hints":["Sisters","Catsuit","Reddit","Crip Walk"]},{"word":"Tom Brady","hints":["Seven","Roast","Gisele","Avocado"]},{"word":"Lionel Messi","hints":["Miami","Barcelona","Pink Jersey","Left Foot"]},{"word":"Cristiano Ronaldo","hints":["Celebration","Saudi","Abs","Madeira"]},{"word":"Usain Bolt","hints":["Lightning","Jamaica","Chicken Nuggets","Gold"]},{"word":"Simone Biles","hints":["Twist","Leotard","Beam","Chicago"]},{"word":"Michael Jordan","hints":["Shrug","Tongue","Baseball","Crying"]},{"word":"Tiger Woods","hints":["Red","Augusta","Earl","Fist Pump"]},{"word":"Caitlin Clark","hints":["Logo","Iowa","Fever","Ponytail"]},{"word":"Shohei Ohtani","hints":["Both","Dodgers","Decoy","Interpreter"]},{"word":"Patrick Mahomes","hints":["Ketchup","Voice","Brittany","Sidearm"]},{"word":"Stephen Curry","hints":["Mouthguard","Night Night","Davidson","Splash"]},{"word":"Travis Kelce","hints":["Podcast","Brother","Engagement","Cincinnati"]},{"word":"Kobe Bryant","hints":["Mamba","Fadeaway","Eighty-One","Italy"]},{"word":"Muhammad Ali","hints":["Butterfly","Louisville","Rope-A-Dope","Rumble"]},{"word":"Wayne Gretzky","hints":["Ninety-Nine","Edmonton","Kings","Assists"]},{"word":"Michael Phelps","hints":["Medals","Wingspan","Baltimore","Cupping"]},{"word":"Victor Wembanyama","hints":["Tall","France","Alien","Spurs"]},{"word":"Coco Gauff","hints":["Teenager","Atlanta","Paris","Flag Bearer"]},{"word":"Aaron Judge","hints":["Rise","Captain","Sixty-Two","Bronx"]},{"word":"Shaquille O'Neal","hints":["Commercials","Free Throws","Diesel","Big"]},{"word":"Deion Sanders","hints":["Prime","Colorado","Shades","Highstep"]},{"word":"Saquon Barkley","hints":["Reverse","Hurdle","Eagles","Giants"]},{"word":"Giannis Antetokounmpo","hints":["Greek","Freak","Milwaukee","Brothers"]},{"word":"Nikola Jokic","hints":["Horses","Serbia","Denver","Triple-Double"]},{"word":"Luka Doncic","hints":["Slovenia","Trade","Lakers","Stepback"]},{"word":"Lamar Jackson","hints":["Ravens","Heisman","Juke","Truzz"]},{"word":"Josh Allen","hints":["Buffalo","Hailee","Wyoming","MVP"]},{"word":"Connor McDavid","hints":["Oilers","Speed","Canada","Overtime"]},{"word":"Sha'Carri Richardson","hints":["Nails","Wigs","Hundred","Dallas"]},{"word":"Noah Lyles","hints":["Anime","Photo Finish","Cards","Florida"]},{"word":"Erling Haaland","hints":["Robot","Norway","Meditation","City"]},{"word":"Kylian Mbappé","hints":["Paris","Mask","Turtle","Madrid"]},{"word":"Novak Djokovic","hints":["Gluten","Melbourne","Splits","Twenty-Four"]},{"word":"Roger Federer","hints":["Swiss","Grass","Backhand","Rolex"]},{"word":"Derek Jeter","hints":["Jump Throw","Gift Basket","Mr. November","Flip"]},{"word":"Babe Ruth","hints":["Called Shot","Hot Dogs","Curse","Candy Bar"]},{"word":"Peyton Manning","hints":["Omaha","Forehead","Colts","Brother"]},{"word":"Angel Reese","hints":["Barbie","LSU","Rebounds","Sky"]}]},{"id":"teams","emo":"🏟️","name":"Teams & Events","desc":"Franchises, rivalries and the biggest dates on the calendar.","words":[{"word":"Dallas Cowboys","hints":["Star","Cheerleaders","Jerry","Thanksgiving"]},{"word":"Los Angeles Lakers","hints":["Purple","Showtime","Courtside","Hollywood"]},{"word":"New York Yankees","hints":["Pinstripes","Bronx","Evil Empire","Twenty-Seven"]},{"word":"Real Madrid","hints":["White","Champions","Bernabéu","Galácticos"]},{"word":"Chicago Bulls","hints":["Horns","Last Dance","Windy","Benny"]},{"word":"Golden State Warriors","hints":["Bridge","Splash","Dynasty","Oakland"]},{"word":"Green Bay Packers","hints":["Cheese","Lambeau","Frozen","Owners"]},{"word":"Manchester United","hints":["Devils","Old Trafford","Fergie","Red"]},{"word":"Kansas City Chiefs","hints":["Arrowhead","Barbecue","Three-Peat","Fountains"]},{"word":"Boston Red Sox","hints":["Monster","Curse","Sweet Caroline","Fenway"]},{"word":"Harlem Globetrotters","hints":["Tricks","Whistle","Generals","Spinning"]},{"word":"Duke Blue Devils","hints":["Cameron","Coach K","Flopping","Durham"]},{"word":"Super Bowl","hints":["Commercials","Halftime","Wings","Squares"]},{"word":"World Cup","hints":["Four Years","Trophy","Penalties","2026"]},{"word":"March Madness","hints":["Bracket","Cinderella","Buzzer","Office Pool"]},{"word":"Olympics","hints":["Rings","Torch","Podium","LA"]},{"word":"Wimbledon","hints":["Strawberries","White","Grass","Royal Box"]},{"word":"The Masters","hints":["Jacket","Azaleas","Pimento","Amen"]},{"word":"Kentucky Derby","hints":["Hats","Juleps","Roses","Two Minutes"]},{"word":"Daytona 500","hints":["Laps","Florida","Draft","Earnhardt"]},{"word":"Stanley Cup","hints":["Ice","Playoff Beard","Engraved","Kiss"]},{"word":"NBA Draft","hints":["Handshake","Suits","Green Room","Lottery"]},{"word":"Ryder Cup","hints":["Europe","Chants","Captains","Bethpage"]},{"word":"Little League World Series","hints":["Williamsport","Pin Trading","Sliding Hill","Twelve"]},{"word":"Boston Celtics","hints":["Leprechaun","Parquet","Cigar","Bird"]},{"word":"New England Patriots","hints":["Belichick","Hoodie","Foxborough","Deflated"]},{"word":"Pittsburgh Steelers","hints":["Terrible Towel","Six Rings","Pierogies","Tomlin"]},{"word":"Chicago Cubs","hints":["Ivy","Wrigley","Goat","2016"]},{"word":"Los Angeles Dodgers","hints":["Blue","Ravine","Fernando","Back-to-Back"]},{"word":"FC Barcelona","hints":["Tiki-Taka","Camp Nou","Catalonia","La Masia"]},{"word":"Miami Heat","hints":["Big Three","Culture","Riley","Vice"]},{"word":"Philadelphia Eagles","hints":["Tush Push","Cheesesteak","Underdog Masks","Batteries"]},{"word":"New York Knicks","hints":["Spike Lee","Garden","Orange","Brunson"]},{"word":"Tour de France","hints":["Yellow","Alps","Peloton","Three Weeks"]},{"word":"Indianapolis 500","hints":["Milk","Brickyard","Memorial Day","Oval"]},{"word":"Boston Marathon","hints":["Heartbreak Hill","Qualifying Time","April","Wellesley"]},{"word":"WrestleMania","hints":["Undertaker","Chairs","Cena","Scripted"]},{"word":"Monaco Grand Prix","hints":["Yachts","Tunnel","Casino","Hairpin"]},{"word":"NBA All-Star Game","hints":["Dunk Contest","No Defense","Fan Vote","February"]},{"word":"Home Run Derby","hints":["July","Batting Practice","Dad Pitching","Statcast"]}]},{"id":"moments","emo":"⚡","name":"Sports Moments","desc":"The plays, calls and records people still argue about.","words":[{"word":"Miracle on Ice","hints":["USSR","Lake Placid","Do You Believe","College Kids"]},{"word":"Helmet Catch","hints":["Tyree","Perfect Season","Eli","Scramble"]},{"word":"Immaculate Reception","hints":["Franco","Pittsburgh","Deflection","Raiders"]},{"word":"Hand of God","hints":["Maradona","Mexico City","England","Cheating"]},{"word":"Flu Game","hints":["Utah","Pippen","Pizza","Dehydrated"]},{"word":"Tuck Rule","hints":["Snow","Fumble","Oakland","Brady"]},{"word":"Deflategate","hints":["PSI","Suspension","Needle","Ball Boy"]},{"word":"Butt Fumble","hints":["Jets","Thanksgiving","Lineman","Sanchez"]},{"word":"Philly Special","hints":["Trick Play","Foles","Tight End Pass","Minnesota"]},{"word":"28-3 Comeback","hints":["Falcons","Overtime","Super Bowl LI","Lady Gaga"]},{"word":"Ray Allen Corner Three","hints":["Rebound","Miami","Game Six","Ropes"]},{"word":"The Block","hints":["Chase-Down","Iguodala","Cleveland","Game Seven"]},{"word":"Brandi Chastain Celebration","hints":["Shirt Off","Penalty Kick","1999","Rose Bowl"]},{"word":"Steve Bartman","hints":["Foul Ball","Headphones","Wrigley","2003"]},{"word":"Bill Buckner Error","hints":["Between Legs","Mets","1986","Grounder"]},{"word":"Mike Tyson Ear Bite","hints":["Holyfield","Rematch","Mouthpiece","Disqualified"]},{"word":"Jake Paul vs Mike Tyson","hints":["Netflix","Buffering","Age Gap","YouTuber"]},{"word":"Leicester City Title","hints":["5000-to-1","Foxes","Vardy","Underdog"]},{"word":"Infield Fly Rule","hints":["Popup","Umpire","Runners","Automatic Out"]},{"word":"Offside Rule","hints":["Flag","Linesman","VAR","Last Defender"]},{"word":"Pitch Clock","hints":["Fifteen Seconds","Shorter Games","Violation","2023"]},{"word":"The Shot","hints":["Ehlo","Buzzer","Fist Pump","1989"]},{"word":"Ohtani's 50-50 Season","hints":["Stolen Bases","Miami","Dodgers","Six Hits"]},{"word":"2022 World Cup Final","hints":["Qatar","Hat Trick","Penalties","Robe"]},{"word":"Hail Mary","hints":["Desperation","Flutie","Last Second","End Zone"]},{"word":"Lambeau Leap","hints":["Stands","Frozen Tundra","Touchdown","Cheeseheads"]},{"word":"Bat Flip","hints":["Bautista","Swagger","Korea","Home Run"]},{"word":"Rumble in the Jungle","hints":["Zaire","Foreman","Ropes","1974"]},{"word":"Curse of the Bambino","hints":["Sold","86 Years","Fenway","2004"]},{"word":"Tiger Slam","hints":["Four Majors","2001","Augusta","Consecutive"]},{"word":"Perfect Game","hints":["Twenty-Seven","Mound","Galarraga","Nobody On"]},{"word":"The Decision","hints":["South Beach","Talents","ESPN","Cleveland"]},{"word":"Dream Team","hints":["Barcelona","1992","Magic","Laettner"]},{"word":"OBJ One-Handed Catch","hints":["Three Fingers","Giants","Sunday Night","Backpedal"]}]},{"id":"college","emo":"🎓","name":"College Sports","desc":"Saturdays, rivalries and schools that never stop talking about it.","words":[{"word":"Alabama","hints":["Roll","Elephant","Saban","Houndstooth"]},{"word":"Ohio State","hints":["Brutus","Nuts","Columbus","Script"]},{"word":"Michigan","hints":["Big House","Maize","Harbaugh","Sign Stealing"]},{"word":"Notre Dame","hints":["Touchdown Jesus","Rudy","Golden Dome","NBC"]},{"word":"Texas Longhorns","hints":["Bevo","Austin","Burnt Orange","McConaughey"]},{"word":"Georgia Bulldogs","hints":["Uga","Hedges","Athens","Kirby"]},{"word":"LSU","hints":["Baton Rouge","Night Games","Crawfish","Joe Burrow"]},{"word":"USC","hints":["Horse","Fight On","Coliseum","Reggie"]},{"word":"Oregon Ducks","hints":["Uniforms","Rain","Eugene","Track Town"]},{"word":"Clemson","hints":["Rock","Dabo","Paw Prints","Upstate"]},{"word":"UConn","hints":["Geno","Women's Hoops","Back-to-Back","Storrs"]},{"word":"Kentucky Wildcats","hints":["Calipari","Bluegrass","One and Done","Rupp"]},{"word":"North Carolina","hints":["Light Blue","Chapel Hill","Ram","Dean Smith"]},{"word":"Gonzaga","hints":["Spokane","Mid-Major","Mark Few","Jesuit"]},{"word":"Army vs Navy","hints":["Cadets","Midshipmen","December","Goat"]},{"word":"Iron Bowl","hints":["Kick Six","Toomer's Corner","Year-Round","Birmingham"]},{"word":"Red River Rivalry","hints":["State Fair","Dallas","Golden Hat","Big Tex"]},{"word":"Rose Bowl","hints":["Pasadena","Parade","Granddaddy","January First"]},{"word":"Sugar Bowl","hints":["New Orleans","Superdome","Beignets","Bourbon Street"]},{"word":"College Football Playoff","hints":["Committee","Twelve Teams","Byes","Rankings"]},{"word":"Heisman Trophy","hints":["Stiff Arm","Manhattan","Finalists","Bronze"]},{"word":"College GameDay","hints":["Signs","Lee Corso","Headgear","Pat McAfee"]},{"word":"NIL Deals","hints":["Endorsements","Collectives","Paychecks","Car Dealership"]},{"word":"Transfer Portal","hints":["Free Agency","Window","Entering","Shopping"]},{"word":"National Signing Day","hints":["Hats","Commitment","February","Fax"]},{"word":"Court Storming","hints":["Fine","Upset","Students","Floor"]},{"word":"Cinderella Run","hints":["Slipper","Fifteen Seed","Saint Peter's","Midnight"]},{"word":"Final Four","hints":["Scissors","Dome","April","One Shining Moment"]},{"word":"College World Series","hints":["Omaha","Aluminum","June","Steak"]},{"word":"Tailgating","hints":["Grills","Cornhole","Parking Lot","Koozie"]},{"word":"Marching Band","hints":["Drumline","Halftime","Tuba","Dotting the i"]},{"word":"Mayo Bowl","hints":["Dumped","Charlotte","Jar","Coach Bath"]},{"word":"Pop-Tarts Bowl","hints":["Edible Mascot","Toaster","Orlando","Strawberry"]},{"word":"SEC","hints":["Means More","South","Finebaum","Saturday Night"]},{"word":"Walk-On","hints":["Scholarship","Earned","Tryout","Practice Squad"]},{"word":"Penn State","hints":["White Out","Happy Valley","Lion","Creamery"]},{"word":"Florida Gators","hints":["Swamp","Chomp","Tebow","Gainesville"]},{"word":"Miami Hurricanes","hints":["Turnover Chain","Swagger","Ibis","Coral Gables"]},{"word":"Texas A&M","hints":["Twelfth Man","Yell Leaders","Reveille","Kyle Field"]},{"word":"Colorado Buffaloes","hints":["Ralphie","Boulder","Two-Way","Altitude"]}]},{"id":"music","emo":"🎤","name":"Music","desc":"Artists on every playlist and every arena tour.","words":[{"word":"Taylor Swift","hints":["Bracelets","Eras","Travis","Cats"]},{"word":"Beyoncé","hints":["Texas","Lemonade","Jay-Z","Disco Ball"]},{"word":"Drake","hints":["Owl","Toronto","Feud","Hotline"]},{"word":"Kendrick Lamar","hints":["Compton","Pulitzer","Super Bowl","Mustard"]},{"word":"Bad Bunny","hints":["Halftime","Puerto Rico","Wrestling","Reggaeton"]},{"word":"Sabrina Carpenter","hints":["Short","Espresso","Bangs","Disney"]},{"word":"Chappell Roan","hints":["Pink","Hot To Go","Drag","Midwest"]},{"word":"Morgan Wallen","hints":["Country","Mullet","Tennessee","Last Night"]},{"word":"Travis Scott","hints":["Astro","Cactus","Houston","Fast Food"]},{"word":"Billie Eilish","hints":["Whisper","Brother","Green Hair","Bond"]},{"word":"Ed Sheeran","hints":["Ginger","Loop Pedal","Symbols","Ipswich"]},{"word":"Rihanna","hints":["Barbados","Umbrella","Makeup","A$AP"]},{"word":"Eminem","hints":["Detroit","Spaghetti","8 Mile","Blonde"]},{"word":"Post Malone","hints":["Tattoos","Beer Pong","Braids","Rockstar"]},{"word":"The Weeknd","hints":["Night","Red Suit","Bandages","Abel"]},{"word":"Coldplay","hints":["Kiss Cam","Yellow","Wristbands","British"]},{"word":"Olivia Rodrigo","hints":["License","Purple","Guts","Driving"]},{"word":"Michael Jackson","hints":["Glove","Moonwalk","Zombies","Pop King"]},{"word":"Elvis Presley","hints":["Hips","Jumpsuit","Sideburns","Memphis"]},{"word":"Bruno Mars","hints":["Silk","Fedora","Hawaii","Funk"]},{"word":"Lady Gaga","hints":["Monsters","Meat","Oscars","Poker"]},{"word":"Zach Bryan","hints":["Oklahoma","Navy","Acoustic","Tickets"]},{"word":"SZA","hints":["Ocean","Snooze","Diving Board","New Jersey"]},{"word":"Snoop Dogg","hints":["Olympics","Martha","Long Beach","Gin"]},{"word":"Ariana Grande","hints":["Ponytail","Glinda","Thank U","Nickelodeon"]},{"word":"Harry Styles","hints":["Boa","Watermelon","Pearls","Boy Band"]},{"word":"Justin Bieber","hints":["Baby","Canada","Hailey","Usher"]},{"word":"Miley Cyrus","hints":["Wrecking Ball","Flowers","Tongue","Dolly"]},{"word":"Dolly Parton","hints":["Jolene","Nine To Five","Wigs","Butterfly"]},{"word":"Adele","hints":["Hello","Vegas","Ballad","Tissues"]},{"word":"Usher","hints":["Roller Skates","Yeah","Confessions","Abs"]},{"word":"Luke Combs","hints":["Fast Car","Beer","Beard","Carolina"]},{"word":"Shaboozey","hints":["Bar","Tipsy","Jeans","Record"]},{"word":"Benson Boone","hints":["Backflip","Piano","Idol","Beautiful"]},{"word":"Pitbull","hints":["Bald","Worldwide","Dale","Sunglasses"]},{"word":"AC/DC","hints":["Thunder","Schoolboy","Highway","Australia"]},{"word":"Queen","hints":["Champions","Stomp","Rhapsody","Mustache"]},{"word":"The Beatles","hints":["Liverpool","Abbey Road","Mop Top","Submarine"]},{"word":"Jelly Roll","hints":["Face Tats","Weight Loss","Nashville","Redemption"]},{"word":"Metallica","hints":["Sandman","Headbang","Puppets","Napster"]}]},{"id":"screen","emo":"🎬","name":"Movies & TV","desc":"Binge-watches, blockbusters and quotes you still say.","words":[{"word":"Barbie","hints":["Pink","Dreamhouse","Margot","Beach"]},{"word":"Oppenheimer","hints":["Bomb","Nolan","Hat","Physics"]},{"word":"Stranger Things","hints":["Upside","Eggos","Bikes","Nosebleed"]},{"word":"The Office","hints":["Paper","Pranks","Mockumentary","Stapler"]},{"word":"Breaking Bad","hints":["Chemistry","RV","Albuquerque","Blue"]},{"word":"Squid Game","hints":["Green","Tracksuit","Doll","Marbles"]},{"word":"Wednesday","hints":["Dance","Hand","Braids","Boarding School"]},{"word":"Top Gun","hints":["Jets","Volleyball","Aviators","Danger Zone"]},{"word":"Shrek","hints":["Swamp","Onion","Donkey","Fairy Tale"]},{"word":"Friends","hints":["Couch","Coffee Shop","Pivot","Thanksgiving"]},{"word":"Game of Thrones","hints":["Dragons","Winter","Wall","Wedding"]},{"word":"The Bear","hints":["Kitchen","Chicago","Beef","Stress"]},{"word":"Ted Lasso","hints":["Biscuits","Mustache","Believe","Soccer"]},{"word":"Toy Story","hints":["Cowboy","Space Ranger","Claw Machine","Pixar"]},{"word":"Jurassic Park","hints":["Fences","Mosquito","Amber","Island"]},{"word":"Titanic","hints":["Door","Necklace","Iceberg","Sketch"]},{"word":"Rocky","hints":["Stairs","Philly","Eggs","Adrian"]},{"word":"Space Jam","hints":["Cartoon","Aliens","Jordan","LeBron"]},{"word":"Wicked","hints":["Green","Broom","Defying","Musical"]},{"word":"KPop Demon Hunters","hints":["Golden","Idols","Soda Pop","Tiger"]},{"word":"Severance","hints":["Office","Goats","Elevator","Memory"]},{"word":"Yellowstone","hints":["Ranch","Montana","Costner","Branding"]},{"word":"Love Island","hints":["Villa","Bombshell","Couples","Fire Pit"]},{"word":"The White Lotus","hints":["Resort","Hawaii","Thailand","Rich"]},{"word":"Star Wars","hints":["Lightsaber","Father","Galaxy","May Fourth"]},{"word":"Harry Potter","hints":["Wand","Scar","Platform","Sorting Hat"]},{"word":"Avengers","hints":["Snap","Shield","Hammer","Infinity"]},{"word":"The Lion King","hints":["Sunrise","Hakuna","Warthog","Cliff"]},{"word":"Home Alone","hints":["Paint Cans","Christmas","Burglars","Aftershave"]},{"word":"Mean Girls","hints":["Fetch","Burn Book","Plastics","Jingle Bell"]},{"word":"Forrest Gump","hints":["Chocolates","Bench","Running","Shrimp"]},{"word":"The Godfather","hints":["Offer","Horse","Cannoli","Mafia"]},{"word":"Fast & Furious","hints":["Family","Corona","NOS","Diesel"]},{"word":"John Wick","hints":["Dog","Pencil","Hotel","Suit"]},{"word":"Gladiator","hints":["Colosseum","Entertained","Thumbs","Emperor"]},{"word":"Inside Out","hints":["Joy","Memories","Brain","Puberty"]},{"word":"Frozen","hints":["Let It Go","Snowman","Sisters","Ice Palace"]},{"word":"Survivor","hints":["Torch","Tribe","Buffs","Idol"]},{"word":"Shark Tank","hints":["Pitch","Investors","Mr. Wonderful","Royalty"]},{"word":"Happy Gilmore","hints":["Hockey","Shooter","Bob Barker","Alligator"]}]},{"id":"famous","emo":"⭐","name":"Famous People","desc":"Creators, celebs and names from the history books.","words":[{"word":"Elon Musk","hints":["Rockets","Mars","Cybertruck","Flamethrower"]},{"word":"Oprah","hints":["Car","Book Club","Chicago","Gayle"]},{"word":"MrBeast","hints":["Challenge","Feastables","Giveaway","North Carolina"]},{"word":"Kim Kardashian","hints":["Family","Skims","Lawyer","Calabasas"]},{"word":"Gordon Ramsay","hints":["Raw","Idiot Sandwich","Yelling","Wellington"]},{"word":"Dwayne Johnson","hints":["Eyebrow","Tequila","Cheat Meal","Moana"]},{"word":"Keanu Reeves","hints":["Kind","Motorcycle","Matrix","Sad"]},{"word":"Martha Stewart","hints":["Prison","Snoop","Baking","Crafts"]},{"word":"Kai Cenat","hints":["Stream","Subathon","Bronx","AMP"]},{"word":"IShowSpeed","hints":["Bark","Ronaldo","Backflips","World Tour"]},{"word":"Zendaya","hints":["Spider","Tennis","Euphoria","Disney Channel"]},{"word":"Timothée Chalamet","hints":["Desert","Wonka","Ping Pong","Knicks"]},{"word":"Ryan Reynolds","hints":["Wrexham","Deadpool","Mint Mobile","Canada"]},{"word":"Jimmy Fallon","hints":["Late","Breaking Character","Games","Roots"]},{"word":"Bill Nye","hints":["Bowtie","Lab Coat","Experiments","Substitute Day"]},{"word":"Steve Jobs","hints":["Turtleneck","iPhone","Garage","Keynote"]},{"word":"Albert Einstein","hints":["Hair","Relativity","Tongue","Chalkboard"]},{"word":"Napoleon","hints":["Short","Waterloo","Bicorne","Exile"]},{"word":"Shakespeare","hints":["Quill","Globe","Sonnets","Stratford"]},{"word":"Marilyn Monroe","hints":["Dress","Mole","Birthday Song","Diamonds"]},{"word":"Pedro Pascal","hints":["Daddy","Helmet","Fungus","Fantastic Four"]},{"word":"Bob Ross","hints":["Trees","Afro","Happy Accidents","Easel"]},{"word":"Mark Zuckerberg","hints":["Hoodie","Sunscreen","Jiu-Jitsu","Harvard"]},{"word":"Guy Fieri","hints":["Flavortown","Frosted Tips","Diners","Flames"]},{"word":"Kevin Hart","hints":["Philly","Jumanji","Comedy Special","The Rock"]},{"word":"Tom Cruise","hints":["Stunts","Running","Couch Jump","Cake"]},{"word":"Leonardo DiCaprio","hints":["Oscar Wait","Pointing Meme","Wall Street","Yachts"]},{"word":"Tom Hanks","hints":["Wilson","Woody","Typewriters","Nice Guy"]},{"word":"Morgan Freeman","hints":["Voice","Narrator","God","Penguins"]},{"word":"Steve Harvey","hints":["Survey","Mustache","Miss Universe","Suits"]},{"word":"Ryan Gosling","hints":["Kenough","Drive","Notebook","Hey Girl"]},{"word":"Jeff Bezos","hints":["Cowboy Hat","Laugh","Yacht","Venice Wedding"]},{"word":"Kylie Jenner","hints":["Lip Kit","Billionaire","Stormi","Ski Trip"]},{"word":"Adam Sandler","hints":["Basketball Shorts","Waterboy","Thanksgiving Song","Netflix"]},{"word":"Matthew McConaughey","hints":["Alright","Bongos","Austin","Car Ads"]},{"word":"Isaac Newton","hints":["Apple","Gravity","Laws","Wig"]},{"word":"Cleopatra","hints":["Egypt","Nile","Eyeliner","Caesar"]},{"word":"Leonardo da Vinci","hints":["Mona Lisa","Flying Machine","Ninja Turtle","Sketches"]},{"word":"Neil Armstrong","hints":["Small Step","Apollo","Astronaut","Flag"]},{"word":"Thomas Edison","hints":["Light Bulb","Inventor","Tesla","Menlo Park"]}]},{"id":"characters","emo":"🦸","name":"Characters","desc":"Cartoons, heroes, villains and mascots you grew up with.","words":[{"word":"Mario","hints":["Mustache","Mushroom","Italy","Pipes"]},{"word":"SpongeBob","hints":["Pineapple","Bikini","Fry Cook","Square"]},{"word":"Homer Simpson","hints":["Donut","Nuclear","Bald","Couch"]},{"word":"Batman","hints":["Cave","Butler","Signal","Billionaire"]},{"word":"Spider-Man","hints":["Aunt","Bite","Queens","Upside Down"]},{"word":"Darth Vader","hints":["Breathing","Father","Helmet","Red"]},{"word":"Mickey Mouse","hints":["Ears","Gloves","Steamboat","Shorts"]},{"word":"Kermit the Frog","hints":["Tea","Green","Pig","Banjo"]},{"word":"Elmo","hints":["Tickle","Red","Street","Furry"]},{"word":"Scooby-Doo","hints":["Snacks","Van","Mystery","Unmasked"]},{"word":"Buzz Lightyear","hints":["Infinity","Wings","Laser","Ranger"]},{"word":"The Grinch","hints":["Heart","Christmas","Mountain","Dog"]},{"word":"Yoda","hints":["Backwards","Green","Tiny","Swamp"]},{"word":"Sonic","hints":["Rings","Speed","Blue","Chili Dogs"]},{"word":"Garfield","hints":["Lasagna","Monday","Orange","Lazy"]},{"word":"Tony the Tiger","hints":["Great","Cereal","Stripes","Breakfast"]},{"word":"Kool-Aid Man","hints":["Wall","Oh Yeah","Pitcher","Red"]},{"word":"Mr. Peanut","hints":["Monocle","Top Hat","Cane","Salty"]},{"word":"Ronald McDonald","hints":["Clown","Red Hair","Happy Meal","Yellow"]},{"word":"Phillie Phanatic","hints":["Green","Furry","Ballpark","Belly"]},{"word":"Gritty","hints":["Orange","Hockey","Googly Eyes","Chaos"]},{"word":"Minions","hints":["Banana","Yellow","Goggles","Gibberish"]},{"word":"Elsa","hints":["Ice","Let Go","Sister","Gloves"]},{"word":"Simba","hints":["Cub","Uncle","Cliff","Stampede"]},{"word":"Nemo","hints":["Fin","Lost","Sydney","Dad"]},{"word":"Winnie the Pooh","hints":["Honey","Shirt","Balloon","Donkey"]},{"word":"Bugs Bunny","hints":["Carrot","Doc","Albuquerque","Hunter"]},{"word":"Patrick Star","hints":["Rock","Pink","Shorts","Neighbor"]},{"word":"Peter Griffin","hints":["Chicken","Laugh","Rhode Island","Glasses"]},{"word":"The Joker","hints":["Smile","Cards","Purple","Stairs"]},{"word":"Iron Man","hints":["Suit","Reactor","Snap","Genius"]},{"word":"The Hulk","hints":["Angry","Shorts","Doctor","Smash"]},{"word":"Captain America","hints":["Shield","Ice","Brooklyn","Stars"]},{"word":"Wolverine","hints":["Claws","Canada","Sideburns","Healing"]},{"word":"Snoopy","hints":["Doghouse","Pilot","Bird","Dance"]},{"word":"Cookie Monster","hints":["Blue","Crumbs","Jar","Hungry"]},{"word":"Kirby","hints":["Pink","Inhale","Puffball","Stars"]},{"word":"Jack Sparrow","hints":["Rum","Compass","Pearl","Eyeliner"]},{"word":"Stitch","hints":["Ohana","Experiment","Blue","Elvis"]}]},{"id":"brands","emo":"🏷️","name":"Brands","desc":"Logos and names everyone recognizes.","words":[{"word":"Apple","hints":["Bite","Newton","Cupertino","Keynote"]},{"word":"Tesla","hints":["Charger","Autopilot","Inventor","Ludicrous"]},{"word":"Amazon","hints":["Boxes","Rainforest","Two Days","Smile"]},{"word":"Starbucks","hints":["Siren","Misspelled","Apron","Seattle"]},{"word":"McDonald's","hints":["Arches","Ice Cream","Drive-Thru","Monopoly"]},{"word":"Chick-fil-A","hints":["Sunday","My Pleasure","Cows","Sauce"]},{"word":"Netflix","hints":["Password","Still Watching","Chill","Red Envelope"]},{"word":"Spotify","hints":["Wrapped","Shuffle","Sweden","Podcast"]},{"word":"Costco","hints":["Hot Dog","Samples","Bulk","Membership"]},{"word":"Taco Bell","hints":["Midnight","Chihuahua","Packets","Value Menu"]},{"word":"Red Bull","hints":["Wings","Cliff Dive","Formula One","Space Jump"]},{"word":"Gatorade","hints":["Bucket","Lightning","Florida","Sideline"]},{"word":"Coca-Cola","hints":["Polar Bear","Secret Recipe","Santa","Atlanta"]},{"word":"Lego","hints":["Ouch","Denmark","Instructions","Minifigure"]},{"word":"Disney","hints":["Castle","Mouse","Fireworks","Princess"]},{"word":"Target","hints":["Dollar Spot","Red","Cart","Dog"]},{"word":"Uber","hints":["Rating","Surge","Backseat","Pickup"]},{"word":"Trader Joe's","hints":["Hawaiian","Cookie Butter","Bell","Parking Lot"]},{"word":"IKEA","hints":["Allen Key","Meatballs","Maze","Flat Pack"]},{"word":"Waffle House","hints":["Hurricane","Hash Browns","Jukebox","All Night"]},{"word":"Buc-ee's","hints":["Beaver","Brisket","Bathrooms","Texas"]},{"word":"In-N-Out","hints":["Animal","Secret Menu","Palm Trees","Bible Verse"]},{"word":"Chipotle","hints":["Guac","Foil","Extra","Assembly Line"]},{"word":"Google","hints":["Doodle","Colors","Lucky","Chrome"]},{"word":"Walmart","hints":["Smiley","Greeter","Rollback","Arkansas"]},{"word":"Dunkin'","hints":["Boston","Munchkins","Sprinkles","Runs"]},{"word":"Wendy's","hints":["Pigtails","Frosty","Square Patty","Roast"]},{"word":"Lululemon","hints":["Leggings","Yoga","Canada","Athleisure"]},{"word":"Peloton","hints":["Bike","Leaderboard","Instructor","Living Room"]},{"word":"Oreo","hints":["Dunk","Twist","Milk","Cream"]},{"word":"Doritos","hints":["Dust","Triangle","Nacho","Commercial"]},{"word":"Home Depot","hints":["Orange","Contractor","Skeleton","Lumber"]},{"word":"Domino's","hints":["Tracker","Dots","Thirty Minutes","Noid"]},{"word":"FedEx","hints":["Arrow","Overnight","Castaway","Purple"]},{"word":"YETI","hints":["Cooler","Bear Proof","Tailgate","Ice"]},{"word":"Instagram","hints":["Filter","Story","Grid","Influencer"]},{"word":"Liquid Death","hints":["Skulls","Tallboy","Punk","Mountain"]},{"word":"Rolex","hints":["Crown","Swiss","Wrist","Waitlist"]},{"word":"Ferrari","hints":["Red","Horse","Italy","Pit Stop"]}]},{"id":"gaming","emo":"🎮","name":"Games","desc":"Consoles, apps and game-night classics.","words":[{"word":"Fortnite","hints":["Bus","Storm","Emote","Building"]},{"word":"Minecraft","hints":["Blocks","Diamonds","Steve","Pickaxe"]},{"word":"Mario Kart","hints":["Shell","Drift","Banana","Lightning"]},{"word":"Call of Duty","hints":["Lobby","Headset","Camper","Zombies"]},{"word":"Madden","hints":["Curse","Cover","Franchise","Ratings"]},{"word":"Roblox","hints":["Robux","Obby","Avatar","Kids"]},{"word":"Pokémon","hints":["Catch","Trainer","Evolve","Cards"]},{"word":"Tetris","hints":["Lines","Russia","Falling","Stack"]},{"word":"Among Us","hints":["Vent","Emergency Meeting","Tasks","Spaceship"]},{"word":"Grand Theft Auto","hints":["Waiting","Heist","Cheat Codes","Wanted"]},{"word":"Zelda","hints":["Sword","Rescue","Ocarina","Hearts"]},{"word":"Wii Sports","hints":["Bowling","Strap","Mii","Grandparents"]},{"word":"NBA 2K","hints":["Park","Rage Quit","Badge","Locker Code"]},{"word":"Monopoly","hints":["Jail","Boardwalk","Banker","Arguments"]},{"word":"Uno","hints":["Reverse","Skip","Wild","Yell"]},{"word":"Chess","hints":["Checkmate","Queen","Grandmaster","Gambit"]},{"word":"Jenga","hints":["Tower","Wobble","Wooden","Collapse"]},{"word":"Candy Crush","hints":["Grandma","Lives","Sweet","Swipe"]},{"word":"Pac-Man","hints":["Ghosts","Dots","Maze","Cherry"]},{"word":"EA Sports FC","hints":["Ultimate","Packs","Kickoff","Couch"]},{"word":"Twister","hints":["Spinner","Left Hand","Stretch","Mat"]},{"word":"Beer Pong","hints":["Cups","Rerack","Bounce","Frat"]},{"word":"Cornhole","hints":["Bags","Boards","Backyard","Tailgate"]},{"word":"Rocket League","hints":["Cars","Boost","Soccer","Aerial"]},{"word":"Super Smash Bros","hints":["Platform","Knockout","Crossover","Percent"]},{"word":"Animal Crossing","hints":["Island","Raccoon","Turnips","Debt"]},{"word":"The Sims","hints":["Ladder","Diamond","Gibberish","Motherlode"]},{"word":"Halo","hints":["Spartan","Xbox","Ring","Visor"]},{"word":"Street Fighter","hints":["Hadouken","Arcade","Combo","Button Mash"]},{"word":"Guitar Hero","hints":["Strum","Plastic","Rock","Expert"]},{"word":"Clash of Clans","hints":["Barbarian","Elixir","Village","Raid"]},{"word":"Angry Birds","hints":["Slingshot","Pigs","Launch","Feathers"]},{"word":"Subway Surfers","hints":["Train","Inspector","Endless","Graffiti"]},{"word":"Flappy Bird","hints":["Pipes","Tap","Impossible","Deleted"]},{"word":"Scrabble","hints":["Tiles","Triple","Dictionary","Spelling"]},{"word":"Battleship","hints":["Sunk","Grid","Navy","Coordinates"]},{"word":"Connect Four","hints":["Diagonal","Drop","Row","Discs"]},{"word":"Clue","hints":["Mansion","Candlestick","Colonel","Detective"]},{"word":"Catan","hints":["Sheep","Robber","Trading","Brick"]},{"word":"Poker","hints":["Bluff","Chips","All In","Vegas"]}]},{"id":"places","emo":"🌎","name":"Places","desc":"Cities, landmarks and spots on the bucket list.","words":[{"word":"Las Vegas","hints":["Strip","Desert","Sphere","Buffet"]},{"word":"Paris","hints":["Tower","Croissant","Louvre","Romance"]},{"word":"Tokyo","hints":["Neon","Sushi","Bullet Train","Crosswalk"]},{"word":"Disney World","hints":["Lines","Orlando","Fast Pass","Fireworks"]},{"word":"Grand Canyon","hints":["Echo","Mule","Arizona","River"]},{"word":"Times Square","hints":["Ball","Billboards","Naked Cowboy","Tourists"]},{"word":"Hollywood","hints":["Sign","Walk of Fame","Stars","Oscars"]},{"word":"Area 51","hints":["Aliens","Nevada","Classified","Storm"]},{"word":"Hawaii","hints":["Lei","Volcano","Surf","Pineapple"]},{"word":"Antarctica","hints":["Penguins","Ice","Research","Coldest"]},{"word":"Bermuda Triangle","hints":["Missing","Ships","Compass","Mystery"]},{"word":"Mount Everest","hints":["Summit","Sherpa","Oxygen","Base Camp"]},{"word":"The Moon","hints":["Footprint","Flag","Craters","Tides"]},{"word":"New Orleans","hints":["Beads","Jazz","Beignets","Bourbon"]},{"word":"Miami","hints":["Neon","Vice","South Beach","Heat"]},{"word":"Niagara Falls","hints":["Barrel","Honeymoon","Canada","Poncho"]},{"word":"Stonehenge","hints":["Circle","England","Druids","Solstice"]},{"word":"Alcatraz","hints":["Escape","Island","Bay","Capone"]},{"word":"Venice","hints":["Boats","Canals","Masks","Sinking"]},{"word":"Cancún","hints":["Spring Break","Resort","Mexico","All-Inclusive"]},{"word":"Nashville","hints":["Boots","Honky Tonk","Bachelorette","Hot Chicken"]},{"word":"Dubai","hints":["Tallest","Desert","Islands","Chocolate"]},{"word":"Ibiza","hints":["Club","Spain","DJ","Sunset"]},{"word":"Graceland","hints":["King","Memphis","Jungle Room","Mansion"]},{"word":"Statue of Liberty","hints":["Torch","France","Green","Crown"]},{"word":"Golden Gate Bridge","hints":["Fog","Orange","Suspension","Bay"]},{"word":"Mount Rushmore","hints":["Faces","Carved","Presidents","Granite"]},{"word":"Central Park","hints":["Carriage","Manhattan","Joggers","Zoo"]},{"word":"Great Wall of China","hints":["Space","Dynasty","Ancient","Long"]},{"word":"Machu Picchu","hints":["Peru","Llama","Ruins","Clouds"]},{"word":"Colosseum","hints":["Gladiator","Rome","Lions","Arena"]},{"word":"Pyramids of Giza","hints":["Sphinx","Egypt","Tomb","Camel"]},{"word":"London","hints":["Big Ben","Rain","Tea","Double Decker"]},{"word":"Bali","hints":["Rice Terraces","Monkeys","Indonesia","Honeymoon"]},{"word":"Aspen","hints":["Ski","Snow","Celebrities","Colorado"]},{"word":"Alaska","hints":["Northern Lights","Bears","Glacier","Cruise"]},{"word":"Chicago","hints":["Bean","Deep Dish","Wind","River"]},{"word":"Austin","hints":["Keep Weird","Bats","Barbecue","Live Music"]},{"word":"Iceland","hints":["Geysers","Blue Lagoon","Volcano","Puffins"]},{"word":"Sydney Opera House","hints":["Sails","Harbor","Australia","Shells"]}]},{"id":"food","emo":"🌮","name":"Food & Drink","desc":"What's on the menu, the counter and the group chat.","words":[{"word":"Sushi","hints":["Rice","Chopsticks","Conveyor","Wasabi"]},{"word":"Tacos","hints":["Tuesday","Lime","Truck","Cilantro"]},{"word":"Avocado Toast","hints":["Brunch","Millennial","Mortgage","Seeds"]},{"word":"Hot Wings","hints":["Sauce","Ranch","Celery","Napkins"]},{"word":"Ramen","hints":["Broth","Slurp","Dorm","Egg"]},{"word":"Mac and Cheese","hints":["Box","Orange","Elbow","Thanksgiving"]},{"word":"Boba Tea","hints":["Straw","Chewy","Taiwan","Milk"]},{"word":"Smoothie Bowl","hints":["Toppings","Granola","Instagram","Spoon"]},{"word":"Charcuterie Board","hints":["Wood","Salami","Grapes","Wine"]},{"word":"Energy Drink","hints":["Can","Jittery","Taurine","Finals"]},{"word":"Pancakes","hints":["Stack","Syrup","Flip","Sunday"]},{"word":"Pho","hints":["Bowl","Vietnam","Basil","Steam"]},{"word":"Birria Tacos","hints":["Dip","Consommé","Cheese Pull","Red"]},{"word":"Nachos","hints":["Layers","Stadium","Jalapeño","Cheese"]},{"word":"Crumbl Cookies","hints":["Weekly","Pink Box","Rating","Utah"]},{"word":"Cold Brew","hints":["Slow","Ice","Caffeine","Concentrate"]},{"word":"Hot Pot","hints":["Shared","Simmer","Dipping","Spicy"]},{"word":"Pumpkin Spice Latte","hints":["Fall","Basic","Sweater","September"]},{"word":"Chicken Tenders","hints":["Kids Menu","Honey Mustard","Fingers","Crispy"]},{"word":"Protein Pancakes","hints":["Macros","Gym","Powder","Meal Prep"]},{"word":"Sourdough","hints":["Starter","Pandemic","Tangy","Loaf"]},{"word":"Matcha","hints":["Green","Whisk","Japan","Latte"]},{"word":"Prime Rib","hints":["Holiday","Carving","Au Jus","Medium Rare"]},{"word":"Funnel Cake","hints":["Fair","Powdered","Fried","Boardwalk"]},{"word":"Pizza","hints":["Delivery","Pepperoni","Ninja Turtles","Friday"]},{"word":"Burrito","hints":["Foil","Breakfast","Food Coma","Rice"]},{"word":"S'mores","hints":["Campfire","Graham","Sticky","Stick"]},{"word":"Lobster Roll","hints":["Maine","Butter","Claw","Summer"]},{"word":"Philly Cheesesteak","hints":["Wiz","Onions","Rocky","Hoagie"]},{"word":"Chicken and Waffles","hints":["Syrup","Soul Food","Hot Sauce","Late Night"]},{"word":"Espresso Martini","hints":["Shaken","Beans","Nightcap","Wake Up"]},{"word":"Margarita","hints":["Salt Rim","Tequila","Frozen","Jimmy Buffett"]},{"word":"Popcorn","hints":["Movies","Butter","Kernels","Tin"]},{"word":"Hot Chocolate","hints":["Marshmallows","Snow Day","Mug","Whipped"]},{"word":"Bagel","hints":["Schmear","New York","Hole","Everything"]},{"word":"Crawfish Boil","hints":["Louisiana","Newspaper","Pinch","Corn"]},{"word":"Smash Burger","hints":["Griddle","Lace","Double","Spatula"]},{"word":"Cotton Candy","hints":["Carnival","Pink","Fluffy","Dentist"]},{"word":"Poke Bowl","hints":["Hawaii","Raw","Tuna","Build Your Own"]},{"word":"Mimosa","hints":["Brunch","Orange","Bubbles","Bottomless"]}]},{"id":"life","emo":"🎉","name":"Life Moments","desc":"Situations everyone has been in, or dreads.","words":[{"word":"First Date","hints":["Nervous","Restaurant","Check","Small Talk"]},{"word":"Job Interview","hints":["Handshake","Resume","Weakness","Suit"]},{"word":"Road Trip","hints":["Playlist","Snacks","Gas Station","Map"]},{"word":"Wedding","hints":["Speech","Cake","Bouquet","Open Bar"]},{"word":"Group Chat","hints":["Muted","Typing","Unread","Memes"]},{"word":"Prom","hints":["Corsage","Limo","King","Dance"]},{"word":"Graduation","hints":["Cap","Diploma","Tassel","Stage"]},{"word":"Moving Day","hints":["Boxes","Truck","Pizza","Couch"]},{"word":"Jury Duty","hints":["Summons","Courthouse","Twelve","Excuse"]},{"word":"Family Reunion","hints":["Cousins","T-Shirts","Potluck","Uncle"]},{"word":"Fantasy Draft","hints":["Snake","Sleeper","Commissioner","Last Place"]},{"word":"Bachelor Party","hints":["Weekend","Vegas","Best Man","Matching Shirts"]},{"word":"Garage Sale","hints":["Driveway","Haggle","Stickers","Junk"]},{"word":"Camping","hints":["Tent","Mosquitoes","Fire","Sleeping Bag"]},{"word":"Karaoke","hints":["Microphone","Lyrics","Liquid Courage","Off Key"]},{"word":"Escape Room","hints":["Clues","Locks","Timer","Teamwork"]},{"word":"DMV","hints":["Line","Photo","Number","Forms"]},{"word":"Black Friday","hints":["Doorbuster","Midnight","Deals","Stampede"]},{"word":"Thanksgiving","hints":["Leftovers","Turkey","Parade","Football"]},{"word":"Halloween","hints":["Costume","Candy","Pumpkin","Haunted"]},{"word":"Spring Break","hints":["Beach","Sunburn","Hotel","College"]},{"word":"Tailgate","hints":["Grill","Parking Lot","Cornhole","Cooler"]},{"word":"Gender Reveal","hints":["Smoke","Balloon","Cake","Guess"]},{"word":"Airport Security","hints":["Shoes","Liquids","Belt","Scanner"]},{"word":"Baby Shower","hints":["Diapers","Registry","Games","Onesie"]},{"word":"First Day of School","hints":["Backpack","Photo","Lunchbox","Bus"]},{"word":"Housewarming","hints":["Plant","Keys","Tour","Gift"]},{"word":"Surprise Party","hints":["Hiding","Lights","Secret","Shout"]},{"word":"Driver's Test","hints":["Parallel","Examiner","Nervous","Permit"]},{"word":"Sleepover","hints":["Pajamas","Pillow Fight","Ghost Stories","Floor"]},{"word":"New Year's Eve","hints":["Countdown","Resolution","Midnight","Confetti"]},{"word":"Christmas Morning","hints":["Presents","Stockings","Pajamas","Early"]},{"word":"Birthday Party","hints":["Candles","Cake","Wish","Balloons"]},{"word":"Flight Delay","hints":["Gate","Departure Board","Stranded","Voucher"]},{"word":"Speeding Ticket","hints":["Lights","Cop","Radar","Fine"]},{"word":"Group Project","hints":["Slacker","Deadline","Slides","Carry"]},{"word":"Breakup","hints":["Text","Ice Cream","Ex","Closure"]},{"word":"Snow Day","hints":["Sled","Cancelled","Shovel","Hot Cocoa"]},{"word":"Secret Santa","hints":["Gift","Twenty Dollars","Draw Names","Office"]},{"word":"Final Exams","hints":["Cram","Library","All Nighter","Coffee"]}]},{"id":"locker","emo":"👟","name":"Locker Room","desc":"Training, gear and recovery. VKTRY's home turf.","words":[{"word":"Insoles","hints":["Inside","Arch","Carbon","Custom"]},{"word":"Ice Bath","hints":["Cold","Shiver","Tub","Cubes"]},{"word":"Cleats","hints":["Studs","Grass","Mud","Spikes"]},{"word":"Box Jump","hints":["Explode","Shins","Plyo","Land"]},{"word":"Vertical Jump","hints":["Inches","Dunk","Hops","Rim"]},{"word":"NFL Combine","hints":["Forty","Indianapolis","Bench Reps","Draft Stock"]},{"word":"Foam Roller","hints":["Sore","IT Band","Wince","Cylinder"]},{"word":"Leg Day","hints":["Skip","Squats","Wobbly","Stairs"]},{"word":"Pre-Workout","hints":["Tingles","Scoop","Jitters","Caffeine"]},{"word":"Sauna","hints":["Sweat","Steam","Finland","Towel"]},{"word":"Massage Gun","hints":["Buzz","Theragun","Knots","Percussion"]},{"word":"Mouthguard","hints":["Teeth","Boil","Chew","Hockey"]},{"word":"Recovery Slides","hints":["Shower","Socks","Comfort","Flip Flop"]},{"word":"Athletic Tape","hints":["Ankle","Trainer","Roll","Wrap"]},{"word":"Two-a-Days","hints":["August","Heat","Exhausted","Double"]},{"word":"Film Session","hints":["Rewind","Coach","Projector","Mistakes"]},{"word":"Gatorade Shower","hints":["Win","Orange","Coach","Soaked"]},{"word":"Pregame Playlist","hints":["Headphones","Hype","Warmups","Ritual"]},{"word":"Personal Record","hints":["Best","Bell","Celebrate","Plates"]},{"word":"Sled Push","hints":["Drive","Turf","Legs","Lungs"]},{"word":"Compression Sleeve","hints":["Tight","Arm","Blood Flow","Swag"]},{"word":"Electrolytes","hints":["Salty","Cramps","Sodium","Packet"]},{"word":"Rest Day","hints":["Couch","Off","Netflix","Guilt"]},{"word":"Tryouts","hints":["Cuts","List","Nerves","Roster"]},{"word":"Protein Shake","hints":["Blender Bottle","Chocolate","Gains","Window"]},{"word":"Creatine","hints":["Water Weight","Monohydrate","Loading","Daily"]},{"word":"Bench Press","hints":["Spotter","Chest","Monday","Bar"]},{"word":"Deadlift","hints":["Floor","Hinge","Back","Sumo"]},{"word":"Treadmill","hints":["Incline","Hamster","Safety Clip","Belt"]},{"word":"Jump Rope","hints":["Boxer","Double Under","Rhythm","Playground"]},{"word":"Resistance Bands","hints":["Stretchy","Colors","Snap","Physical Therapy"]},{"word":"Shin Guards","hints":["Soccer","Socks","Bruise","Velcro"]},{"word":"Helmet","hints":["Facemask","Chinstrap","Decals","Head"]},{"word":"Agility Ladder","hints":["Footwork","Rungs","Cones","Speed"]},{"word":"Burpees","hints":["Punishment","Floor","CrossFit","Hate"]},{"word":"Wind Sprints","hints":["Whistle","Baseline","Conditioning","Puke"]},{"word":"Chalk","hints":["Grip","Gymnastics","Dust","LeBron"]},{"word":"Kettlebell","hints":["Swing","Russia","Handle","Cast Iron"]},{"word":"Eye Black","hints":["Glare","Stripes","Cheeks","Messages"]},{"word":"Halftime Speech","hints":["Fired Up","Comeback","Whiteboard","Tunnel"]}]},{"id":"simple","emo":"💡","name":"Simple Words","desc":"Everyday things. Easy to play, hard to fake.","words":[{"word":"Umbrella","hints":["Rain","Cocktail","Wind","Mary Poppins"]},{"word":"Toothbrush","hints":["Morning","Bristles","Dentist","Electric"]},{"word":"Elevator","hints":["Buttons","Music","Awkward","Stuck"]},{"word":"Microwave","hints":["Beep","Popcorn","Leftovers","Spin"]},{"word":"Backpack","hints":["Straps","Zipper","School","Hiking"]},{"word":"Sunglasses","hints":["Bright","Aviators","Squint","Beach"]},{"word":"Pillow","hints":["Soft","Fluff","Cold Side","Fight"]},{"word":"Mirror","hints":["Reflection","Selfie","Bathroom","Seven Years"]},{"word":"Candle","hints":["Wax","Birthday","Flame","Scented"]},{"word":"Ladder","hints":["Steps","Rungs","Climb","Bad Luck"]},{"word":"Wallet","hints":["Cards","Cash","Pocket","Leather"]},{"word":"TV Remote","hints":["Couch","Batteries","Lost","Channels"]},{"word":"Bicycle","hints":["Pedal","Training Wheels","Helmet","Chain"]},{"word":"Volcano","hints":["Lava","Eruption","Science Fair","Hawaii"]},{"word":"Valley","hints":["Deep","Hills","River","Silicon"]},{"word":"Lighthouse","hints":["Coast","Beam","Keeper","Ships"]},{"word":"Anchor","hints":["Heavy","Boat","Tattoo","Sailor"]},{"word":"Balloon","hints":["Pop","Helium","Party","String"]},{"word":"Magnet","hints":["Fridge","Attract","North","Metal"]},{"word":"Hammock","hints":["Swing","Backyard","Nap","Trees"]},{"word":"Alarm Clock","hints":["Snooze","Wake","Ring","Bedside"]},{"word":"Fireworks","hints":["July","Boom","Sky","Sparkler"]},{"word":"Treehouse","hints":["Ladder","Fort","Clubhouse","Backyard"]},{"word":"Snow Globe","hints":["Shake","Glass","Souvenir","Winter"]},{"word":"Scissors","hints":["Rock Paper","Running","Haircut","Coupon"]},{"word":"Toaster","hints":["Crumbs","Golden","Breakfast","Lever"]},{"word":"Doorbell","hints":["Ding","Package","Camera","Prank"]},{"word":"Keyboard","hints":["Typing","Keys","Mechanical","Piano"]},{"word":"Calendar","hints":["Dates","Months","Wall","Reminders"]},{"word":"Kite","hints":["String","Wind","Tree","Ben Franklin"]},{"word":"Trampoline","hints":["Bounce","Backyard","Flip","Springs"]},{"word":"Rubber Duck","hints":["Bath","Yellow","Squeak","Floating"]},{"word":"Paperclip","hints":["Office","Bend","Wire","Lock Pick"]},{"word":"Flashlight","hints":["Batteries","Dark","Phone","Blackout"]},{"word":"Suitcase","hints":["Wheels","Packing","Carousel","Overweight"]},{"word":"Piggy Bank","hints":["Coins","Savings","Smash","Slot"]},{"word":"Vacuum","hints":["Roomba","Carpet","Loud","Dust"]},{"word":"Hourglass","hints":["Sand","Time","Flip","Shape"]},{"word":"Sandcastle","hints":["Bucket","Moat","Tide","Shovel"]},{"word":"Rainbow","hints":["Colors","Gold","Storm","Double"]}]}]}</script>
+<script>
+/* ---------- Word bank ---------- */
+// BUILTIN_BANK is a copy of words.json baked into this page by tools/embed_words.py, so the game
+// works offline. At startup the page also downloads words.json and switches to it if it is newer.
+const BUILTIN_BANK = JSON.parse(document.getElementById("builtin-words").textContent);
+const WORD_SOURCES = ["words.json"]; // add the published raw words.json URL here once it exists
+let BANK = null, CATEGORIES = [], CAT = {};
+function validBank(b){return !!(b&&Array.isArray(b.categories)&&b.categories.length&&
+  b.categories.every(c=>c.id&&c.name&&Array.isArray(c.words)&&c.words.every(w=>w.word&&Array.isArray(w.hints)&&w.hints.length)))}
+function useBank(b){BANK=b;CATEGORIES=b.categories;CAT=Object.fromEntries(CATEGORIES.map(c=>[c.id,c]))}
+const DEFAULT_CATS=["trends","athletes","music","screen","famous","brands"];
+const AV_COLORS=["#edc641","#ffc426","#f8e886","#e8c980","#d9b04a","#f2d36b"];
+
+/* ---------- State ---------- */
+const store={get(k,d){try{const v=localStorage.getItem("vktryimp."+k);return v==null?d:JSON.parse(v)}catch(e){return d}},
+             set(k,v){try{localStorage.setItem("vktryimp."+k,JSON.stringify(v))}catch(e){}}};
+{ // newest valid copy: downloaded earlier (cached) or the one baked into the page
+  const cached=store.get("bank",null);
+  useBank(validBank(cached)&&(cached.updated||"")>(BUILTIN_BANK.updated||"")?cached:BUILTIN_BANK);
+}
+const S={
+  players:store.get("players",["Jordan","Mike","Nick","Holly","Drew"]),
+  imps:store.get("imps",1), randomImps:store.get("randomImps",false),
+  hints:store.get("hints",true), catHint:store.get("catHint",false), timer:store.get("timer",false), mins:store.get("mins",5),
+  cats:store.get("cats",DEFAULT_CATS).filter(c=>CAT[c]), played:store.get("played",[]),
+  scores:store.get("scores",{}), rounds:store.get("rounds",0),
+};
+if(!S.cats.length)S.cats=[...DEFAULT_CATS];
+function save(){for(const k of ["players","imps","randomImps","hints","catHint","timer","mins","cats","played","scores","rounds"])store.set(k,S[k])}
+let G=null; // current game
+
+const $=s=>document.querySelector(s);
+const maxImps=()=>Math.max(1,Math.floor((S.players.length-1)/2));
+function clampImps(){if(S.imps>maxImps())S.imps=maxImps();if(S.imps<1)S.imps=1}
+
+/* ---------- Navigation ---------- */
+let stack=["home"];
+function show(id){document.querySelectorAll(".screen").forEach(s=>s.classList.toggle("active",s.id==="s-"+id))}
+function go(id){stack.push(id);render(id);show(id)}
+function back(){if(stack.length>1)stack.pop();const id=stack[stack.length-1];render(id);show(id)}
+function reset(id){stack=[id];render(id);show(id)}
+document.addEventListener("click",e=>{
+  const g=e.target.closest("[data-go]");if(g)go(g.dataset.go);
+  if(e.target.closest("[data-back]"))back();
+  if(e.target.closest("[data-help]"))$("#help").classList.add("open");
+  if(e.target.closest("[data-closehelp]")||e.target.id==="help")$("#help").classList.remove("open");
+});
+function toast(t){const el=$("#toast");el.textContent=t;el.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove("show"),1800)}
+const esc=s=>s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+function render(id){
+  clampImps();
+  if(id==="home"){
+    $("#v-players").textContent=S.players.length;
+    $("#v-imps").textContent=S.randomImps?"Random":S.imps;
+    $("#v-cats").textContent=S.cats.length===CATEGORIES.length?"All":S.cats.map(c=>CAT[c].name).join(", ");
+    $("#t-hints").classList.toggle("on",S.hints);
+    $("#t-cathint").classList.toggle("on",S.catHint);
+    $("#t-timer").classList.toggle("on",S.timer);
+    $("#timer-row").style.display=S.timer?"flex":"none";
+    $("#v-mins").textContent=S.mins+" min";
+    const ranked=standings();
+    $("#v-score").textContent=S.rounds&&ranked[0].pts>0?ranked[0].name+" leads":"No rounds yet";
+    $("#start").disabled=S.players.length<3||!S.cats.length;
+  }
+  if(id==="scores"){
+    $("#v-rounds").textContent=S.rounds+(S.rounds===1?" round":" rounds");
+    drawBoard($("#board2"));
+  }
+  if(id==="players"){
+    $("#v-pcount").textContent=S.players.length+"/20";
+    $("#plist").innerHTML=S.players.map((p,i)=>`<div class="prow">
+      <div class="avatar" style="background:${AV_COLORS[i%AV_COLORS.length]}">${esc(p[0].toUpperCase())}</div>
+      <div class="name">${esc(p)}</div>
+      <button data-up="${i}" aria-label="Move up" ${i?"":"style='visibility:hidden'"}><svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg></button>
+      <button data-del="${i}" aria-label="Remove"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>`).join("")
+      ||`<div class="prow"><div class="name" style="color:var(--muted)">Add at least 3 players</div></div>`;
+  }
+  if(id==="imposters"){
+    $("#t-random").classList.toggle("on",S.randomImps);
+    const m=maxImps();
+    $("#implist").innerHTML=[1,2,3,4,5,6].map(n=>`<button class="opt ${!S.randomImps&&S.imps===n?"sel":""}" data-imp="${n}" ${n>m||S.randomImps?"disabled":""}>
+      <span class="num">${n}</span><span class="lbl">${n} Imposter${n>1?"s":""}</span><span class="check">✓</span></button>`).join("");
+    $("#imp-note").textContent=S.randomImps
+      ?`Each round picks between 1 and ${m} imposter${m>1?"s":""} at random, so nobody knows how many to hunt for.`
+      :`With ${S.players.length} players you can have up to ${m} imposter${m>1?"s":""}. Add players to unlock more.`;
+  }
+  if(id==="categories"){
+    $("#v-catcount").textContent=S.cats.length+" selected";
+    $("#cat-toggle").textContent=S.cats.length===CATEGORIES.length?"Deselect all":"Select all";
+    $("#catgrid").innerHTML=CATEGORIES.map(c=>`<button class="cat ${S.cats.includes(c.id)?"sel":""}" data-cat="${c.id}">
+      <span class="tick">${S.cats.includes(c.id)?"✓":""}</span><span class="emo">${c.emo}</span>
+      <span class="cn">${c.name}</span><span class="cd">${c.desc} · ${c.words.length} words</span></button>`).join("");
+  }
+}
+
+/* ---------- Settings handlers ---------- */
+$("#t-hints").onclick=()=>{S.hints=!S.hints;save();render("home")};
+$("#t-cathint").onclick=()=>{S.catHint=!S.catHint;save();render("home")};
+$("#t-timer").onclick=()=>{S.timer=!S.timer;save();render("home")};
+$("#tm-minus").onclick=()=>{S.mins=Math.max(1,S.mins-1);save();render("home")};
+$("#tm-plus").onclick=()=>{S.mins=Math.min(20,S.mins+1);save();render("home")};
+$("#t-random").onclick=()=>{S.randomImps=!S.randomImps;save();render("imposters")};
+$("#implist").onclick=e=>{const b=e.target.closest("[data-imp]");if(!b||b.disabled)return;S.imps=+b.dataset.imp;save();render("imposters")};
+$("#plist").onclick=e=>{
+  const d=e.target.closest("[data-del]"),u=e.target.closest("[data-up]");
+  if(d){S.players.splice(+d.dataset.del,1)}
+  else if(u){const i=+u.dataset.up;[S.players[i-1],S.players[i]]=[S.players[i],S.players[i-1]]}
+  else return;
+  save();render("players");
+};
+$("#addform").onsubmit=e=>{
+  e.preventDefault();const inp=$("#newname");const n=inp.value.trim().replace(/\s+/g," ");
+  if(!n)return;
+  if(S.players.length>=20)return toast("20 players max");
+  if(S.players.some(p=>p.toLowerCase()===n.toLowerCase()))return toast("That name's taken");
+  S.players.push(n);inp.value="";save();render("players");
+};
+$("#catgrid").onclick=e=>{const b=e.target.closest("[data-cat]");if(!b)return;const id=b.dataset.cat;
+  S.cats=S.cats.includes(id)?S.cats.filter(c=>c!==id):[...S.cats,id];save();render("categories")};
+$("#cat-toggle").onclick=()=>{S.cats=S.cats.length===CATEGORIES.length?[]:CATEGORIES.map(c=>c.id);save();render("categories")};
+
+/* ---------- Game ---------- */
+const rand=n=>Math.floor(Math.random()*n);
+const joinNames=n=>n.length<2?n.join(""):n.slice(0,-1).join(", ")+" & "+n.at(-1);
+function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=rand(i+1);[a[i],a[j]]=[a[j],a[i]]}return a}
+
+function newGame(){
+  if(S.players.length<3)return toast("Add at least 3 players");
+  if(!S.cats.length)return toast("Pick a category");
+  clampImps();
+  const pool=S.cats.filter(c=>CAT[c]).flatMap(c=>CAT[c].words.map(w=>({w:w.word,hints:w.hints,cat:CAT[c].name,added:w.added||""})));
+  const key=p=>p.w.toLowerCase();
+  const played=new Set(S.played);
+  let fresh=pool.filter(p=>!played.has(key(p)));
+  if(!fresh.length){ // everything in these categories has been played: start them over
+    const inPool=new Set(pool.map(key));S.played=S.played.filter(k=>!inPool.has(k));fresh=pool}
+  // words added in the last two weeks (new trends) come up about half the time until played
+  const cutoff=new Date(Date.now()-14*864e5).toISOString().slice(0,10);
+  const newest=fresh.filter(p=>p.added>=cutoff);
+  const from=newest.length&&Math.random()<.5?newest:fresh;
+  const pick=from[rand(from.length)];
+  S.played=[...S.played,key(pick)].slice(-5000);
+  const count=S.randomImps?1+rand(maxImps()):S.imps;
+  const imps=shuffle(S.players.map((_,i)=>i)).slice(0,count).sort((a,b)=>a-b);
+  const hints=shuffle(pick.hints); // each imposter gets a different hint while there are enough
+  const impHints=Object.fromEntries(imps.map((p,k)=>[p,hints[k%hints.length]]));
+  G={word:pick.w,cat:pick.cat,imps,impHints,turn:0,revealed:false,timerId:null};
+  save();
+  reset("reveal");dealCard();
+}
+
+function dealCard(){
+  const i=G.turn,name=S.players[i],isImp=G.imps.includes(i);
+  G.revealed=false;
+  $("#pname").textContent=name;
+  const mates=G.imps.filter(k=>k!==i).map(k=>S.players[k]);
+  // The role stays off the page until this player starts dragging their card, so it can't
+  // show while the card slides in or while the phone is being passed.
+  const u=$("#under");
+  u.className="under concealed";u.innerHTML="";
+  G.roleClass="under "+(isImp?"imp":"word");
+  // Crew: category + word. Imposter: red tag, the hint as the big line (or IMPOSTER when hints
+  // are off), then the category and teammates only when they apply.
+  const extra=(S.catHint?`<div class="k">${esc(G.cat)}</div>`:"")+
+    (mates.length?`<div class="mates">with <b>${esc(joinNames(mates))}</b></div>`:"");
+  G.roleHtml=`<div class="role">`+(isImp
+    ?(S.hints?`<div class="pill">Imposter</div><div class="w">${esc(G.impHints[i])}</div>`
+             :`<div class="w red">Imposter</div>`)+extra
+    :`<div class="k">${esc(G.cat)}</div><div class="w">${esc(G.word)}</div>`)+`</div>`;
+  $("#next").disabled=true;
+  $("#next").textContent=i===S.players.length-1?"Start Round":"Next Player";
+  $("#revmsg").textContent="Drag your card up to see your word. Keep the screen hidden from everyone else.";
+  $("#progress").innerHTML=S.players.map((_,k)=>`<i class="${k<i?"done":k===i?"now":""}"></i>`).join("");
+  const c=$("#card");c.classList.remove("spring");c.style.transform="translateY(110%)";
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{c.classList.add("spring");c.style.transform="translateY(0)"}));
+}
+
+/* Drag-to-reveal */
+(function(){
+  const c=$("#card");let y0=null,dy=0;
+  c.addEventListener("pointerdown",e=>{
+    const u=$("#under");if(G&&u.classList.contains("concealed")){u.innerHTML=G.roleHtml;u.className=G.roleClass}
+    y0=e.clientY;dy=0;c.classList.remove("spring");c.setPointerCapture(e.pointerId)});
+  c.addEventListener("pointermove",e=>{if(y0==null)return;const h=c.offsetHeight;
+    dy=Math.max(-h*0.68,Math.min(0,e.clientY-y0));
+    if(e.clientY-y0>0)dy=(e.clientY-y0)*0.15; // small resistance downward
+    c.style.transform=`translateY(${dy}px)`;
+    if(-dy>h*0.4&&!G.revealed){G.revealed=true;if(navigator.vibrate)navigator.vibrate(15)}});
+  const end=()=>{if(y0==null)return;y0=null;c.classList.add("spring");c.style.transform="translateY(0)";
+    if(G&&G.revealed){$("#next").disabled=false;$("#revmsg").textContent=G.turn===S.players.length-1?"Everyone's seen their card. Time to talk.":"Pass the device to "+S.players[G.turn+1]+"."}};
+  c.addEventListener("pointerup",end);c.addEventListener("pointercancel",end);
+})();
+
+$("#next").onclick=()=>{
+  if(G.turn<S.players.length-1){G.turn++;dealCard()}
+  else startRound();
+};
+
+function startRound(){
+  $("#starter").textContent=S.players[rand(S.players.length)];
+  reset("play");
+  clearInterval(G.timerId);
+  if(S.timer){
+    let left=S.mins*60;const t=$("#timer");t.style.display="block";
+    const tick=()=>{t.textContent=Math.floor(left/60)+":"+String(left%60).padStart(2,"0");t.classList.toggle("low",left<=30);
+      if(left<=0){clearInterval(G.timerId);$("#playnote").textContent="Time's up. Vote now, then reveal.";if(navigator.vibrate)navigator.vibrate([200,100,200])}
+      left--};
+    tick();G.timerId=setInterval(tick,1000);
+    $("#playnote").textContent="Go round the circle, one word each. Vote before the clock hits zero.";
+  }else{
+    $("#timer").style.display="none";
+    $("#playnote").textContent="No timer this game. Go round the circle, one word each, and tap reveal once you've voted.";
+  }
+}
+
+$("#reveal").onclick=()=>{
+  clearInterval(G.timerId);
+  const names=G.imps.map(i=>S.players[i]);
+  const list=joinNames(names);
+  $("#resulttxt").innerHTML=names.length===1
+    ?`The imposter was <span style="color:var(--gold)">${esc(list)}</span>`
+    :`The imposters were <span style="color:var(--gold)">${esc(list)}</span>`;
+  $("#resultword").textContent=G.word;
+  $("#resultcat").textContent="Category: "+G.cat; // imposters' hints stay private
+  G.outcome={};G.scored=false;
+  $("#scorecard").style.display="block";$("#board").style.display="none";
+  drawScorecard();
+  reset("result");
+};
+/* ---------- Scoring ---------- */
+const POINTS={escaped:1,caught:1,guessed:1};
+// Points for one round. outcome[playerIndex] = {caught:bool, guessed:bool} for each imposter.
+function roundPoints(players,imps,outcome){
+  const d=Object.fromEntries(players.map(p=>[p,0]));
+  for(const i of imps){
+    const o=outcome[i]||{};
+    if(o.caught)players.forEach((p,k)=>{if(!imps.includes(k))d[p]+=POINTS.caught});
+    else d[players[i]]+=POINTS.escaped;
+    if(o.guessed)d[players[i]]+=POINTS.guessed; // separate from being caught or not
+  }
+  return d;
+}
+function standings(){
+  return S.players.map(n=>({name:n,pts:S.scores[n]||0})).sort((a,b)=>b.pts-a.pts||a.name.localeCompare(b.name));
+}
+function drawBoard(el,delta){
+  const rows=standings();const top=rows.length?rows[0].pts:0;
+  el.innerHTML=rows.map((r,k)=>`<div class="brow ${r.pts===top&&top>0?"lead":""}"><span class="rk">${k+1}</span>
+    <span class="nm">${esc(r.name)}</span><span class="dl">${delta&&delta[r.name]?"+"+delta[r.name]:""}</span><span class="pt">${r.pts}</span></div>`).join("");
+}
+function drawScorecard(){
+  const rows=G.imps.map(i=>{const o=G.outcome[i]||{};return `<div class="sc-row"><span class="nm">${esc(S.players[i])}</span>
+    <div class="seg"><button data-sc="${i}" data-v="caught" class="${o.caught===true?"on":""}">Caught</button><button data-sc="${i}" data-v="escaped" class="${o.caught===false?"on":""}">Got away</button></div>
+    <button class="chip ${o.guessed?"on":""}" data-guess="${i}">Guessed word</button></div>`}).join("");
+  $("#sc-rows").innerHTML=rows;
+  $("#sc-save").disabled=!G.imps.every(i=>G.outcome[i]&&typeof G.outcome[i].caught==="boolean");
+}
+$("#sc-rows").onclick=e=>{
+  const b=e.target.closest("[data-sc]"),g=e.target.closest("[data-guess]");
+  if(b){const i=+b.dataset.sc;G.outcome[i]={...G.outcome[i],caught:b.dataset.v==="caught"}}
+  else if(g){const i=+g.dataset.guess;G.outcome[i]={...G.outcome[i],guessed:!(G.outcome[i]||{}).guessed}}
+  else return;
+  drawScorecard();
+};
+$("#sc-save").onclick=()=>{
+  if(G.scored)return;
+  const d=roundPoints(S.players,G.imps,G.outcome);
+  for(const [n,v] of Object.entries(d))S.scores[n]=(S.scores[n]||0)+v;
+  S.rounds++;G.scored=true;save();
+  $("#scorecard").style.display="none";
+  const b=$("#board");b.style.display="block";drawBoard(b,d);
+};
+$("#sc-reset").onclick=async()=>{if(await ask("Reset everyone's score to 0?","Reset")){S.scores={};S.rounds=0;save();render("scores")}};
+
+// In-page confirm sheet. The browser's built-in confirm dialog is skipped (returns false at once) in some
+// phone web views and embedded browsers, which made the close button do nothing.
+function ask(message,yesLabel){
+  return new Promise(done=>{
+    const m=$("#ask");$("#ask-msg").textContent=message;$("#ask-yes").textContent=yesLabel;
+    const close=v=>{m.classList.remove("open");m.onclick=null;done(v)};
+    m.onclick=e=>{if(e.target.id==="ask-yes")close(true);else if(e.target.id==="ask-no"||e.target===m)close(false)};
+    m.classList.add("open");
+  });
+}
+async function quit(){if(await ask("End this game?","End game")){if(G)clearInterval(G.timerId);G=null;reset("home")}}
+$("#quit").onclick=quit;$("#quit2").onclick=quit;
+$("#start").onclick=newGame;
+$("#again").onclick=newGame;
+$("#home").onclick=()=>{G=null;reset("home")};
+
+async function refreshBank(){
+  for(const url of WORD_SOURCES){
+    let b;
+    try{const r=await fetch(url,{cache:"no-store"});if(!r.ok){console.warn("Word list",url,"returned",r.status);continue}b=await r.json()}
+    catch(e){console.warn("Couldn't download the word list from",url,e);continue}
+    if(!validBank(b)){console.warn("Ignoring malformed word list from",url);continue}
+    if((b.updated||"")>(BANK.updated||"")){
+      useBank(b);store.set("bank",b);
+      S.cats=S.cats.filter(c=>CAT[c]);if(!S.cats.length)S.cats=DEFAULT_CATS.filter(c=>CAT[c]);save();
+      const cur=stack[stack.length-1];if(cur==="home"||cur==="categories")render(cur);
+    }
+    return;
+  }
+}
+
+render("home");
+refreshBank();
+// Offline support and "Add to Home Screen" (needs https or localhost)
+if("serviceWorker" in navigator&&location.protocol!=="file:")
+  navigator.serviceWorker.register("sw.js").catch(e=>console.warn("Offline mode unavailable:",e));
+</script>
+</body>
+</html>

@@ -1,0 +1,5821 @@
+{
+ "updated": "2026-11-12T00:00:00Z",
+ "categories": [
+  {
+   "id": "trends",
+   "emo": "📈",
+   "name": "Internet Trends",
+   "desc": "Memes, slang and whatever your feed won't stop showing you.",
+   "words": [
+    {
+     "word": "Rizz",
+     "hints": [
+      "Charm",
+      "Pickup Line",
+      "Unspoken",
+      "Smooth"
+     ]
+    },
+    {
+     "word": "Brain Rot",
+     "hints": [
+      "Scrolling",
+      "Mush",
+      "Gen Alpha",
+      "Phone"
+     ]
+    },
+    {
+     "word": "Labubu",
+     "hints": [
+      "Keychain",
+      "Teeth",
+      "Blind Box",
+      "Resale"
+     ]
+    },
+    {
+     "word": "Dubai Chocolate",
+     "hints": [
+      "Pistachio",
+      "Crunchy",
+      "Kataifi",
+      "Sold Out"
+     ]
+    },
+    {
+     "word": "Stanley Cup Tumbler",
+     "hints": [
+      "Hydrate",
+      "Straw",
+      "Car Fire",
+      "Target Line"
+     ]
+    },
+    {
+     "word": "Aura Points",
+     "hints": [
+      "Vibes",
+      "Minus",
+      "Farming",
+      "Cool"
+     ]
+    },
+    {
+     "word": "6-7",
+     "hints": [
+      "Hands",
+      "Juggle",
+      "Classroom",
+      "Teachers"
+     ]
+    },
+    {
+     "word": "Delulu",
+     "hints": [
+      "Dreaming",
+      "Manifest",
+      "Crush",
+      "Fantasy"
+     ]
+    },
+    {
+     "word": "Main Character",
+     "hints": [
+      "Spotlight",
+      "Soundtrack",
+      "Plot",
+      "Romanticize"
+     ]
+    },
+    {
+     "word": "NPC",
+     "hints": [
+      "Background",
+      "Ice Cream",
+      "Scripted",
+      "Extras"
+     ]
+    },
+    {
+     "word": "Mewing",
+     "hints": [
+      "Jawline",
+      "Tongue",
+      "Shush",
+      "Looksmax"
+     ]
+    },
+    {
+     "word": "Girl Dinner",
+     "hints": [
+      "Snacks",
+      "Cheese",
+      "Plate",
+      "Grazing"
+     ]
+    },
+    {
+     "word": "Roman Empire",
+     "hints": [
+      "Thinking",
+      "Daily",
+      "Gladiator",
+      "Men"
+     ]
+    },
+    {
+     "word": "Skibidi Toilet",
+     "hints": [
+      "Kids",
+      "Heads",
+      "Cameraman",
+      "Plunger"
+     ]
+    },
+    {
+     "word": "Wordle",
+     "hints": [
+      "Green",
+      "Streak",
+      "Five Letters",
+      "Yellow"
+     ]
+    },
+    {
+     "word": "Ice Bucket Challenge",
+     "hints": [
+      "Viral",
+      "Nominate",
+      "Charity",
+      "2014"
+     ]
+    },
+    {
+     "word": "Glazing",
+     "hints": [
+      "Compliment",
+      "Hype",
+      "Donut",
+      "Fanboy"
+     ]
+    },
+    {
+     "word": "Cold Plunge",
+     "hints": [
+      "Brave",
+      "Breathing",
+      "Tub",
+      "Podcast"
+     ]
+    },
+    {
+     "word": "Unboxing",
+     "hints": [
+      "Package",
+      "Reveal",
+      "YouTube",
+      "Tape"
+     ]
+    },
+    {
+     "word": "Quiet Quitting",
+     "hints": [
+      "Desk",
+      "Bare Minimum",
+      "Clock Out",
+      "Boss"
+     ]
+    },
+    {
+     "word": "Sigma",
+     "hints": [
+      "Lone",
+      "Grindset",
+      "Wolf",
+      "Stare"
+     ]
+    },
+    {
+     "word": "Pickleball",
+     "hints": [
+      "Paddle",
+      "Retirees",
+      "Kitchen",
+      "Dink"
+     ]
+    },
+    {
+     "word": "Italian Brainrot",
+     "hints": [
+      "Shark",
+      "Ballerina",
+      "Crocodile",
+      "AI"
+     ]
+    },
+    {
+     "word": "Gym Bro",
+     "hints": [
+      "Pump",
+      "Protein",
+      "Mirror",
+      "Tank Top"
+     ]
+    },
+    {
+     "word": "Chill Guy",
+     "hints": [
+      "Sweater",
+      "Pockets",
+      "Relaxed",
+      "Dog"
+     ]
+    },
+    {
+     "word": "Moo Deng",
+     "hints": [
+      "Zoo",
+      "Thailand",
+      "Bitey",
+      "Baby"
+     ]
+    },
+    {
+     "word": "Demure",
+     "hints": [
+      "Mindful",
+      "Classy",
+      "Modest",
+      "Workwear"
+     ]
+    },
+    {
+     "word": "Brat Summer",
+     "hints": [
+      "Lime",
+      "Charli",
+      "Messy",
+      "Party"
+     ]
+    },
+    {
+     "word": "Grimace Shake",
+     "hints": [
+      "Purple",
+      "Birthday",
+      "Spooky",
+      "Blob"
+     ]
+    },
+    {
+     "word": "Fanum Tax",
+     "hints": [
+      "Snack",
+      "Stolen",
+      "Bite",
+      "Streamer"
+     ]
+    },
+    {
+     "word": "Side Eye",
+     "hints": [
+      "Judging",
+      "Glance",
+      "Suspicious",
+      "Shade"
+     ]
+    },
+    {
+     "word": "Situationship",
+     "hints": [
+      "Undefined",
+      "Mixed Signals",
+      "Texting",
+      "Label"
+     ]
+    },
+    {
+     "word": "Ghosting",
+     "hints": [
+      "Disappear",
+      "Left On Read",
+      "Silence",
+      "Halloween"
+     ]
+    },
+    {
+     "word": "Touch Grass",
+     "hints": [
+      "Outside",
+      "Offline",
+      "Lawn",
+      "Sunlight"
+     ]
+    },
+    {
+     "word": "Bed Rotting",
+     "hints": [
+      "Pillow",
+      "Sunday",
+      "Blanket",
+      "Recharge"
+     ]
+    },
+    {
+     "word": "Mukbang",
+     "hints": [
+      "Eating",
+      "Camera",
+      "Noodles",
+      "Korea"
+     ]
+    },
+    {
+     "word": "ASMR",
+     "hints": [
+      "Whisper",
+      "Tingles",
+      "Microphone",
+      "Tapping"
+     ]
+    },
+    {
+     "word": "Rickroll",
+     "hints": [
+      "Link",
+      "Trap",
+      "Eighties",
+      "Promise"
+     ]
+    },
+    {
+     "word": "Harlem Shake",
+     "hints": [
+      "Helmet",
+      "Drop",
+      "Freeze",
+      "Chaos"
+     ]
+    },
+    {
+     "word": "Mannequin Challenge",
+     "hints": [
+      "Still",
+      "Pose",
+      "Song",
+      "Store Window"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "athletes",
+   "emo": "🐐",
+   "name": "Athletes",
+   "desc": "The names everyone argues about at the bar.",
+   "words": [
+    {
+     "word": "LeBron James",
+     "hints": [
+      "Akron",
+      "Taco Tuesday",
+      "Bronny",
+      "Headband"
+     ]
+    },
+    {
+     "word": "Serena Williams",
+     "hints": [
+      "Sisters",
+      "Catsuit",
+      "Reddit",
+      "Crip Walk"
+     ]
+    },
+    {
+     "word": "Tom Brady",
+     "hints": [
+      "Seven",
+      "Roast",
+      "Gisele",
+      "Avocado"
+     ]
+    },
+    {
+     "word": "Lionel Messi",
+     "hints": [
+      "Miami",
+      "Barcelona",
+      "Pink Jersey",
+      "Left Foot"
+     ]
+    },
+    {
+     "word": "Cristiano Ronaldo",
+     "hints": [
+      "Celebration",
+      "Saudi",
+      "Abs",
+      "Madeira"
+     ]
+    },
+    {
+     "word": "Usain Bolt",
+     "hints": [
+      "Lightning",
+      "Jamaica",
+      "Chicken Nuggets",
+      "Gold"
+     ]
+    },
+    {
+     "word": "Simone Biles",
+     "hints": [
+      "Twist",
+      "Leotard",
+      "Beam",
+      "Chicago"
+     ]
+    },
+    {
+     "word": "Michael Jordan",
+     "hints": [
+      "Shrug",
+      "Tongue",
+      "Baseball",
+      "Crying"
+     ]
+    },
+    {
+     "word": "Tiger Woods",
+     "hints": [
+      "Red",
+      "Augusta",
+      "Earl",
+      "Fist Pump"
+     ]
+    },
+    {
+     "word": "Caitlin Clark",
+     "hints": [
+      "Logo",
+      "Iowa",
+      "Fever",
+      "Ponytail"
+     ]
+    },
+    {
+     "word": "Shohei Ohtani",
+     "hints": [
+      "Both",
+      "Dodgers",
+      "Decoy",
+      "Interpreter"
+     ]
+    },
+    {
+     "word": "Patrick Mahomes",
+     "hints": [
+      "Ketchup",
+      "Voice",
+      "Brittany",
+      "Sidearm"
+     ]
+    },
+    {
+     "word": "Stephen Curry",
+     "hints": [
+      "Mouthguard",
+      "Night Night",
+      "Davidson",
+      "Splash"
+     ]
+    },
+    {
+     "word": "Travis Kelce",
+     "hints": [
+      "Podcast",
+      "Brother",
+      "Engagement",
+      "Cincinnati"
+     ]
+    },
+    {
+     "word": "Kobe Bryant",
+     "hints": [
+      "Mamba",
+      "Fadeaway",
+      "Eighty-One",
+      "Italy"
+     ]
+    },
+    {
+     "word": "Muhammad Ali",
+     "hints": [
+      "Butterfly",
+      "Louisville",
+      "Rope-A-Dope",
+      "Rumble"
+     ]
+    },
+    {
+     "word": "Wayne Gretzky",
+     "hints": [
+      "Ninety-Nine",
+      "Edmonton",
+      "Kings",
+      "Assists"
+     ]
+    },
+    {
+     "word": "Michael Phelps",
+     "hints": [
+      "Medals",
+      "Wingspan",
+      "Baltimore",
+      "Cupping"
+     ]
+    },
+    {
+     "word": "Victor Wembanyama",
+     "hints": [
+      "Tall",
+      "France",
+      "Alien",
+      "Spurs"
+     ]
+    },
+    {
+     "word": "Coco Gauff",
+     "hints": [
+      "Teenager",
+      "Atlanta",
+      "Paris",
+      "Flag Bearer"
+     ]
+    },
+    {
+     "word": "Aaron Judge",
+     "hints": [
+      "Rise",
+      "Captain",
+      "Sixty-Two",
+      "Bronx"
+     ]
+    },
+    {
+     "word": "Shaquille O'Neal",
+     "hints": [
+      "Commercials",
+      "Free Throws",
+      "Diesel",
+      "Big"
+     ]
+    },
+    {
+     "word": "Deion Sanders",
+     "hints": [
+      "Prime",
+      "Colorado",
+      "Shades",
+      "Highstep"
+     ]
+    },
+    {
+     "word": "Saquon Barkley",
+     "hints": [
+      "Reverse",
+      "Hurdle",
+      "Eagles",
+      "Giants"
+     ]
+    },
+    {
+     "word": "Giannis Antetokounmpo",
+     "hints": [
+      "Greek",
+      "Freak",
+      "Milwaukee",
+      "Brothers"
+     ]
+    },
+    {
+     "word": "Nikola Jokic",
+     "hints": [
+      "Horses",
+      "Serbia",
+      "Denver",
+      "Triple-Double"
+     ]
+    },
+    {
+     "word": "Luka Doncic",
+     "hints": [
+      "Slovenia",
+      "Trade",
+      "Lakers",
+      "Stepback"
+     ]
+    },
+    {
+     "word": "Lamar Jackson",
+     "hints": [
+      "Ravens",
+      "Heisman",
+      "Juke",
+      "Truzz"
+     ]
+    },
+    {
+     "word": "Josh Allen",
+     "hints": [
+      "Buffalo",
+      "Hailee",
+      "Wyoming",
+      "MVP"
+     ]
+    },
+    {
+     "word": "Connor McDavid",
+     "hints": [
+      "Oilers",
+      "Speed",
+      "Canada",
+      "Overtime"
+     ]
+    },
+    {
+     "word": "Sha'Carri Richardson",
+     "hints": [
+      "Nails",
+      "Wigs",
+      "Hundred",
+      "Dallas"
+     ]
+    },
+    {
+     "word": "Noah Lyles",
+     "hints": [
+      "Anime",
+      "Photo Finish",
+      "Cards",
+      "Florida"
+     ]
+    },
+    {
+     "word": "Erling Haaland",
+     "hints": [
+      "Robot",
+      "Norway",
+      "Meditation",
+      "City"
+     ]
+    },
+    {
+     "word": "Kylian Mbappé",
+     "hints": [
+      "Paris",
+      "Mask",
+      "Turtle",
+      "Madrid"
+     ]
+    },
+    {
+     "word": "Novak Djokovic",
+     "hints": [
+      "Gluten",
+      "Melbourne",
+      "Splits",
+      "Twenty-Four"
+     ]
+    },
+    {
+     "word": "Roger Federer",
+     "hints": [
+      "Swiss",
+      "Grass",
+      "Backhand",
+      "Rolex"
+     ]
+    },
+    {
+     "word": "Derek Jeter",
+     "hints": [
+      "Jump Throw",
+      "Gift Basket",
+      "Mr. November",
+      "Flip"
+     ]
+    },
+    {
+     "word": "Babe Ruth",
+     "hints": [
+      "Called Shot",
+      "Hot Dogs",
+      "Curse",
+      "Candy Bar"
+     ]
+    },
+    {
+     "word": "Peyton Manning",
+     "hints": [
+      "Omaha",
+      "Forehead",
+      "Colts",
+      "Brother"
+     ]
+    },
+    {
+     "word": "Angel Reese",
+     "hints": [
+      "Barbie",
+      "LSU",
+      "Rebounds",
+      "Sky"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "teams",
+   "emo": "🏟️",
+   "name": "Teams & Events",
+   "desc": "Franchises, rivalries and the biggest dates on the calendar.",
+   "words": [
+    {
+     "word": "Dallas Cowboys",
+     "hints": [
+      "Star",
+      "Cheerleaders",
+      "Jerry",
+      "Thanksgiving"
+     ]
+    },
+    {
+     "word": "Los Angeles Lakers",
+     "hints": [
+      "Purple",
+      "Showtime",
+      "Courtside",
+      "Hollywood"
+     ]
+    },
+    {
+     "word": "New York Yankees",
+     "hints": [
+      "Pinstripes",
+      "Bronx",
+      "Evil Empire",
+      "Twenty-Seven"
+     ]
+    },
+    {
+     "word": "Real Madrid",
+     "hints": [
+      "White",
+      "Champions",
+      "Bernabéu",
+      "Galácticos"
+     ]
+    },
+    {
+     "word": "Chicago Bulls",
+     "hints": [
+      "Horns",
+      "Last Dance",
+      "Windy",
+      "Benny"
+     ]
+    },
+    {
+     "word": "Golden State Warriors",
+     "hints": [
+      "Bridge",
+      "Splash",
+      "Dynasty",
+      "Oakland"
+     ]
+    },
+    {
+     "word": "Green Bay Packers",
+     "hints": [
+      "Cheese",
+      "Lambeau",
+      "Frozen",
+      "Owners"
+     ]
+    },
+    {
+     "word": "Manchester United",
+     "hints": [
+      "Devils",
+      "Old Trafford",
+      "Fergie",
+      "Red"
+     ]
+    },
+    {
+     "word": "Kansas City Chiefs",
+     "hints": [
+      "Arrowhead",
+      "Barbecue",
+      "Three-Peat",
+      "Fountains"
+     ]
+    },
+    {
+     "word": "Boston Red Sox",
+     "hints": [
+      "Monster",
+      "Curse",
+      "Sweet Caroline",
+      "Fenway"
+     ]
+    },
+    {
+     "word": "Harlem Globetrotters",
+     "hints": [
+      "Tricks",
+      "Whistle",
+      "Generals",
+      "Spinning"
+     ]
+    },
+    {
+     "word": "Duke Blue Devils",
+     "hints": [
+      "Cameron",
+      "Coach K",
+      "Flopping",
+      "Durham"
+     ]
+    },
+    {
+     "word": "Super Bowl",
+     "hints": [
+      "Commercials",
+      "Halftime",
+      "Wings",
+      "Squares"
+     ]
+    },
+    {
+     "word": "World Cup",
+     "hints": [
+      "Four Years",
+      "Trophy",
+      "Penalties",
+      "2026"
+     ]
+    },
+    {
+     "word": "March Madness",
+     "hints": [
+      "Bracket",
+      "Cinderella",
+      "Buzzer",
+      "Office Pool"
+     ]
+    },
+    {
+     "word": "Olympics",
+     "hints": [
+      "Rings",
+      "Torch",
+      "Podium",
+      "LA"
+     ]
+    },
+    {
+     "word": "Wimbledon",
+     "hints": [
+      "Strawberries",
+      "White",
+      "Grass",
+      "Royal Box"
+     ]
+    },
+    {
+     "word": "The Masters",
+     "hints": [
+      "Jacket",
+      "Azaleas",
+      "Pimento",
+      "Amen"
+     ]
+    },
+    {
+     "word": "Kentucky Derby",
+     "hints": [
+      "Hats",
+      "Juleps",
+      "Roses",
+      "Two Minutes"
+     ]
+    },
+    {
+     "word": "Daytona 500",
+     "hints": [
+      "Laps",
+      "Florida",
+      "Draft",
+      "Earnhardt"
+     ]
+    },
+    {
+     "word": "Stanley Cup",
+     "hints": [
+      "Ice",
+      "Playoff Beard",
+      "Engraved",
+      "Kiss"
+     ]
+    },
+    {
+     "word": "NBA Draft",
+     "hints": [
+      "Handshake",
+      "Suits",
+      "Green Room",
+      "Lottery"
+     ]
+    },
+    {
+     "word": "Ryder Cup",
+     "hints": [
+      "Europe",
+      "Chants",
+      "Captains",
+      "Bethpage"
+     ]
+    },
+    {
+     "word": "Little League World Series",
+     "hints": [
+      "Williamsport",
+      "Pin Trading",
+      "Sliding Hill",
+      "Twelve"
+     ]
+    },
+    {
+     "word": "Boston Celtics",
+     "hints": [
+      "Leprechaun",
+      "Parquet",
+      "Cigar",
+      "Bird"
+     ]
+    },
+    {
+     "word": "New England Patriots",
+     "hints": [
+      "Belichick",
+      "Hoodie",
+      "Foxborough",
+      "Deflated"
+     ]
+    },
+    {
+     "word": "Pittsburgh Steelers",
+     "hints": [
+      "Terrible Towel",
+      "Six Rings",
+      "Pierogies",
+      "Tomlin"
+     ]
+    },
+    {
+     "word": "Chicago Cubs",
+     "hints": [
+      "Ivy",
+      "Wrigley",
+      "Goat",
+      "2016"
+     ]
+    },
+    {
+     "word": "Los Angeles Dodgers",
+     "hints": [
+      "Blue",
+      "Ravine",
+      "Fernando",
+      "Back-to-Back"
+     ]
+    },
+    {
+     "word": "FC Barcelona",
+     "hints": [
+      "Tiki-Taka",
+      "Camp Nou",
+      "Catalonia",
+      "La Masia"
+     ]
+    },
+    {
+     "word": "Miami Heat",
+     "hints": [
+      "Big Three",
+      "Culture",
+      "Riley",
+      "Vice"
+     ]
+    },
+    {
+     "word": "Philadelphia Eagles",
+     "hints": [
+      "Tush Push",
+      "Cheesesteak",
+      "Underdog Masks",
+      "Batteries"
+     ]
+    },
+    {
+     "word": "New York Knicks",
+     "hints": [
+      "Spike Lee",
+      "Garden",
+      "Orange",
+      "Brunson"
+     ]
+    },
+    {
+     "word": "Tour de France",
+     "hints": [
+      "Yellow",
+      "Alps",
+      "Peloton",
+      "Three Weeks"
+     ]
+    },
+    {
+     "word": "Indianapolis 500",
+     "hints": [
+      "Milk",
+      "Brickyard",
+      "Memorial Day",
+      "Oval"
+     ]
+    },
+    {
+     "word": "Boston Marathon",
+     "hints": [
+      "Heartbreak Hill",
+      "Qualifying Time",
+      "April",
+      "Wellesley"
+     ]
+    },
+    {
+     "word": "WrestleMania",
+     "hints": [
+      "Undertaker",
+      "Chairs",
+      "Cena",
+      "Scripted"
+     ]
+    },
+    {
+     "word": "Monaco Grand Prix",
+     "hints": [
+      "Yachts",
+      "Tunnel",
+      "Casino",
+      "Hairpin"
+     ]
+    },
+    {
+     "word": "NBA All-Star Game",
+     "hints": [
+      "Dunk Contest",
+      "No Defense",
+      "Fan Vote",
+      "February"
+     ]
+    },
+    {
+     "word": "Home Run Derby",
+     "hints": [
+      "July",
+      "Batting Practice",
+      "Dad Pitching",
+      "Statcast"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "moments",
+   "emo": "⚡",
+   "name": "Sports Moments",
+   "desc": "The plays, calls and records people still argue about.",
+   "words": [
+    {
+     "word": "Miracle on Ice",
+     "hints": [
+      "USSR",
+      "Lake Placid",
+      "Do You Believe",
+      "College Kids"
+     ]
+    },
+    {
+     "word": "Helmet Catch",
+     "hints": [
+      "Tyree",
+      "Perfect Season",
+      "Eli",
+      "Scramble"
+     ]
+    },
+    {
+     "word": "Immaculate Reception",
+     "hints": [
+      "Franco",
+      "Pittsburgh",
+      "Deflection",
+      "Raiders"
+     ]
+    },
+    {
+     "word": "Hand of God",
+     "hints": [
+      "Maradona",
+      "Mexico City",
+      "England",
+      "Cheating"
+     ]
+    },
+    {
+     "word": "Flu Game",
+     "hints": [
+      "Utah",
+      "Pippen",
+      "Pizza",
+      "Dehydrated"
+     ]
+    },
+    {
+     "word": "Tuck Rule",
+     "hints": [
+      "Snow",
+      "Fumble",
+      "Oakland",
+      "Brady"
+     ]
+    },
+    {
+     "word": "Deflategate",
+     "hints": [
+      "PSI",
+      "Suspension",
+      "Needle",
+      "Ball Boy"
+     ]
+    },
+    {
+     "word": "Butt Fumble",
+     "hints": [
+      "Jets",
+      "Thanksgiving",
+      "Lineman",
+      "Sanchez"
+     ]
+    },
+    {
+     "word": "Philly Special",
+     "hints": [
+      "Trick Play",
+      "Foles",
+      "Tight End Pass",
+      "Minnesota"
+     ]
+    },
+    {
+     "word": "28-3 Comeback",
+     "hints": [
+      "Falcons",
+      "Overtime",
+      "Super Bowl LI",
+      "Lady Gaga"
+     ]
+    },
+    {
+     "word": "Ray Allen Corner Three",
+     "hints": [
+      "Rebound",
+      "Miami",
+      "Game Six",
+      "Ropes"
+     ]
+    },
+    {
+     "word": "The Block",
+     "hints": [
+      "Chase-Down",
+      "Iguodala",
+      "Cleveland",
+      "Game Seven"
+     ]
+    },
+    {
+     "word": "Brandi Chastain Celebration",
+     "hints": [
+      "Shirt Off",
+      "Penalty Kick",
+      "1999",
+      "Rose Bowl"
+     ]
+    },
+    {
+     "word": "Steve Bartman",
+     "hints": [
+      "Foul Ball",
+      "Headphones",
+      "Wrigley",
+      "2003"
+     ]
+    },
+    {
+     "word": "Bill Buckner Error",
+     "hints": [
+      "Between Legs",
+      "Mets",
+      "1986",
+      "Grounder"
+     ]
+    },
+    {
+     "word": "Mike Tyson Ear Bite",
+     "hints": [
+      "Holyfield",
+      "Rematch",
+      "Mouthpiece",
+      "Disqualified"
+     ]
+    },
+    {
+     "word": "Jake Paul vs Mike Tyson",
+     "hints": [
+      "Netflix",
+      "Buffering",
+      "Age Gap",
+      "YouTuber"
+     ]
+    },
+    {
+     "word": "Leicester City Title",
+     "hints": [
+      "5000-to-1",
+      "Foxes",
+      "Vardy",
+      "Underdog"
+     ]
+    },
+    {
+     "word": "Infield Fly Rule",
+     "hints": [
+      "Popup",
+      "Umpire",
+      "Runners",
+      "Automatic Out"
+     ]
+    },
+    {
+     "word": "Offside Rule",
+     "hints": [
+      "Flag",
+      "Linesman",
+      "VAR",
+      "Last Defender"
+     ]
+    },
+    {
+     "word": "Pitch Clock",
+     "hints": [
+      "Fifteen Seconds",
+      "Shorter Games",
+      "Violation",
+      "2023"
+     ]
+    },
+    {
+     "word": "The Shot",
+     "hints": [
+      "Ehlo",
+      "Buzzer",
+      "Fist Pump",
+      "1989"
+     ]
+    },
+    {
+     "word": "Ohtani's 50-50 Season",
+     "hints": [
+      "Stolen Bases",
+      "Miami",
+      "Dodgers",
+      "Six Hits"
+     ]
+    },
+    {
+     "word": "2022 World Cup Final",
+     "hints": [
+      "Qatar",
+      "Hat Trick",
+      "Penalties",
+      "Robe"
+     ]
+    },
+    {
+     "word": "Hail Mary",
+     "hints": [
+      "Desperation",
+      "Flutie",
+      "Last Second",
+      "End Zone"
+     ]
+    },
+    {
+     "word": "Lambeau Leap",
+     "hints": [
+      "Stands",
+      "Frozen Tundra",
+      "Touchdown",
+      "Cheeseheads"
+     ]
+    },
+    {
+     "word": "Bat Flip",
+     "hints": [
+      "Bautista",
+      "Swagger",
+      "Korea",
+      "Home Run"
+     ]
+    },
+    {
+     "word": "Rumble in the Jungle",
+     "hints": [
+      "Zaire",
+      "Foreman",
+      "Ropes",
+      "1974"
+     ]
+    },
+    {
+     "word": "Curse of the Bambino",
+     "hints": [
+      "Sold",
+      "86 Years",
+      "Fenway",
+      "2004"
+     ]
+    },
+    {
+     "word": "Tiger Slam",
+     "hints": [
+      "Four Majors",
+      "2001",
+      "Augusta",
+      "Consecutive"
+     ]
+    },
+    {
+     "word": "Perfect Game",
+     "hints": [
+      "Twenty-Seven",
+      "Mound",
+      "Galarraga",
+      "Nobody On"
+     ]
+    },
+    {
+     "word": "The Decision",
+     "hints": [
+      "South Beach",
+      "Talents",
+      "ESPN",
+      "Cleveland"
+     ]
+    },
+    {
+     "word": "Dream Team",
+     "hints": [
+      "Barcelona",
+      "1992",
+      "Magic",
+      "Laettner"
+     ]
+    },
+    {
+     "word": "OBJ One-Handed Catch",
+     "hints": [
+      "Three Fingers",
+      "Giants",
+      "Sunday Night",
+      "Backpedal"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "college",
+   "emo": "🎓",
+   "name": "College Sports",
+   "desc": "Saturdays, rivalries and schools that never stop talking about it.",
+   "words": [
+    {
+     "word": "Alabama",
+     "hints": [
+      "Roll",
+      "Elephant",
+      "Saban",
+      "Houndstooth"
+     ]
+    },
+    {
+     "word": "Ohio State",
+     "hints": [
+      "Brutus",
+      "Nuts",
+      "Columbus",
+      "Script"
+     ]
+    },
+    {
+     "word": "Michigan",
+     "hints": [
+      "Big House",
+      "Maize",
+      "Harbaugh",
+      "Sign Stealing"
+     ]
+    },
+    {
+     "word": "Notre Dame",
+     "hints": [
+      "Touchdown Jesus",
+      "Rudy",
+      "Golden Dome",
+      "NBC"
+     ]
+    },
+    {
+     "word": "Texas Longhorns",
+     "hints": [
+      "Bevo",
+      "Austin",
+      "Burnt Orange",
+      "McConaughey"
+     ]
+    },
+    {
+     "word": "Georgia Bulldogs",
+     "hints": [
+      "Uga",
+      "Hedges",
+      "Athens",
+      "Kirby"
+     ]
+    },
+    {
+     "word": "LSU",
+     "hints": [
+      "Baton Rouge",
+      "Night Games",
+      "Crawfish",
+      "Joe Burrow"
+     ]
+    },
+    {
+     "word": "USC",
+     "hints": [
+      "Horse",
+      "Fight On",
+      "Coliseum",
+      "Reggie"
+     ]
+    },
+    {
+     "word": "Oregon Ducks",
+     "hints": [
+      "Uniforms",
+      "Rain",
+      "Eugene",
+      "Track Town"
+     ]
+    },
+    {
+     "word": "Clemson",
+     "hints": [
+      "Rock",
+      "Dabo",
+      "Paw Prints",
+      "Upstate"
+     ]
+    },
+    {
+     "word": "UConn",
+     "hints": [
+      "Geno",
+      "Women's Hoops",
+      "Back-to-Back",
+      "Storrs"
+     ]
+    },
+    {
+     "word": "Kentucky Wildcats",
+     "hints": [
+      "Calipari",
+      "Bluegrass",
+      "One and Done",
+      "Rupp"
+     ]
+    },
+    {
+     "word": "North Carolina",
+     "hints": [
+      "Light Blue",
+      "Chapel Hill",
+      "Ram",
+      "Dean Smith"
+     ]
+    },
+    {
+     "word": "Gonzaga",
+     "hints": [
+      "Spokane",
+      "Mid-Major",
+      "Mark Few",
+      "Jesuit"
+     ]
+    },
+    {
+     "word": "Army vs Navy",
+     "hints": [
+      "Cadets",
+      "Midshipmen",
+      "December",
+      "Goat"
+     ]
+    },
+    {
+     "word": "Iron Bowl",
+     "hints": [
+      "Kick Six",
+      "Toomer's Corner",
+      "Year-Round",
+      "Birmingham"
+     ]
+    },
+    {
+     "word": "Red River Rivalry",
+     "hints": [
+      "State Fair",
+      "Dallas",
+      "Golden Hat",
+      "Big Tex"
+     ]
+    },
+    {
+     "word": "Rose Bowl",
+     "hints": [
+      "Pasadena",
+      "Parade",
+      "Granddaddy",
+      "January First"
+     ]
+    },
+    {
+     "word": "Sugar Bowl",
+     "hints": [
+      "New Orleans",
+      "Superdome",
+      "Beignets",
+      "Bourbon Street"
+     ]
+    },
+    {
+     "word": "College Football Playoff",
+     "hints": [
+      "Committee",
+      "Twelve Teams",
+      "Byes",
+      "Rankings"
+     ]
+    },
+    {
+     "word": "Heisman Trophy",
+     "hints": [
+      "Stiff Arm",
+      "Manhattan",
+      "Finalists",
+      "Bronze"
+     ]
+    },
+    {
+     "word": "College GameDay",
+     "hints": [
+      "Signs",
+      "Lee Corso",
+      "Headgear",
+      "Pat McAfee"
+     ]
+    },
+    {
+     "word": "NIL Deals",
+     "hints": [
+      "Endorsements",
+      "Collectives",
+      "Paychecks",
+      "Car Dealership"
+     ]
+    },
+    {
+     "word": "Transfer Portal",
+     "hints": [
+      "Free Agency",
+      "Window",
+      "Entering",
+      "Shopping"
+     ]
+    },
+    {
+     "word": "National Signing Day",
+     "hints": [
+      "Hats",
+      "Commitment",
+      "February",
+      "Fax"
+     ]
+    },
+    {
+     "word": "Court Storming",
+     "hints": [
+      "Fine",
+      "Upset",
+      "Students",
+      "Floor"
+     ]
+    },
+    {
+     "word": "Cinderella Run",
+     "hints": [
+      "Slipper",
+      "Fifteen Seed",
+      "Saint Peter's",
+      "Midnight"
+     ]
+    },
+    {
+     "word": "Final Four",
+     "hints": [
+      "Scissors",
+      "Dome",
+      "April",
+      "One Shining Moment"
+     ]
+    },
+    {
+     "word": "College World Series",
+     "hints": [
+      "Omaha",
+      "Aluminum",
+      "June",
+      "Steak"
+     ]
+    },
+    {
+     "word": "Tailgating",
+     "hints": [
+      "Grills",
+      "Cornhole",
+      "Parking Lot",
+      "Koozie"
+     ]
+    },
+    {
+     "word": "Marching Band",
+     "hints": [
+      "Drumline",
+      "Halftime",
+      "Tuba",
+      "Dotting the i"
+     ]
+    },
+    {
+     "word": "Mayo Bowl",
+     "hints": [
+      "Dumped",
+      "Charlotte",
+      "Jar",
+      "Coach Bath"
+     ]
+    },
+    {
+     "word": "Pop-Tarts Bowl",
+     "hints": [
+      "Edible Mascot",
+      "Toaster",
+      "Orlando",
+      "Strawberry"
+     ]
+    },
+    {
+     "word": "SEC",
+     "hints": [
+      "Means More",
+      "South",
+      "Finebaum",
+      "Saturday Night"
+     ]
+    },
+    {
+     "word": "Walk-On",
+     "hints": [
+      "Scholarship",
+      "Earned",
+      "Tryout",
+      "Practice Squad"
+     ]
+    },
+    {
+     "word": "Penn State",
+     "hints": [
+      "White Out",
+      "Happy Valley",
+      "Lion",
+      "Creamery"
+     ]
+    },
+    {
+     "word": "Florida Gators",
+     "hints": [
+      "Swamp",
+      "Chomp",
+      "Tebow",
+      "Gainesville"
+     ]
+    },
+    {
+     "word": "Miami Hurricanes",
+     "hints": [
+      "Turnover Chain",
+      "Swagger",
+      "Ibis",
+      "Coral Gables"
+     ]
+    },
+    {
+     "word": "Texas A&M",
+     "hints": [
+      "Twelfth Man",
+      "Yell Leaders",
+      "Reveille",
+      "Kyle Field"
+     ]
+    },
+    {
+     "word": "Colorado Buffaloes",
+     "hints": [
+      "Ralphie",
+      "Boulder",
+      "Two-Way",
+      "Altitude"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "music",
+   "emo": "🎤",
+   "name": "Music",
+   "desc": "Artists on every playlist and every arena tour.",
+   "words": [
+    {
+     "word": "Taylor Swift",
+     "hints": [
+      "Bracelets",
+      "Eras",
+      "Travis",
+      "Cats"
+     ]
+    },
+    {
+     "word": "Beyoncé",
+     "hints": [
+      "Texas",
+      "Lemonade",
+      "Jay-Z",
+      "Disco Ball"
+     ]
+    },
+    {
+     "word": "Drake",
+     "hints": [
+      "Owl",
+      "Toronto",
+      "Feud",
+      "Hotline"
+     ]
+    },
+    {
+     "word": "Kendrick Lamar",
+     "hints": [
+      "Compton",
+      "Pulitzer",
+      "Super Bowl",
+      "Mustard"
+     ]
+    },
+    {
+     "word": "Bad Bunny",
+     "hints": [
+      "Halftime",
+      "Puerto Rico",
+      "Wrestling",
+      "Reggaeton"
+     ]
+    },
+    {
+     "word": "Sabrina Carpenter",
+     "hints": [
+      "Short",
+      "Espresso",
+      "Bangs",
+      "Disney"
+     ]
+    },
+    {
+     "word": "Chappell Roan",
+     "hints": [
+      "Pink",
+      "Hot To Go",
+      "Drag",
+      "Midwest"
+     ]
+    },
+    {
+     "word": "Morgan Wallen",
+     "hints": [
+      "Country",
+      "Mullet",
+      "Tennessee",
+      "Last Night"
+     ]
+    },
+    {
+     "word": "Travis Scott",
+     "hints": [
+      "Astro",
+      "Cactus",
+      "Houston",
+      "Fast Food"
+     ]
+    },
+    {
+     "word": "Billie Eilish",
+     "hints": [
+      "Whisper",
+      "Brother",
+      "Green Hair",
+      "Bond"
+     ]
+    },
+    {
+     "word": "Ed Sheeran",
+     "hints": [
+      "Ginger",
+      "Loop Pedal",
+      "Symbols",
+      "Ipswich"
+     ]
+    },
+    {
+     "word": "Rihanna",
+     "hints": [
+      "Barbados",
+      "Umbrella",
+      "Makeup",
+      "A$AP"
+     ]
+    },
+    {
+     "word": "Eminem",
+     "hints": [
+      "Detroit",
+      "Spaghetti",
+      "8 Mile",
+      "Blonde"
+     ]
+    },
+    {
+     "word": "Post Malone",
+     "hints": [
+      "Tattoos",
+      "Beer Pong",
+      "Braids",
+      "Rockstar"
+     ]
+    },
+    {
+     "word": "The Weeknd",
+     "hints": [
+      "Night",
+      "Red Suit",
+      "Bandages",
+      "Abel"
+     ]
+    },
+    {
+     "word": "Coldplay",
+     "hints": [
+      "Kiss Cam",
+      "Yellow",
+      "Wristbands",
+      "British"
+     ]
+    },
+    {
+     "word": "Olivia Rodrigo",
+     "hints": [
+      "License",
+      "Purple",
+      "Guts",
+      "Driving"
+     ]
+    },
+    {
+     "word": "Michael Jackson",
+     "hints": [
+      "Glove",
+      "Moonwalk",
+      "Zombies",
+      "Pop King"
+     ]
+    },
+    {
+     "word": "Elvis Presley",
+     "hints": [
+      "Hips",
+      "Jumpsuit",
+      "Sideburns",
+      "Memphis"
+     ]
+    },
+    {
+     "word": "Bruno Mars",
+     "hints": [
+      "Silk",
+      "Fedora",
+      "Hawaii",
+      "Funk"
+     ]
+    },
+    {
+     "word": "Lady Gaga",
+     "hints": [
+      "Monsters",
+      "Meat",
+      "Oscars",
+      "Poker"
+     ]
+    },
+    {
+     "word": "Zach Bryan",
+     "hints": [
+      "Oklahoma",
+      "Navy",
+      "Acoustic",
+      "Tickets"
+     ]
+    },
+    {
+     "word": "SZA",
+     "hints": [
+      "Ocean",
+      "Snooze",
+      "Diving Board",
+      "New Jersey"
+     ]
+    },
+    {
+     "word": "Snoop Dogg",
+     "hints": [
+      "Olympics",
+      "Martha",
+      "Long Beach",
+      "Gin"
+     ]
+    },
+    {
+     "word": "Ariana Grande",
+     "hints": [
+      "Ponytail",
+      "Glinda",
+      "Thank U",
+      "Nickelodeon"
+     ]
+    },
+    {
+     "word": "Harry Styles",
+     "hints": [
+      "Boa",
+      "Watermelon",
+      "Pearls",
+      "Boy Band"
+     ]
+    },
+    {
+     "word": "Justin Bieber",
+     "hints": [
+      "Baby",
+      "Canada",
+      "Hailey",
+      "Usher"
+     ]
+    },
+    {
+     "word": "Miley Cyrus",
+     "hints": [
+      "Wrecking Ball",
+      "Flowers",
+      "Tongue",
+      "Dolly"
+     ]
+    },
+    {
+     "word": "Dolly Parton",
+     "hints": [
+      "Jolene",
+      "Nine To Five",
+      "Wigs",
+      "Butterfly"
+     ]
+    },
+    {
+     "word": "Adele",
+     "hints": [
+      "Hello",
+      "Vegas",
+      "Ballad",
+      "Tissues"
+     ]
+    },
+    {
+     "word": "Usher",
+     "hints": [
+      "Roller Skates",
+      "Yeah",
+      "Confessions",
+      "Abs"
+     ]
+    },
+    {
+     "word": "Luke Combs",
+     "hints": [
+      "Fast Car",
+      "Beer",
+      "Beard",
+      "Carolina"
+     ]
+    },
+    {
+     "word": "Shaboozey",
+     "hints": [
+      "Bar",
+      "Tipsy",
+      "Jeans",
+      "Record"
+     ]
+    },
+    {
+     "word": "Benson Boone",
+     "hints": [
+      "Backflip",
+      "Piano",
+      "Idol",
+      "Beautiful"
+     ]
+    },
+    {
+     "word": "Pitbull",
+     "hints": [
+      "Bald",
+      "Worldwide",
+      "Dale",
+      "Sunglasses"
+     ]
+    },
+    {
+     "word": "AC/DC",
+     "hints": [
+      "Thunder",
+      "Schoolboy",
+      "Highway",
+      "Australia"
+     ]
+    },
+    {
+     "word": "Queen",
+     "hints": [
+      "Champions",
+      "Stomp",
+      "Rhapsody",
+      "Mustache"
+     ]
+    },
+    {
+     "word": "The Beatles",
+     "hints": [
+      "Liverpool",
+      "Abbey Road",
+      "Mop Top",
+      "Submarine"
+     ]
+    },
+    {
+     "word": "Jelly Roll",
+     "hints": [
+      "Face Tats",
+      "Weight Loss",
+      "Nashville",
+      "Redemption"
+     ]
+    },
+    {
+     "word": "Metallica",
+     "hints": [
+      "Sandman",
+      "Headbang",
+      "Puppets",
+      "Napster"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "screen",
+   "emo": "🎬",
+   "name": "Movies & TV",
+   "desc": "Binge-watches, blockbusters and quotes you still say.",
+   "words": [
+    {
+     "word": "Barbie",
+     "hints": [
+      "Pink",
+      "Dreamhouse",
+      "Margot",
+      "Beach"
+     ]
+    },
+    {
+     "word": "Oppenheimer",
+     "hints": [
+      "Bomb",
+      "Nolan",
+      "Hat",
+      "Physics"
+     ]
+    },
+    {
+     "word": "Stranger Things",
+     "hints": [
+      "Upside",
+      "Eggos",
+      "Bikes",
+      "Nosebleed"
+     ]
+    },
+    {
+     "word": "The Office",
+     "hints": [
+      "Paper",
+      "Pranks",
+      "Mockumentary",
+      "Stapler"
+     ]
+    },
+    {
+     "word": "Breaking Bad",
+     "hints": [
+      "Chemistry",
+      "RV",
+      "Albuquerque",
+      "Blue"
+     ]
+    },
+    {
+     "word": "Squid Game",
+     "hints": [
+      "Green",
+      "Tracksuit",
+      "Doll",
+      "Marbles"
+     ]
+    },
+    {
+     "word": "Wednesday",
+     "hints": [
+      "Dance",
+      "Hand",
+      "Braids",
+      "Boarding School"
+     ]
+    },
+    {
+     "word": "Top Gun",
+     "hints": [
+      "Jets",
+      "Volleyball",
+      "Aviators",
+      "Danger Zone"
+     ]
+    },
+    {
+     "word": "Shrek",
+     "hints": [
+      "Swamp",
+      "Onion",
+      "Donkey",
+      "Fairy Tale"
+     ]
+    },
+    {
+     "word": "Friends",
+     "hints": [
+      "Couch",
+      "Coffee Shop",
+      "Pivot",
+      "Thanksgiving"
+     ]
+    },
+    {
+     "word": "Game of Thrones",
+     "hints": [
+      "Dragons",
+      "Winter",
+      "Wall",
+      "Wedding"
+     ]
+    },
+    {
+     "word": "The Bear",
+     "hints": [
+      "Kitchen",
+      "Chicago",
+      "Beef",
+      "Stress"
+     ]
+    },
+    {
+     "word": "Ted Lasso",
+     "hints": [
+      "Biscuits",
+      "Mustache",
+      "Believe",
+      "Soccer"
+     ]
+    },
+    {
+     "word": "Toy Story",
+     "hints": [
+      "Cowboy",
+      "Space Ranger",
+      "Claw Machine",
+      "Pixar"
+     ]
+    },
+    {
+     "word": "Jurassic Park",
+     "hints": [
+      "Fences",
+      "Mosquito",
+      "Amber",
+      "Island"
+     ]
+    },
+    {
+     "word": "Titanic",
+     "hints": [
+      "Door",
+      "Necklace",
+      "Iceberg",
+      "Sketch"
+     ]
+    },
+    {
+     "word": "Rocky",
+     "hints": [
+      "Stairs",
+      "Philly",
+      "Eggs",
+      "Adrian"
+     ]
+    },
+    {
+     "word": "Space Jam",
+     "hints": [
+      "Cartoon",
+      "Aliens",
+      "Jordan",
+      "LeBron"
+     ]
+    },
+    {
+     "word": "Wicked",
+     "hints": [
+      "Green",
+      "Broom",
+      "Defying",
+      "Musical"
+     ]
+    },
+    {
+     "word": "KPop Demon Hunters",
+     "hints": [
+      "Golden",
+      "Idols",
+      "Soda Pop",
+      "Tiger"
+     ]
+    },
+    {
+     "word": "Severance",
+     "hints": [
+      "Office",
+      "Goats",
+      "Elevator",
+      "Memory"
+     ]
+    },
+    {
+     "word": "Yellowstone",
+     "hints": [
+      "Ranch",
+      "Montana",
+      "Costner",
+      "Branding"
+     ]
+    },
+    {
+     "word": "Love Island",
+     "hints": [
+      "Villa",
+      "Bombshell",
+      "Couples",
+      "Fire Pit"
+     ]
+    },
+    {
+     "word": "The White Lotus",
+     "hints": [
+      "Resort",
+      "Hawaii",
+      "Thailand",
+      "Rich"
+     ]
+    },
+    {
+     "word": "Star Wars",
+     "hints": [
+      "Lightsaber",
+      "Father",
+      "Galaxy",
+      "May Fourth"
+     ]
+    },
+    {
+     "word": "Harry Potter",
+     "hints": [
+      "Wand",
+      "Scar",
+      "Platform",
+      "Sorting Hat"
+     ]
+    },
+    {
+     "word": "Avengers",
+     "hints": [
+      "Snap",
+      "Shield",
+      "Hammer",
+      "Infinity"
+     ]
+    },
+    {
+     "word": "The Lion King",
+     "hints": [
+      "Sunrise",
+      "Hakuna",
+      "Warthog",
+      "Cliff"
+     ]
+    },
+    {
+     "word": "Home Alone",
+     "hints": [
+      "Paint Cans",
+      "Christmas",
+      "Burglars",
+      "Aftershave"
+     ]
+    },
+    {
+     "word": "Mean Girls",
+     "hints": [
+      "Fetch",
+      "Burn Book",
+      "Plastics",
+      "Jingle Bell"
+     ]
+    },
+    {
+     "word": "Forrest Gump",
+     "hints": [
+      "Chocolates",
+      "Bench",
+      "Running",
+      "Shrimp"
+     ]
+    },
+    {
+     "word": "The Godfather",
+     "hints": [
+      "Offer",
+      "Horse",
+      "Cannoli",
+      "Mafia"
+     ]
+    },
+    {
+     "word": "Fast & Furious",
+     "hints": [
+      "Family",
+      "Corona",
+      "NOS",
+      "Diesel"
+     ]
+    },
+    {
+     "word": "John Wick",
+     "hints": [
+      "Dog",
+      "Pencil",
+      "Hotel",
+      "Suit"
+     ]
+    },
+    {
+     "word": "Gladiator",
+     "hints": [
+      "Colosseum",
+      "Entertained",
+      "Thumbs",
+      "Emperor"
+     ]
+    },
+    {
+     "word": "Inside Out",
+     "hints": [
+      "Joy",
+      "Memories",
+      "Brain",
+      "Puberty"
+     ]
+    },
+    {
+     "word": "Frozen",
+     "hints": [
+      "Let It Go",
+      "Snowman",
+      "Sisters",
+      "Ice Palace"
+     ]
+    },
+    {
+     "word": "Survivor",
+     "hints": [
+      "Torch",
+      "Tribe",
+      "Buffs",
+      "Idol"
+     ]
+    },
+    {
+     "word": "Shark Tank",
+     "hints": [
+      "Pitch",
+      "Investors",
+      "Mr. Wonderful",
+      "Royalty"
+     ]
+    },
+    {
+     "word": "Happy Gilmore",
+     "hints": [
+      "Hockey",
+      "Shooter",
+      "Bob Barker",
+      "Alligator"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "famous",
+   "emo": "⭐",
+   "name": "Famous People",
+   "desc": "Creators, celebs and names from the history books.",
+   "words": [
+    {
+     "word": "Elon Musk",
+     "hints": [
+      "Rockets",
+      "Mars",
+      "Cybertruck",
+      "Flamethrower"
+     ]
+    },
+    {
+     "word": "Oprah",
+     "hints": [
+      "Car",
+      "Book Club",
+      "Chicago",
+      "Gayle"
+     ]
+    },
+    {
+     "word": "MrBeast",
+     "hints": [
+      "Challenge",
+      "Feastables",
+      "Giveaway",
+      "North Carolina"
+     ]
+    },
+    {
+     "word": "Kim Kardashian",
+     "hints": [
+      "Family",
+      "Skims",
+      "Lawyer",
+      "Calabasas"
+     ]
+    },
+    {
+     "word": "Gordon Ramsay",
+     "hints": [
+      "Raw",
+      "Idiot Sandwich",
+      "Yelling",
+      "Wellington"
+     ]
+    },
+    {
+     "word": "Dwayne Johnson",
+     "hints": [
+      "Eyebrow",
+      "Tequila",
+      "Cheat Meal",
+      "Moana"
+     ]
+    },
+    {
+     "word": "Keanu Reeves",
+     "hints": [
+      "Kind",
+      "Motorcycle",
+      "Matrix",
+      "Sad"
+     ]
+    },
+    {
+     "word": "Martha Stewart",
+     "hints": [
+      "Prison",
+      "Snoop",
+      "Baking",
+      "Crafts"
+     ]
+    },
+    {
+     "word": "Kai Cenat",
+     "hints": [
+      "Stream",
+      "Subathon",
+      "Bronx",
+      "AMP"
+     ]
+    },
+    {
+     "word": "IShowSpeed",
+     "hints": [
+      "Bark",
+      "Ronaldo",
+      "Backflips",
+      "World Tour"
+     ]
+    },
+    {
+     "word": "Zendaya",
+     "hints": [
+      "Spider",
+      "Tennis",
+      "Euphoria",
+      "Disney Channel"
+     ]
+    },
+    {
+     "word": "Timothée Chalamet",
+     "hints": [
+      "Desert",
+      "Wonka",
+      "Ping Pong",
+      "Knicks"
+     ]
+    },
+    {
+     "word": "Ryan Reynolds",
+     "hints": [
+      "Wrexham",
+      "Deadpool",
+      "Mint Mobile",
+      "Canada"
+     ]
+    },
+    {
+     "word": "Jimmy Fallon",
+     "hints": [
+      "Late",
+      "Breaking Character",
+      "Games",
+      "Roots"
+     ]
+    },
+    {
+     "word": "Bill Nye",
+     "hints": [
+      "Bowtie",
+      "Lab Coat",
+      "Experiments",
+      "Substitute Day"
+     ]
+    },
+    {
+     "word": "Steve Jobs",
+     "hints": [
+      "Turtleneck",
+      "iPhone",
+      "Garage",
+      "Keynote"
+     ]
+    },
+    {
+     "word": "Albert Einstein",
+     "hints": [
+      "Hair",
+      "Relativity",
+      "Tongue",
+      "Chalkboard"
+     ]
+    },
+    {
+     "word": "Napoleon",
+     "hints": [
+      "Short",
+      "Waterloo",
+      "Bicorne",
+      "Exile"
+     ]
+    },
+    {
+     "word": "Shakespeare",
+     "hints": [
+      "Quill",
+      "Globe",
+      "Sonnets",
+      "Stratford"
+     ]
+    },
+    {
+     "word": "Marilyn Monroe",
+     "hints": [
+      "Dress",
+      "Mole",
+      "Birthday Song",
+      "Diamonds"
+     ]
+    },
+    {
+     "word": "Pedro Pascal",
+     "hints": [
+      "Daddy",
+      "Helmet",
+      "Fungus",
+      "Fantastic Four"
+     ]
+    },
+    {
+     "word": "Bob Ross",
+     "hints": [
+      "Trees",
+      "Afro",
+      "Happy Accidents",
+      "Easel"
+     ]
+    },
+    {
+     "word": "Mark Zuckerberg",
+     "hints": [
+      "Hoodie",
+      "Sunscreen",
+      "Jiu-Jitsu",
+      "Harvard"
+     ]
+    },
+    {
+     "word": "Guy Fieri",
+     "hints": [
+      "Flavortown",
+      "Frosted Tips",
+      "Diners",
+      "Flames"
+     ]
+    },
+    {
+     "word": "Kevin Hart",
+     "hints": [
+      "Philly",
+      "Jumanji",
+      "Comedy Special",
+      "The Rock"
+     ]
+    },
+    {
+     "word": "Tom Cruise",
+     "hints": [
+      "Stunts",
+      "Running",
+      "Couch Jump",
+      "Cake"
+     ]
+    },
+    {
+     "word": "Leonardo DiCaprio",
+     "hints": [
+      "Oscar Wait",
+      "Pointing Meme",
+      "Wall Street",
+      "Yachts"
+     ]
+    },
+    {
+     "word": "Tom Hanks",
+     "hints": [
+      "Wilson",
+      "Woody",
+      "Typewriters",
+      "Nice Guy"
+     ]
+    },
+    {
+     "word": "Morgan Freeman",
+     "hints": [
+      "Voice",
+      "Narrator",
+      "God",
+      "Penguins"
+     ]
+    },
+    {
+     "word": "Steve Harvey",
+     "hints": [
+      "Survey",
+      "Mustache",
+      "Miss Universe",
+      "Suits"
+     ]
+    },
+    {
+     "word": "Ryan Gosling",
+     "hints": [
+      "Kenough",
+      "Drive",
+      "Notebook",
+      "Hey Girl"
+     ]
+    },
+    {
+     "word": "Jeff Bezos",
+     "hints": [
+      "Cowboy Hat",
+      "Laugh",
+      "Yacht",
+      "Venice Wedding"
+     ]
+    },
+    {
+     "word": "Kylie Jenner",
+     "hints": [
+      "Lip Kit",
+      "Billionaire",
+      "Stormi",
+      "Ski Trip"
+     ]
+    },
+    {
+     "word": "Adam Sandler",
+     "hints": [
+      "Basketball Shorts",
+      "Waterboy",
+      "Thanksgiving Song",
+      "Netflix"
+     ]
+    },
+    {
+     "word": "Matthew McConaughey",
+     "hints": [
+      "Alright",
+      "Bongos",
+      "Austin",
+      "Car Ads"
+     ]
+    },
+    {
+     "word": "Isaac Newton",
+     "hints": [
+      "Apple",
+      "Gravity",
+      "Laws",
+      "Wig"
+     ]
+    },
+    {
+     "word": "Cleopatra",
+     "hints": [
+      "Egypt",
+      "Nile",
+      "Eyeliner",
+      "Caesar"
+     ]
+    },
+    {
+     "word": "Leonardo da Vinci",
+     "hints": [
+      "Mona Lisa",
+      "Flying Machine",
+      "Ninja Turtle",
+      "Sketches"
+     ]
+    },
+    {
+     "word": "Neil Armstrong",
+     "hints": [
+      "Small Step",
+      "Apollo",
+      "Astronaut",
+      "Flag"
+     ]
+    },
+    {
+     "word": "Thomas Edison",
+     "hints": [
+      "Light Bulb",
+      "Inventor",
+      "Tesla",
+      "Menlo Park"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "characters",
+   "emo": "🦸",
+   "name": "Characters",
+   "desc": "Cartoons, heroes, villains and mascots you grew up with.",
+   "words": [
+    {
+     "word": "Mario",
+     "hints": [
+      "Mustache",
+      "Mushroom",
+      "Italy",
+      "Pipes"
+     ]
+    },
+    {
+     "word": "SpongeBob",
+     "hints": [
+      "Pineapple",
+      "Bikini",
+      "Fry Cook",
+      "Square"
+     ]
+    },
+    {
+     "word": "Homer Simpson",
+     "hints": [
+      "Donut",
+      "Nuclear",
+      "Bald",
+      "Couch"
+     ]
+    },
+    {
+     "word": "Batman",
+     "hints": [
+      "Cave",
+      "Butler",
+      "Signal",
+      "Billionaire"
+     ]
+    },
+    {
+     "word": "Spider-Man",
+     "hints": [
+      "Aunt",
+      "Bite",
+      "Queens",
+      "Upside Down"
+     ]
+    },
+    {
+     "word": "Darth Vader",
+     "hints": [
+      "Breathing",
+      "Father",
+      "Helmet",
+      "Red"
+     ]
+    },
+    {
+     "word": "Mickey Mouse",
+     "hints": [
+      "Ears",
+      "Gloves",
+      "Steamboat",
+      "Shorts"
+     ]
+    },
+    {
+     "word": "Kermit the Frog",
+     "hints": [
+      "Tea",
+      "Green",
+      "Pig",
+      "Banjo"
+     ]
+    },
+    {
+     "word": "Elmo",
+     "hints": [
+      "Tickle",
+      "Red",
+      "Street",
+      "Furry"
+     ]
+    },
+    {
+     "word": "Scooby-Doo",
+     "hints": [
+      "Snacks",
+      "Van",
+      "Mystery",
+      "Unmasked"
+     ]
+    },
+    {
+     "word": "Buzz Lightyear",
+     "hints": [
+      "Infinity",
+      "Wings",
+      "Laser",
+      "Ranger"
+     ]
+    },
+    {
+     "word": "The Grinch",
+     "hints": [
+      "Heart",
+      "Christmas",
+      "Mountain",
+      "Dog"
+     ]
+    },
+    {
+     "word": "Yoda",
+     "hints": [
+      "Backwards",
+      "Green",
+      "Tiny",
+      "Swamp"
+     ]
+    },
+    {
+     "word": "Sonic",
+     "hints": [
+      "Rings",
+      "Speed",
+      "Blue",
+      "Chili Dogs"
+     ]
+    },
+    {
+     "word": "Garfield",
+     "hints": [
+      "Lasagna",
+      "Monday",
+      "Orange",
+      "Lazy"
+     ]
+    },
+    {
+     "word": "Tony the Tiger",
+     "hints": [
+      "Great",
+      "Cereal",
+      "Stripes",
+      "Breakfast"
+     ]
+    },
+    {
+     "word": "Kool-Aid Man",
+     "hints": [
+      "Wall",
+      "Oh Yeah",
+      "Pitcher",
+      "Red"
+     ]
+    },
+    {
+     "word": "Mr. Peanut",
+     "hints": [
+      "Monocle",
+      "Top Hat",
+      "Cane",
+      "Salty"
+     ]
+    },
+    {
+     "word": "Ronald McDonald",
+     "hints": [
+      "Clown",
+      "Red Hair",
+      "Happy Meal",
+      "Yellow"
+     ]
+    },
+    {
+     "word": "Phillie Phanatic",
+     "hints": [
+      "Green",
+      "Furry",
+      "Ballpark",
+      "Belly"
+     ]
+    },
+    {
+     "word": "Gritty",
+     "hints": [
+      "Orange",
+      "Hockey",
+      "Googly Eyes",
+      "Chaos"
+     ]
+    },
+    {
+     "word": "Minions",
+     "hints": [
+      "Banana",
+      "Yellow",
+      "Goggles",
+      "Gibberish"
+     ]
+    },
+    {
+     "word": "Elsa",
+     "hints": [
+      "Ice",
+      "Let Go",
+      "Sister",
+      "Gloves"
+     ]
+    },
+    {
+     "word": "Simba",
+     "hints": [
+      "Cub",
+      "Uncle",
+      "Cliff",
+      "Stampede"
+     ]
+    },
+    {
+     "word": "Nemo",
+     "hints": [
+      "Fin",
+      "Lost",
+      "Sydney",
+      "Dad"
+     ]
+    },
+    {
+     "word": "Winnie the Pooh",
+     "hints": [
+      "Honey",
+      "Shirt",
+      "Balloon",
+      "Donkey"
+     ]
+    },
+    {
+     "word": "Bugs Bunny",
+     "hints": [
+      "Carrot",
+      "Doc",
+      "Albuquerque",
+      "Hunter"
+     ]
+    },
+    {
+     "word": "Patrick Star",
+     "hints": [
+      "Rock",
+      "Pink",
+      "Shorts",
+      "Neighbor"
+     ]
+    },
+    {
+     "word": "Peter Griffin",
+     "hints": [
+      "Chicken",
+      "Laugh",
+      "Rhode Island",
+      "Glasses"
+     ]
+    },
+    {
+     "word": "The Joker",
+     "hints": [
+      "Smile",
+      "Cards",
+      "Purple",
+      "Stairs"
+     ]
+    },
+    {
+     "word": "Iron Man",
+     "hints": [
+      "Suit",
+      "Reactor",
+      "Snap",
+      "Genius"
+     ]
+    },
+    {
+     "word": "The Hulk",
+     "hints": [
+      "Angry",
+      "Shorts",
+      "Doctor",
+      "Smash"
+     ]
+    },
+    {
+     "word": "Captain America",
+     "hints": [
+      "Shield",
+      "Ice",
+      "Brooklyn",
+      "Stars"
+     ]
+    },
+    {
+     "word": "Wolverine",
+     "hints": [
+      "Claws",
+      "Canada",
+      "Sideburns",
+      "Healing"
+     ]
+    },
+    {
+     "word": "Snoopy",
+     "hints": [
+      "Doghouse",
+      "Pilot",
+      "Bird",
+      "Dance"
+     ]
+    },
+    {
+     "word": "Cookie Monster",
+     "hints": [
+      "Blue",
+      "Crumbs",
+      "Jar",
+      "Hungry"
+     ]
+    },
+    {
+     "word": "Kirby",
+     "hints": [
+      "Pink",
+      "Inhale",
+      "Puffball",
+      "Stars"
+     ]
+    },
+    {
+     "word": "Jack Sparrow",
+     "hints": [
+      "Rum",
+      "Compass",
+      "Pearl",
+      "Eyeliner"
+     ]
+    },
+    {
+     "word": "Stitch",
+     "hints": [
+      "Ohana",
+      "Experiment",
+      "Blue",
+      "Elvis"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "brands",
+   "emo": "🏷️",
+   "name": "Brands",
+   "desc": "Logos and names everyone recognizes.",
+   "words": [
+    {
+     "word": "Apple",
+     "hints": [
+      "Bite",
+      "Newton",
+      "Cupertino",
+      "Keynote"
+     ]
+    },
+    {
+     "word": "Tesla",
+     "hints": [
+      "Charger",
+      "Autopilot",
+      "Inventor",
+      "Ludicrous"
+     ]
+    },
+    {
+     "word": "Amazon",
+     "hints": [
+      "Boxes",
+      "Rainforest",
+      "Two Days",
+      "Smile"
+     ]
+    },
+    {
+     "word": "Starbucks",
+     "hints": [
+      "Siren",
+      "Misspelled",
+      "Apron",
+      "Seattle"
+     ]
+    },
+    {
+     "word": "McDonald's",
+     "hints": [
+      "Arches",
+      "Ice Cream",
+      "Drive-Thru",
+      "Monopoly"
+     ]
+    },
+    {
+     "word": "Chick-fil-A",
+     "hints": [
+      "Sunday",
+      "My Pleasure",
+      "Cows",
+      "Sauce"
+     ]
+    },
+    {
+     "word": "Netflix",
+     "hints": [
+      "Password",
+      "Still Watching",
+      "Chill",
+      "Red Envelope"
+     ]
+    },
+    {
+     "word": "Spotify",
+     "hints": [
+      "Wrapped",
+      "Shuffle",
+      "Sweden",
+      "Podcast"
+     ]
+    },
+    {
+     "word": "Costco",
+     "hints": [
+      "Hot Dog",
+      "Samples",
+      "Bulk",
+      "Membership"
+     ]
+    },
+    {
+     "word": "Taco Bell",
+     "hints": [
+      "Midnight",
+      "Chihuahua",
+      "Packets",
+      "Value Menu"
+     ]
+    },
+    {
+     "word": "Red Bull",
+     "hints": [
+      "Wings",
+      "Cliff Dive",
+      "Formula One",
+      "Space Jump"
+     ]
+    },
+    {
+     "word": "Gatorade",
+     "hints": [
+      "Bucket",
+      "Lightning",
+      "Florida",
+      "Sideline"
+     ]
+    },
+    {
+     "word": "Coca-Cola",
+     "hints": [
+      "Polar Bear",
+      "Secret Recipe",
+      "Santa",
+      "Atlanta"
+     ]
+    },
+    {
+     "word": "Lego",
+     "hints": [
+      "Ouch",
+      "Denmark",
+      "Instructions",
+      "Minifigure"
+     ]
+    },
+    {
+     "word": "Disney",
+     "hints": [
+      "Castle",
+      "Mouse",
+      "Fireworks",
+      "Princess"
+     ]
+    },
+    {
+     "word": "Target",
+     "hints": [
+      "Dollar Spot",
+      "Red",
+      "Cart",
+      "Dog"
+     ]
+    },
+    {
+     "word": "Uber",
+     "hints": [
+      "Rating",
+      "Surge",
+      "Backseat",
+      "Pickup"
+     ]
+    },
+    {
+     "word": "Trader Joe's",
+     "hints": [
+      "Hawaiian",
+      "Cookie Butter",
+      "Bell",
+      "Parking Lot"
+     ]
+    },
+    {
+     "word": "IKEA",
+     "hints": [
+      "Allen Key",
+      "Meatballs",
+      "Maze",
+      "Flat Pack"
+     ]
+    },
+    {
+     "word": "Waffle House",
+     "hints": [
+      "Hurricane",
+      "Hash Browns",
+      "Jukebox",
+      "All Night"
+     ]
+    },
+    {
+     "word": "Buc-ee's",
+     "hints": [
+      "Beaver",
+      "Brisket",
+      "Bathrooms",
+      "Texas"
+     ]
+    },
+    {
+     "word": "In-N-Out",
+     "hints": [
+      "Animal",
+      "Secret Menu",
+      "Palm Trees",
+      "Bible Verse"
+     ]
+    },
+    {
+     "word": "Chipotle",
+     "hints": [
+      "Guac",
+      "Foil",
+      "Extra",
+      "Assembly Line"
+     ]
+    },
+    {
+     "word": "Google",
+     "hints": [
+      "Doodle",
+      "Colors",
+      "Lucky",
+      "Chrome"
+     ]
+    },
+    {
+     "word": "Walmart",
+     "hints": [
+      "Smiley",
+      "Greeter",
+      "Rollback",
+      "Arkansas"
+     ]
+    },
+    {
+     "word": "Dunkin'",
+     "hints": [
+      "Boston",
+      "Munchkins",
+      "Sprinkles",
+      "Runs"
+     ]
+    },
+    {
+     "word": "Wendy's",
+     "hints": [
+      "Pigtails",
+      "Frosty",
+      "Square Patty",
+      "Roast"
+     ]
+    },
+    {
+     "word": "Lululemon",
+     "hints": [
+      "Leggings",
+      "Yoga",
+      "Canada",
+      "Athleisure"
+     ]
+    },
+    {
+     "word": "Peloton",
+     "hints": [
+      "Bike",
+      "Leaderboard",
+      "Instructor",
+      "Living Room"
+     ]
+    },
+    {
+     "word": "Oreo",
+     "hints": [
+      "Dunk",
+      "Twist",
+      "Milk",
+      "Cream"
+     ]
+    },
+    {
+     "word": "Doritos",
+     "hints": [
+      "Dust",
+      "Triangle",
+      "Nacho",
+      "Commercial"
+     ]
+    },
+    {
+     "word": "Home Depot",
+     "hints": [
+      "Orange",
+      "Contractor",
+      "Skeleton",
+      "Lumber"
+     ]
+    },
+    {
+     "word": "Domino's",
+     "hints": [
+      "Tracker",
+      "Dots",
+      "Thirty Minutes",
+      "Noid"
+     ]
+    },
+    {
+     "word": "FedEx",
+     "hints": [
+      "Arrow",
+      "Overnight",
+      "Castaway",
+      "Purple"
+     ]
+    },
+    {
+     "word": "YETI",
+     "hints": [
+      "Cooler",
+      "Bear Proof",
+      "Tailgate",
+      "Ice"
+     ]
+    },
+    {
+     "word": "Instagram",
+     "hints": [
+      "Filter",
+      "Story",
+      "Grid",
+      "Influencer"
+     ]
+    },
+    {
+     "word": "Liquid Death",
+     "hints": [
+      "Skulls",
+      "Tallboy",
+      "Punk",
+      "Mountain"
+     ]
+    },
+    {
+     "word": "Rolex",
+     "hints": [
+      "Crown",
+      "Swiss",
+      "Wrist",
+      "Waitlist"
+     ]
+    },
+    {
+     "word": "Ferrari",
+     "hints": [
+      "Red",
+      "Horse",
+      "Italy",
+      "Pit Stop"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gaming",
+   "emo": "🎮",
+   "name": "Games",
+   "desc": "Consoles, apps and game-night classics.",
+   "words": [
+    {
+     "word": "Fortnite",
+     "hints": [
+      "Bus",
+      "Storm",
+      "Emote",
+      "Building"
+     ]
+    },
+    {
+     "word": "Minecraft",
+     "hints": [
+      "Blocks",
+      "Diamonds",
+      "Steve",
+      "Pickaxe"
+     ]
+    },
+    {
+     "word": "Mario Kart",
+     "hints": [
+      "Shell",
+      "Drift",
+      "Banana",
+      "Lightning"
+     ]
+    },
+    {
+     "word": "Call of Duty",
+     "hints": [
+      "Lobby",
+      "Headset",
+      "Camper",
+      "Zombies"
+     ]
+    },
+    {
+     "word": "Madden",
+     "hints": [
+      "Curse",
+      "Cover",
+      "Franchise",
+      "Ratings"
+     ]
+    },
+    {
+     "word": "Roblox",
+     "hints": [
+      "Robux",
+      "Obby",
+      "Avatar",
+      "Kids"
+     ]
+    },
+    {
+     "word": "Pokémon",
+     "hints": [
+      "Catch",
+      "Trainer",
+      "Evolve",
+      "Cards"
+     ]
+    },
+    {
+     "word": "Tetris",
+     "hints": [
+      "Lines",
+      "Russia",
+      "Falling",
+      "Stack"
+     ]
+    },
+    {
+     "word": "Among Us",
+     "hints": [
+      "Vent",
+      "Emergency Meeting",
+      "Tasks",
+      "Spaceship"
+     ]
+    },
+    {
+     "word": "Grand Theft Auto",
+     "hints": [
+      "Waiting",
+      "Heist",
+      "Cheat Codes",
+      "Wanted"
+     ]
+    },
+    {
+     "word": "Zelda",
+     "hints": [
+      "Sword",
+      "Rescue",
+      "Ocarina",
+      "Hearts"
+     ]
+    },
+    {
+     "word": "Wii Sports",
+     "hints": [
+      "Bowling",
+      "Strap",
+      "Mii",
+      "Grandparents"
+     ]
+    },
+    {
+     "word": "NBA 2K",
+     "hints": [
+      "Park",
+      "Rage Quit",
+      "Badge",
+      "Locker Code"
+     ]
+    },
+    {
+     "word": "Monopoly",
+     "hints": [
+      "Jail",
+      "Boardwalk",
+      "Banker",
+      "Arguments"
+     ]
+    },
+    {
+     "word": "Uno",
+     "hints": [
+      "Reverse",
+      "Skip",
+      "Wild",
+      "Yell"
+     ]
+    },
+    {
+     "word": "Chess",
+     "hints": [
+      "Checkmate",
+      "Queen",
+      "Grandmaster",
+      "Gambit"
+     ]
+    },
+    {
+     "word": "Jenga",
+     "hints": [
+      "Tower",
+      "Wobble",
+      "Wooden",
+      "Collapse"
+     ]
+    },
+    {
+     "word": "Candy Crush",
+     "hints": [
+      "Grandma",
+      "Lives",
+      "Sweet",
+      "Swipe"
+     ]
+    },
+    {
+     "word": "Pac-Man",
+     "hints": [
+      "Ghosts",
+      "Dots",
+      "Maze",
+      "Cherry"
+     ]
+    },
+    {
+     "word": "EA Sports FC",
+     "hints": [
+      "Ultimate",
+      "Packs",
+      "Kickoff",
+      "Couch"
+     ]
+    },
+    {
+     "word": "Twister",
+     "hints": [
+      "Spinner",
+      "Left Hand",
+      "Stretch",
+      "Mat"
+     ]
+    },
+    {
+     "word": "Beer Pong",
+     "hints": [
+      "Cups",
+      "Rerack",
+      "Bounce",
+      "Frat"
+     ]
+    },
+    {
+     "word": "Cornhole",
+     "hints": [
+      "Bags",
+      "Boards",
+      "Backyard",
+      "Tailgate"
+     ]
+    },
+    {
+     "word": "Rocket League",
+     "hints": [
+      "Cars",
+      "Boost",
+      "Soccer",
+      "Aerial"
+     ]
+    },
+    {
+     "word": "Super Smash Bros",
+     "hints": [
+      "Platform",
+      "Knockout",
+      "Crossover",
+      "Percent"
+     ]
+    },
+    {
+     "word": "Animal Crossing",
+     "hints": [
+      "Island",
+      "Raccoon",
+      "Turnips",
+      "Debt"
+     ]
+    },
+    {
+     "word": "The Sims",
+     "hints": [
+      "Ladder",
+      "Diamond",
+      "Gibberish",
+      "Motherlode"
+     ]
+    },
+    {
+     "word": "Halo",
+     "hints": [
+      "Spartan",
+      "Xbox",
+      "Ring",
+      "Visor"
+     ]
+    },
+    {
+     "word": "Street Fighter",
+     "hints": [
+      "Hadouken",
+      "Arcade",
+      "Combo",
+      "Button Mash"
+     ]
+    },
+    {
+     "word": "Guitar Hero",
+     "hints": [
+      "Strum",
+      "Plastic",
+      "Rock",
+      "Expert"
+     ]
+    },
+    {
+     "word": "Clash of Clans",
+     "hints": [
+      "Barbarian",
+      "Elixir",
+      "Village",
+      "Raid"
+     ]
+    },
+    {
+     "word": "Angry Birds",
+     "hints": [
+      "Slingshot",
+      "Pigs",
+      "Launch",
+      "Feathers"
+     ]
+    },
+    {
+     "word": "Subway Surfers",
+     "hints": [
+      "Train",
+      "Inspector",
+      "Endless",
+      "Graffiti"
+     ]
+    },
+    {
+     "word": "Flappy Bird",
+     "hints": [
+      "Pipes",
+      "Tap",
+      "Impossible",
+      "Deleted"
+     ]
+    },
+    {
+     "word": "Scrabble",
+     "hints": [
+      "Tiles",
+      "Triple",
+      "Dictionary",
+      "Spelling"
+     ]
+    },
+    {
+     "word": "Battleship",
+     "hints": [
+      "Sunk",
+      "Grid",
+      "Navy",
+      "Coordinates"
+     ]
+    },
+    {
+     "word": "Connect Four",
+     "hints": [
+      "Diagonal",
+      "Drop",
+      "Row",
+      "Discs"
+     ]
+    },
+    {
+     "word": "Clue",
+     "hints": [
+      "Mansion",
+      "Candlestick",
+      "Colonel",
+      "Detective"
+     ]
+    },
+    {
+     "word": "Catan",
+     "hints": [
+      "Sheep",
+      "Robber",
+      "Trading",
+      "Brick"
+     ]
+    },
+    {
+     "word": "Poker",
+     "hints": [
+      "Bluff",
+      "Chips",
+      "All In",
+      "Vegas"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "places",
+   "emo": "🌎",
+   "name": "Places",
+   "desc": "Cities, landmarks and spots on the bucket list.",
+   "words": [
+    {
+     "word": "Las Vegas",
+     "hints": [
+      "Strip",
+      "Desert",
+      "Sphere",
+      "Buffet"
+     ]
+    },
+    {
+     "word": "Paris",
+     "hints": [
+      "Tower",
+      "Croissant",
+      "Louvre",
+      "Romance"
+     ]
+    },
+    {
+     "word": "Tokyo",
+     "hints": [
+      "Neon",
+      "Sushi",
+      "Bullet Train",
+      "Crosswalk"
+     ]
+    },
+    {
+     "word": "Disney World",
+     "hints": [
+      "Lines",
+      "Orlando",
+      "Fast Pass",
+      "Fireworks"
+     ]
+    },
+    {
+     "word": "Grand Canyon",
+     "hints": [
+      "Echo",
+      "Mule",
+      "Arizona",
+      "River"
+     ]
+    },
+    {
+     "word": "Times Square",
+     "hints": [
+      "Ball",
+      "Billboards",
+      "Naked Cowboy",
+      "Tourists"
+     ]
+    },
+    {
+     "word": "Hollywood",
+     "hints": [
+      "Sign",
+      "Walk of Fame",
+      "Stars",
+      "Oscars"
+     ]
+    },
+    {
+     "word": "Area 51",
+     "hints": [
+      "Aliens",
+      "Nevada",
+      "Classified",
+      "Storm"
+     ]
+    },
+    {
+     "word": "Hawaii",
+     "hints": [
+      "Lei",
+      "Volcano",
+      "Surf",
+      "Pineapple"
+     ]
+    },
+    {
+     "word": "Antarctica",
+     "hints": [
+      "Penguins",
+      "Ice",
+      "Research",
+      "Coldest"
+     ]
+    },
+    {
+     "word": "Bermuda Triangle",
+     "hints": [
+      "Missing",
+      "Ships",
+      "Compass",
+      "Mystery"
+     ]
+    },
+    {
+     "word": "Mount Everest",
+     "hints": [
+      "Summit",
+      "Sherpa",
+      "Oxygen",
+      "Base Camp"
+     ]
+    },
+    {
+     "word": "The Moon",
+     "hints": [
+      "Footprint",
+      "Flag",
+      "Craters",
+      "Tides"
+     ]
+    },
+    {
+     "word": "New Orleans",
+     "hints": [
+      "Beads",
+      "Jazz",
+      "Beignets",
+      "Bourbon"
+     ]
+    },
+    {
+     "word": "Miami",
+     "hints": [
+      "Neon",
+      "Vice",
+      "South Beach",
+      "Heat"
+     ]
+    },
+    {
+     "word": "Niagara Falls",
+     "hints": [
+      "Barrel",
+      "Honeymoon",
+      "Canada",
+      "Poncho"
+     ]
+    },
+    {
+     "word": "Stonehenge",
+     "hints": [
+      "Circle",
+      "England",
+      "Druids",
+      "Solstice"
+     ]
+    },
+    {
+     "word": "Alcatraz",
+     "hints": [
+      "Escape",
+      "Island",
+      "Bay",
+      "Capone"
+     ]
+    },
+    {
+     "word": "Venice",
+     "hints": [
+      "Boats",
+      "Canals",
+      "Masks",
+      "Sinking"
+     ]
+    },
+    {
+     "word": "Cancún",
+     "hints": [
+      "Spring Break",
+      "Resort",
+      "Mexico",
+      "All-Inclusive"
+     ]
+    },
+    {
+     "word": "Nashville",
+     "hints": [
+      "Boots",
+      "Honky Tonk",
+      "Bachelorette",
+      "Hot Chicken"
+     ]
+    },
+    {
+     "word": "Dubai",
+     "hints": [
+      "Tallest",
+      "Desert",
+      "Islands",
+      "Chocolate"
+     ]
+    },
+    {
+     "word": "Ibiza",
+     "hints": [
+      "Club",
+      "Spain",
+      "DJ",
+      "Sunset"
+     ]
+    },
+    {
+     "word": "Graceland",
+     "hints": [
+      "King",
+      "Memphis",
+      "Jungle Room",
+      "Mansion"
+     ]
+    },
+    {
+     "word": "Statue of Liberty",
+     "hints": [
+      "Torch",
+      "France",
+      "Green",
+      "Crown"
+     ]
+    },
+    {
+     "word": "Golden Gate Bridge",
+     "hints": [
+      "Fog",
+      "Orange",
+      "Suspension",
+      "Bay"
+     ]
+    },
+    {
+     "word": "Mount Rushmore",
+     "hints": [
+      "Faces",
+      "Carved",
+      "Presidents",
+      "Granite"
+     ]
+    },
+    {
+     "word": "Central Park",
+     "hints": [
+      "Carriage",
+      "Manhattan",
+      "Joggers",
+      "Zoo"
+     ]
+    },
+    {
+     "word": "Great Wall of China",
+     "hints": [
+      "Space",
+      "Dynasty",
+      "Ancient",
+      "Long"
+     ]
+    },
+    {
+     "word": "Machu Picchu",
+     "hints": [
+      "Peru",
+      "Llama",
+      "Ruins",
+      "Clouds"
+     ]
+    },
+    {
+     "word": "Colosseum",
+     "hints": [
+      "Gladiator",
+      "Rome",
+      "Lions",
+      "Arena"
+     ]
+    },
+    {
+     "word": "Pyramids of Giza",
+     "hints": [
+      "Sphinx",
+      "Egypt",
+      "Tomb",
+      "Camel"
+     ]
+    },
+    {
+     "word": "London",
+     "hints": [
+      "Big Ben",
+      "Rain",
+      "Tea",
+      "Double Decker"
+     ]
+    },
+    {
+     "word": "Bali",
+     "hints": [
+      "Rice Terraces",
+      "Monkeys",
+      "Indonesia",
+      "Honeymoon"
+     ]
+    },
+    {
+     "word": "Aspen",
+     "hints": [
+      "Ski",
+      "Snow",
+      "Celebrities",
+      "Colorado"
+     ]
+    },
+    {
+     "word": "Alaska",
+     "hints": [
+      "Northern Lights",
+      "Bears",
+      "Glacier",
+      "Cruise"
+     ]
+    },
+    {
+     "word": "Chicago",
+     "hints": [
+      "Bean",
+      "Deep Dish",
+      "Wind",
+      "River"
+     ]
+    },
+    {
+     "word": "Austin",
+     "hints": [
+      "Keep Weird",
+      "Bats",
+      "Barbecue",
+      "Live Music"
+     ]
+    },
+    {
+     "word": "Iceland",
+     "hints": [
+      "Geysers",
+      "Blue Lagoon",
+      "Volcano",
+      "Puffins"
+     ]
+    },
+    {
+     "word": "Sydney Opera House",
+     "hints": [
+      "Sails",
+      "Harbor",
+      "Australia",
+      "Shells"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "food",
+   "emo": "🌮",
+   "name": "Food & Drink",
+   "desc": "What's on the menu, the counter and the group chat.",
+   "words": [
+    {
+     "word": "Sushi",
+     "hints": [
+      "Rice",
+      "Chopsticks",
+      "Conveyor",
+      "Wasabi"
+     ]
+    },
+    {
+     "word": "Tacos",
+     "hints": [
+      "Tuesday",
+      "Lime",
+      "Truck",
+      "Cilantro"
+     ]
+    },
+    {
+     "word": "Avocado Toast",
+     "hints": [
+      "Brunch",
+      "Millennial",
+      "Mortgage",
+      "Seeds"
+     ]
+    },
+    {
+     "word": "Hot Wings",
+     "hints": [
+      "Sauce",
+      "Ranch",
+      "Celery",
+      "Napkins"
+     ]
+    },
+    {
+     "word": "Ramen",
+     "hints": [
+      "Broth",
+      "Slurp",
+      "Dorm",
+      "Egg"
+     ]
+    },
+    {
+     "word": "Mac and Cheese",
+     "hints": [
+      "Box",
+      "Orange",
+      "Elbow",
+      "Thanksgiving"
+     ]
+    },
+    {
+     "word": "Boba Tea",
+     "hints": [
+      "Straw",
+      "Chewy",
+      "Taiwan",
+      "Milk"
+     ]
+    },
+    {
+     "word": "Smoothie Bowl",
+     "hints": [
+      "Toppings",
+      "Granola",
+      "Instagram",
+      "Spoon"
+     ]
+    },
+    {
+     "word": "Charcuterie Board",
+     "hints": [
+      "Wood",
+      "Salami",
+      "Grapes",
+      "Wine"
+     ]
+    },
+    {
+     "word": "Energy Drink",
+     "hints": [
+      "Can",
+      "Jittery",
+      "Taurine",
+      "Finals"
+     ]
+    },
+    {
+     "word": "Pancakes",
+     "hints": [
+      "Stack",
+      "Syrup",
+      "Flip",
+      "Sunday"
+     ]
+    },
+    {
+     "word": "Pho",
+     "hints": [
+      "Bowl",
+      "Vietnam",
+      "Basil",
+      "Steam"
+     ]
+    },
+    {
+     "word": "Birria Tacos",
+     "hints": [
+      "Dip",
+      "Consommé",
+      "Cheese Pull",
+      "Red"
+     ]
+    },
+    {
+     "word": "Nachos",
+     "hints": [
+      "Layers",
+      "Stadium",
+      "Jalapeño",
+      "Cheese"
+     ]
+    },
+    {
+     "word": "Crumbl Cookies",
+     "hints": [
+      "Weekly",
+      "Pink Box",
+      "Rating",
+      "Utah"
+     ]
+    },
+    {
+     "word": "Cold Brew",
+     "hints": [
+      "Slow",
+      "Ice",
+      "Caffeine",
+      "Concentrate"
+     ]
+    },
+    {
+     "word": "Hot Pot",
+     "hints": [
+      "Shared",
+      "Simmer",
+      "Dipping",
+      "Spicy"
+     ]
+    },
+    {
+     "word": "Pumpkin Spice Latte",
+     "hints": [
+      "Fall",
+      "Basic",
+      "Sweater",
+      "September"
+     ]
+    },
+    {
+     "word": "Chicken Tenders",
+     "hints": [
+      "Kids Menu",
+      "Honey Mustard",
+      "Fingers",
+      "Crispy"
+     ]
+    },
+    {
+     "word": "Protein Pancakes",
+     "hints": [
+      "Macros",
+      "Gym",
+      "Powder",
+      "Meal Prep"
+     ]
+    },
+    {
+     "word": "Sourdough",
+     "hints": [
+      "Starter",
+      "Pandemic",
+      "Tangy",
+      "Loaf"
+     ]
+    },
+    {
+     "word": "Matcha",
+     "hints": [
+      "Green",
+      "Whisk",
+      "Japan",
+      "Latte"
+     ]
+    },
+    {
+     "word": "Prime Rib",
+     "hints": [
+      "Holiday",
+      "Carving",
+      "Au Jus",
+      "Medium Rare"
+     ]
+    },
+    {
+     "word": "Funnel Cake",
+     "hints": [
+      "Fair",
+      "Powdered",
+      "Fried",
+      "Boardwalk"
+     ]
+    },
+    {
+     "word": "Pizza",
+     "hints": [
+      "Delivery",
+      "Pepperoni",
+      "Ninja Turtles",
+      "Friday"
+     ]
+    },
+    {
+     "word": "Burrito",
+     "hints": [
+      "Foil",
+      "Breakfast",
+      "Food Coma",
+      "Rice"
+     ]
+    },
+    {
+     "word": "S'mores",
+     "hints": [
+      "Campfire",
+      "Graham",
+      "Sticky",
+      "Stick"
+     ]
+    },
+    {
+     "word": "Lobster Roll",
+     "hints": [
+      "Maine",
+      "Butter",
+      "Claw",
+      "Summer"
+     ]
+    },
+    {
+     "word": "Philly Cheesesteak",
+     "hints": [
+      "Wiz",
+      "Onions",
+      "Rocky",
+      "Hoagie"
+     ]
+    },
+    {
+     "word": "Chicken and Waffles",
+     "hints": [
+      "Syrup",
+      "Soul Food",
+      "Hot Sauce",
+      "Late Night"
+     ]
+    },
+    {
+     "word": "Espresso Martini",
+     "hints": [
+      "Shaken",
+      "Beans",
+      "Nightcap",
+      "Wake Up"
+     ]
+    },
+    {
+     "word": "Margarita",
+     "hints": [
+      "Salt Rim",
+      "Tequila",
+      "Frozen",
+      "Jimmy Buffett"
+     ]
+    },
+    {
+     "word": "Popcorn",
+     "hints": [
+      "Movies",
+      "Butter",
+      "Kernels",
+      "Tin"
+     ]
+    },
+    {
+     "word": "Hot Chocolate",
+     "hints": [
+      "Marshmallows",
+      "Snow Day",
+      "Mug",
+      "Whipped"
+     ]
+    },
+    {
+     "word": "Bagel",
+     "hints": [
+      "Schmear",
+      "New York",
+      "Hole",
+      "Everything"
+     ]
+    },
+    {
+     "word": "Crawfish Boil",
+     "hints": [
+      "Louisiana",
+      "Newspaper",
+      "Pinch",
+      "Corn"
+     ]
+    },
+    {
+     "word": "Smash Burger",
+     "hints": [
+      "Griddle",
+      "Lace",
+      "Double",
+      "Spatula"
+     ]
+    },
+    {
+     "word": "Cotton Candy",
+     "hints": [
+      "Carnival",
+      "Pink",
+      "Fluffy",
+      "Dentist"
+     ]
+    },
+    {
+     "word": "Poke Bowl",
+     "hints": [
+      "Hawaii",
+      "Raw",
+      "Tuna",
+      "Build Your Own"
+     ]
+    },
+    {
+     "word": "Mimosa",
+     "hints": [
+      "Brunch",
+      "Orange",
+      "Bubbles",
+      "Bottomless"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "life",
+   "emo": "🎉",
+   "name": "Life Moments",
+   "desc": "Situations everyone has been in, or dreads.",
+   "words": [
+    {
+     "word": "First Date",
+     "hints": [
+      "Nervous",
+      "Restaurant",
+      "Check",
+      "Small Talk"
+     ]
+    },
+    {
+     "word": "Job Interview",
+     "hints": [
+      "Handshake",
+      "Resume",
+      "Weakness",
+      "Suit"
+     ]
+    },
+    {
+     "word": "Road Trip",
+     "hints": [
+      "Playlist",
+      "Snacks",
+      "Gas Station",
+      "Map"
+     ]
+    },
+    {
+     "word": "Wedding",
+     "hints": [
+      "Speech",
+      "Cake",
+      "Bouquet",
+      "Open Bar"
+     ]
+    },
+    {
+     "word": "Group Chat",
+     "hints": [
+      "Muted",
+      "Typing",
+      "Unread",
+      "Memes"
+     ]
+    },
+    {
+     "word": "Prom",
+     "hints": [
+      "Corsage",
+      "Limo",
+      "King",
+      "Dance"
+     ]
+    },
+    {
+     "word": "Graduation",
+     "hints": [
+      "Cap",
+      "Diploma",
+      "Tassel",
+      "Stage"
+     ]
+    },
+    {
+     "word": "Moving Day",
+     "hints": [
+      "Boxes",
+      "Truck",
+      "Pizza",
+      "Couch"
+     ]
+    },
+    {
+     "word": "Jury Duty",
+     "hints": [
+      "Summons",
+      "Courthouse",
+      "Twelve",
+      "Excuse"
+     ]
+    },
+    {
+     "word": "Family Reunion",
+     "hints": [
+      "Cousins",
+      "T-Shirts",
+      "Potluck",
+      "Uncle"
+     ]
+    },
+    {
+     "word": "Fantasy Draft",
+     "hints": [
+      "Snake",
+      "Sleeper",
+      "Commissioner",
+      "Last Place"
+     ]
+    },
+    {
+     "word": "Bachelor Party",
+     "hints": [
+      "Weekend",
+      "Vegas",
+      "Best Man",
+      "Matching Shirts"
+     ]
+    },
+    {
+     "word": "Garage Sale",
+     "hints": [
+      "Driveway",
+      "Haggle",
+      "Stickers",
+      "Junk"
+     ]
+    },
+    {
+     "word": "Camping",
+     "hints": [
+      "Tent",
+      "Mosquitoes",
+      "Fire",
+      "Sleeping Bag"
+     ]
+    },
+    {
+     "word": "Karaoke",
+     "hints": [
+      "Microphone",
+      "Lyrics",
+      "Liquid Courage",
+      "Off Key"
+     ]
+    },
+    {
+     "word": "Escape Room",
+     "hints": [
+      "Clues",
+      "Locks",
+      "Timer",
+      "Teamwork"
+     ]
+    },
+    {
+     "word": "DMV",
+     "hints": [
+      "Line",
+      "Photo",
+      "Number",
+      "Forms"
+     ]
+    },
+    {
+     "word": "Black Friday",
+     "hints": [
+      "Doorbuster",
+      "Midnight",
+      "Deals",
+      "Stampede"
+     ]
+    },
+    {
+     "word": "Thanksgiving",
+     "hints": [
+      "Leftovers",
+      "Turkey",
+      "Parade",
+      "Football"
+     ]
+    },
+    {
+     "word": "Halloween",
+     "hints": [
+      "Costume",
+      "Candy",
+      "Pumpkin",
+      "Haunted"
+     ]
+    },
+    {
+     "word": "Spring Break",
+     "hints": [
+      "Beach",
+      "Sunburn",
+      "Hotel",
+      "College"
+     ]
+    },
+    {
+     "word": "Tailgate",
+     "hints": [
+      "Grill",
+      "Parking Lot",
+      "Cornhole",
+      "Cooler"
+     ]
+    },
+    {
+     "word": "Gender Reveal",
+     "hints": [
+      "Smoke",
+      "Balloon",
+      "Cake",
+      "Guess"
+     ]
+    },
+    {
+     "word": "Airport Security",
+     "hints": [
+      "Shoes",
+      "Liquids",
+      "Belt",
+      "Scanner"
+     ]
+    },
+    {
+     "word": "Baby Shower",
+     "hints": [
+      "Diapers",
+      "Registry",
+      "Games",
+      "Onesie"
+     ]
+    },
+    {
+     "word": "First Day of School",
+     "hints": [
+      "Backpack",
+      "Photo",
+      "Lunchbox",
+      "Bus"
+     ]
+    },
+    {
+     "word": "Housewarming",
+     "hints": [
+      "Plant",
+      "Keys",
+      "Tour",
+      "Gift"
+     ]
+    },
+    {
+     "word": "Surprise Party",
+     "hints": [
+      "Hiding",
+      "Lights",
+      "Secret",
+      "Shout"
+     ]
+    },
+    {
+     "word": "Driver's Test",
+     "hints": [
+      "Parallel",
+      "Examiner",
+      "Nervous",
+      "Permit"
+     ]
+    },
+    {
+     "word": "Sleepover",
+     "hints": [
+      "Pajamas",
+      "Pillow Fight",
+      "Ghost Stories",
+      "Floor"
+     ]
+    },
+    {
+     "word": "New Year's Eve",
+     "hints": [
+      "Countdown",
+      "Resolution",
+      "Midnight",
+      "Confetti"
+     ]
+    },
+    {
+     "word": "Christmas Morning",
+     "hints": [
+      "Presents",
+      "Stockings",
+      "Pajamas",
+      "Early"
+     ]
+    },
+    {
+     "word": "Birthday Party",
+     "hints": [
+      "Candles",
+      "Cake",
+      "Wish",
+      "Balloons"
+     ]
+    },
+    {
+     "word": "Flight Delay",
+     "hints": [
+      "Gate",
+      "Departure Board",
+      "Stranded",
+      "Voucher"
+     ]
+    },
+    {
+     "word": "Speeding Ticket",
+     "hints": [
+      "Lights",
+      "Cop",
+      "Radar",
+      "Fine"
+     ]
+    },
+    {
+     "word": "Group Project",
+     "hints": [
+      "Slacker",
+      "Deadline",
+      "Slides",
+      "Carry"
+     ]
+    },
+    {
+     "word": "Breakup",
+     "hints": [
+      "Text",
+      "Ice Cream",
+      "Ex",
+      "Closure"
+     ]
+    },
+    {
+     "word": "Snow Day",
+     "hints": [
+      "Sled",
+      "Cancelled",
+      "Shovel",
+      "Hot Cocoa"
+     ]
+    },
+    {
+     "word": "Secret Santa",
+     "hints": [
+      "Gift",
+      "Twenty Dollars",
+      "Draw Names",
+      "Office"
+     ]
+    },
+    {
+     "word": "Final Exams",
+     "hints": [
+      "Cram",
+      "Library",
+      "All Nighter",
+      "Coffee"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "locker",
+   "emo": "👟",
+   "name": "Locker Room",
+   "desc": "Training, gear and recovery. VKTRY's home turf.",
+   "words": [
+    {
+     "word": "Insoles",
+     "hints": [
+      "Inside",
+      "Arch",
+      "Carbon",
+      "Custom"
+     ]
+    },
+    {
+     "word": "Ice Bath",
+     "hints": [
+      "Cold",
+      "Shiver",
+      "Tub",
+      "Cubes"
+     ]
+    },
+    {
+     "word": "Cleats",
+     "hints": [
+      "Studs",
+      "Grass",
+      "Mud",
+      "Spikes"
+     ]
+    },
+    {
+     "word": "Box Jump",
+     "hints": [
+      "Explode",
+      "Shins",
+      "Plyo",
+      "Land"
+     ]
+    },
+    {
+     "word": "Vertical Jump",
+     "hints": [
+      "Inches",
+      "Dunk",
+      "Hops",
+      "Rim"
+     ]
+    },
+    {
+     "word": "NFL Combine",
+     "hints": [
+      "Forty",
+      "Indianapolis",
+      "Bench Reps",
+      "Draft Stock"
+     ]
+    },
+    {
+     "word": "Foam Roller",
+     "hints": [
+      "Sore",
+      "IT Band",
+      "Wince",
+      "Cylinder"
+     ]
+    },
+    {
+     "word": "Leg Day",
+     "hints": [
+      "Skip",
+      "Squats",
+      "Wobbly",
+      "Stairs"
+     ]
+    },
+    {
+     "word": "Pre-Workout",
+     "hints": [
+      "Tingles",
+      "Scoop",
+      "Jitters",
+      "Caffeine"
+     ]
+    },
+    {
+     "word": "Sauna",
+     "hints": [
+      "Sweat",
+      "Steam",
+      "Finland",
+      "Towel"
+     ]
+    },
+    {
+     "word": "Massage Gun",
+     "hints": [
+      "Buzz",
+      "Theragun",
+      "Knots",
+      "Percussion"
+     ]
+    },
+    {
+     "word": "Mouthguard",
+     "hints": [
+      "Teeth",
+      "Boil",
+      "Chew",
+      "Hockey"
+     ]
+    },
+    {
+     "word": "Recovery Slides",
+     "hints": [
+      "Shower",
+      "Socks",
+      "Comfort",
+      "Flip Flop"
+     ]
+    },
+    {
+     "word": "Athletic Tape",
+     "hints": [
+      "Ankle",
+      "Trainer",
+      "Roll",
+      "Wrap"
+     ]
+    },
+    {
+     "word": "Two-a-Days",
+     "hints": [
+      "August",
+      "Heat",
+      "Exhausted",
+      "Double"
+     ]
+    },
+    {
+     "word": "Film Session",
+     "hints": [
+      "Rewind",
+      "Coach",
+      "Projector",
+      "Mistakes"
+     ]
+    },
+    {
+     "word": "Gatorade Shower",
+     "hints": [
+      "Win",
+      "Orange",
+      "Coach",
+      "Soaked"
+     ]
+    },
+    {
+     "word": "Pregame Playlist",
+     "hints": [
+      "Headphones",
+      "Hype",
+      "Warmups",
+      "Ritual"
+     ]
+    },
+    {
+     "word": "Personal Record",
+     "hints": [
+      "Best",
+      "Bell",
+      "Celebrate",
+      "Plates"
+     ]
+    },
+    {
+     "word": "Sled Push",
+     "hints": [
+      "Drive",
+      "Turf",
+      "Legs",
+      "Lungs"
+     ]
+    },
+    {
+     "word": "Compression Sleeve",
+     "hints": [
+      "Tight",
+      "Arm",
+      "Blood Flow",
+      "Swag"
+     ]
+    },
+    {
+     "word": "Electrolytes",
+     "hints": [
+      "Salty",
+      "Cramps",
+      "Sodium",
+      "Packet"
+     ]
+    },
+    {
+     "word": "Rest Day",
+     "hints": [
+      "Couch",
+      "Off",
+      "Netflix",
+      "Guilt"
+     ]
+    },
+    {
+     "word": "Tryouts",
+     "hints": [
+      "Cuts",
+      "List",
+      "Nerves",
+      "Roster"
+     ]
+    },
+    {
+     "word": "Protein Shake",
+     "hints": [
+      "Blender Bottle",
+      "Chocolate",
+      "Gains",
+      "Window"
+     ]
+    },
+    {
+     "word": "Creatine",
+     "hints": [
+      "Water Weight",
+      "Monohydrate",
+      "Loading",
+      "Daily"
+     ]
+    },
+    {
+     "word": "Bench Press",
+     "hints": [
+      "Spotter",
+      "Chest",
+      "Monday",
+      "Bar"
+     ]
+    },
+    {
+     "word": "Deadlift",
+     "hints": [
+      "Floor",
+      "Hinge",
+      "Back",
+      "Sumo"
+     ]
+    },
+    {
+     "word": "Treadmill",
+     "hints": [
+      "Incline",
+      "Hamster",
+      "Safety Clip",
+      "Belt"
+     ]
+    },
+    {
+     "word": "Jump Rope",
+     "hints": [
+      "Boxer",
+      "Double Under",
+      "Rhythm",
+      "Playground"
+     ]
+    },
+    {
+     "word": "Resistance Bands",
+     "hints": [
+      "Stretchy",
+      "Colors",
+      "Snap",
+      "Physical Therapy"
+     ]
+    },
+    {
+     "word": "Shin Guards",
+     "hints": [
+      "Soccer",
+      "Socks",
+      "Bruise",
+      "Velcro"
+     ]
+    },
+    {
+     "word": "Helmet",
+     "hints": [
+      "Facemask",
+      "Chinstrap",
+      "Decals",
+      "Head"
+     ]
+    },
+    {
+     "word": "Agility Ladder",
+     "hints": [
+      "Footwork",
+      "Rungs",
+      "Cones",
+      "Speed"
+     ]
+    },
+    {
+     "word": "Burpees",
+     "hints": [
+      "Punishment",
+      "Floor",
+      "CrossFit",
+      "Hate"
+     ]
+    },
+    {
+     "word": "Wind Sprints",
+     "hints": [
+      "Whistle",
+      "Baseline",
+      "Conditioning",
+      "Puke"
+     ]
+    },
+    {
+     "word": "Chalk",
+     "hints": [
+      "Grip",
+      "Gymnastics",
+      "Dust",
+      "LeBron"
+     ]
+    },
+    {
+     "word": "Kettlebell",
+     "hints": [
+      "Swing",
+      "Russia",
+      "Handle",
+      "Cast Iron"
+     ]
+    },
+    {
+     "word": "Eye Black",
+     "hints": [
+      "Glare",
+      "Stripes",
+      "Cheeks",
+      "Messages"
+     ]
+    },
+    {
+     "word": "Halftime Speech",
+     "hints": [
+      "Fired Up",
+      "Comeback",
+      "Whiteboard",
+      "Tunnel"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "simple",
+   "emo": "💡",
+   "name": "Simple Words",
+   "desc": "Everyday things. Easy to play, hard to fake.",
+   "words": [
+    {
+     "word": "Umbrella",
+     "hints": [
+      "Rain",
+      "Cocktail",
+      "Wind",
+      "Mary Poppins"
+     ]
+    },
+    {
+     "word": "Toothbrush",
+     "hints": [
+      "Morning",
+      "Bristles",
+      "Dentist",
+      "Electric"
+     ]
+    },
+    {
+     "word": "Elevator",
+     "hints": [
+      "Buttons",
+      "Music",
+      "Awkward",
+      "Stuck"
+     ]
+    },
+    {
+     "word": "Microwave",
+     "hints": [
+      "Beep",
+      "Popcorn",
+      "Leftovers",
+      "Spin"
+     ]
+    },
+    {
+     "word": "Backpack",
+     "hints": [
+      "Straps",
+      "Zipper",
+      "School",
+      "Hiking"
+     ]
+    },
+    {
+     "word": "Sunglasses",
+     "hints": [
+      "Bright",
+      "Aviators",
+      "Squint",
+      "Beach"
+     ]
+    },
+    {
+     "word": "Pillow",
+     "hints": [
+      "Soft",
+      "Fluff",
+      "Cold Side",
+      "Fight"
+     ]
+    },
+    {
+     "word": "Mirror",
+     "hints": [
+      "Reflection",
+      "Selfie",
+      "Bathroom",
+      "Seven Years"
+     ]
+    },
+    {
+     "word": "Candle",
+     "hints": [
+      "Wax",
+      "Birthday",
+      "Flame",
+      "Scented"
+     ]
+    },
+    {
+     "word": "Ladder",
+     "hints": [
+      "Steps",
+      "Rungs",
+      "Climb",
+      "Bad Luck"
+     ]
+    },
+    {
+     "word": "Wallet",
+     "hints": [
+      "Cards",
+      "Cash",
+      "Pocket",
+      "Leather"
+     ]
+    },
+    {
+     "word": "TV Remote",
+     "hints": [
+      "Couch",
+      "Batteries",
+      "Lost",
+      "Channels"
+     ]
+    },
+    {
+     "word": "Bicycle",
+     "hints": [
+      "Pedal",
+      "Training Wheels",
+      "Helmet",
+      "Chain"
+     ]
+    },
+    {
+     "word": "Volcano",
+     "hints": [
+      "Lava",
+      "Eruption",
+      "Science Fair",
+      "Hawaii"
+     ]
+    },
+    {
+     "word": "Valley",
+     "hints": [
+      "Deep",
+      "Hills",
+      "River",
+      "Silicon"
+     ]
+    },
+    {
+     "word": "Lighthouse",
+     "hints": [
+      "Coast",
+      "Beam",
+      "Keeper",
+      "Ships"
+     ]
+    },
+    {
+     "word": "Anchor",
+     "hints": [
+      "Heavy",
+      "Boat",
+      "Tattoo",
+      "Sailor"
+     ]
+    },
+    {
+     "word": "Balloon",
+     "hints": [
+      "Pop",
+      "Helium",
+      "Party",
+      "String"
+     ]
+    },
+    {
+     "word": "Magnet",
+     "hints": [
+      "Fridge",
+      "Attract",
+      "North",
+      "Metal"
+     ]
+    },
+    {
+     "word": "Hammock",
+     "hints": [
+      "Swing",
+      "Backyard",
+      "Nap",
+      "Trees"
+     ]
+    },
+    {
+     "word": "Alarm Clock",
+     "hints": [
+      "Snooze",
+      "Wake",
+      "Ring",
+      "Bedside"
+     ]
+    },
+    {
+     "word": "Fireworks",
+     "hints": [
+      "July",
+      "Boom",
+      "Sky",
+      "Sparkler"
+     ]
+    },
+    {
+     "word": "Treehouse",
+     "hints": [
+      "Ladder",
+      "Fort",
+      "Clubhouse",
+      "Backyard"
+     ]
+    },
+    {
+     "word": "Snow Globe",
+     "hints": [
+      "Shake",
+      "Glass",
+      "Souvenir",
+      "Winter"
+     ]
+    },
+    {
+     "word": "Scissors",
+     "hints": [
+      "Rock Paper",
+      "Running",
+      "Haircut",
+      "Coupon"
+     ]
+    },
+    {
+     "word": "Toaster",
+     "hints": [
+      "Crumbs",
+      "Golden",
+      "Breakfast",
+      "Lever"
+     ]
+    },
+    {
+     "word": "Doorbell",
+     "hints": [
+      "Ding",
+      "Package",
+      "Camera",
+      "Prank"
+     ]
+    },
+    {
+     "word": "Keyboard",
+     "hints": [
+      "Typing",
+      "Keys",
+      "Mechanical",
+      "Piano"
+     ]
+    },
+    {
+     "word": "Calendar",
+     "hints": [
+      "Dates",
+      "Months",
+      "Wall",
+      "Reminders"
+     ]
+    },
+    {
+     "word": "Kite",
+     "hints": [
+      "String",
+      "Wind",
+      "Tree",
+      "Ben Franklin"
+     ]
+    },
+    {
+     "word": "Trampoline",
+     "hints": [
+      "Bounce",
+      "Backyard",
+      "Flip",
+      "Springs"
+     ]
+    },
+    {
+     "word": "Rubber Duck",
+     "hints": [
+      "Bath",
+      "Yellow",
+      "Squeak",
+      "Floating"
+     ]
+    },
+    {
+     "word": "Paperclip",
+     "hints": [
+      "Office",
+      "Bend",
+      "Wire",
+      "Lock Pick"
+     ]
+    },
+    {
+     "word": "Flashlight",
+     "hints": [
+      "Batteries",
+      "Dark",
+      "Phone",
+      "Blackout"
+     ]
+    },
+    {
+     "word": "Suitcase",
+     "hints": [
+      "Wheels",
+      "Packing",
+      "Carousel",
+      "Overweight"
+     ]
+    },
+    {
+     "word": "Piggy Bank",
+     "hints": [
+      "Coins",
+      "Savings",
+      "Smash",
+      "Slot"
+     ]
+    },
+    {
+     "word": "Vacuum",
+     "hints": [
+      "Roomba",
+      "Carpet",
+      "Loud",
+      "Dust"
+     ]
+    },
+    {
+     "word": "Hourglass",
+     "hints": [
+      "Sand",
+      "Time",
+      "Flip",
+      "Shape"
+     ]
+    },
+    {
+     "word": "Sandcastle",
+     "hints": [
+      "Bucket",
+      "Moat",
+      "Tide",
+      "Shovel"
+     ]
+    },
+    {
+     "word": "Rainbow",
+     "hints": [
+      "Colors",
+      "Gold",
+      "Storm",
+      "Double"
+     ]
+    }
+   ]
+  }
+ ]
+}
