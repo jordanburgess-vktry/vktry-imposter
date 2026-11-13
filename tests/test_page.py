@@ -36,6 +36,10 @@ class PageScript(unittest.TestCase):
         reveal = SCRIPT[SCRIPT.index('$("#reveal").onclick'):SCRIPT.index("/* ---------- Scoring")]
         self.assertNotIn("impHints", reveal)
 
+    def test_screens_scroll_instead_of_squashing_sections(self):
+        # On short phones the setup groups shrank and hid rows; children must not shrink.
+        self.assertIn(".screen>*{flex-shrink:0}", PAGE)
+
 
 if __name__ == "__main__":
     unittest.main()
