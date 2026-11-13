@@ -1,7 +1,7 @@
 // Offline support for the installed app. Every request tries the network first, so new words
 // and new versions of the game show up as soon as there's a connection; the cached copy is only
 // used when the phone is offline or the network is too slow.
-const CACHE = "vktry-imposter-v2";
+const CACHE = "vktry-imposter-v3";
 const CORE = ["./", "index.html", "words.json", "manifest.webmanifest",
   "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png"];
 const NETWORK_WAIT_MS = 4000;
